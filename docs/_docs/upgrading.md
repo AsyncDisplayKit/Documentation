@@ -30,7 +30,7 @@ These new methods replace the following:
 **Make sure to check:**
 
 - `constrainedSizeForNodeAtIndexPath:` moved from the `.dataSource` to the `.delegate` to be consistent with UIKit definitions of the roles. **Note:** Make sure that you provide a delegate for any `ASTableNode`, `ASCollectionNode` or `ASPagerNodes` that use this method. 
-- collection view update validation assertions are now enabled. If you see something like "Invalid number of items in section 2. The number of items after the update (7) must be equal to the number of items before the update (4) plus or minus the number of items inserted or removed from the section (4 inserted, 0 removed)”, please check the data source logic. If you have any questions, reach out to us on GitHub. 
+- collection view update validation assertions are now enabled. If you see something like `"Invalid number of items in section 2. The number of items after the update (7) must be equal to the number of items before the update (4) plus or minus the number of items inserted or removed from the section (4 inserted, 0 removed)”`, please check the data source logic. If you have any questions, reach out to us on GitHub. 
 
 **Layout Changes:**
 
