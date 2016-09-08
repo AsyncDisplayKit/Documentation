@@ -171,4 +171,6 @@ Try out the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/exa
 
 This is just a simple example, but this feature has many more powerful uses. 
 
-
+<div class = "note">
+<b>Warning:</b> <code>addSubnode:</code> and <code>removeFromSupernode</code> should never be called on a node that has ASM enabled. Doing so could cause the following exception - "A flattened layout must consist exclusively of node sublayouts".
+</div> 
