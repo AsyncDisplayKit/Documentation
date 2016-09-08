@@ -6,7 +6,7 @@ prevPage: accessibility.html
 nextPage: subtree-rasterization.html
 ---
 
-In some cases, you can substantially improve your app's performance by using layers instead of views. We recommend enabling layer-backing as a matter of course in **any custom node that doesn't need touch handling**.
+In some cases, you can substantially improve your app's performance by using layers instead of views. **We recommend enabling layer-backing in any custom node that doesn't need touch handling**.
 
 With UIKit, manually converting view-based code to layers is laborious due to the difference in APIs. Worse, if at some point you need to enable touch handling or other view-specific functionality, you have to manually convert everything back (and risk regressions!).
 
