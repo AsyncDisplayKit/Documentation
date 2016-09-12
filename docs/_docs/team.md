@@ -13,24 +13,19 @@ permalink: /docs/team.html
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/maicki"></td>
-    <td><p>Michael Schneider (<a href="https://github.com/maicki">@maicki</a>) is a German software developer who is especially passionate about framework development and API design.</p>
-    <p>Michael is currently architecting revisions to the Layout API for the 2.0 launch. He's also our go to guy for layout questions. Michael previously worked on Pocket for iOS, Mac and Chrome.</p></td>
+    <td><p>Michael Schneider (<a href="https://github.com/maicki">@maicki</a>) is a German software developer who is especially passionate about framework development and API design. He is currently architecting the Layout API improvements for the 2.0 launch. Michael previously worked on Pocket for iOS, Mac and Chrome and the Instapaper Mac app.</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/nguyenhuy"></td>
-    <td><p>Huy Nguyen (<a href="https://github.com/nguyenhuy ">@nguyenhuy </a>) joined the AsyncDisplayKit team fulltime after authoring the Layout API, which has become the foundation for the AsyncDisplayKit 2.0 release. To date, it has been the largest contribution to the framework by a community member!</p></td>
+    <td><p>Huy Nguyen (<a href="https://github.com/nguyenhuy ">@nguyenhuy </a>) joined the AsyncDisplayKit team after authoring the Layout API, which has become the foundation for the AsyncDisplayKit 2.0 release. To date, the Layout API has been the largest contribution to the framework by a community member!</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/levi"></td>
-    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) manages the AsyncDisplayKit team and helped lead the rewrite of the Pinterest iOS app. Levi first used AsyncDisplayKit while developing the NFL iOS app.</p></td>
-  </tr>
-  <tr>
-    <td><img src="https://avatars.githubusercontent.com/hannahmbanana"></td>
-    <td><p>Hannah Troisi (<a href="https://github.com/hannahmbanana">@hannahmbanana </a>) recently joined the team to help with community questions and documentation. She's an engineer, but not a technical writer, so pardon her spelling!</p></td>
+    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) manages the AsyncDisplayKit team and helped lead the rewrite of the Pinterest iOS app. Levi first used AsyncDisplayKit while developing NFL's iOS app.</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/adlai-holler"></td>
-    <td><p>Adlai (‘Ad-lee) Holler (<a href="https://github.com/adlai-holler">@adlai-holler</a>) joined the AsyncDisplayKit team fulltime after contributing some major patches and functionality to the framework while writing Tripstr with AsyncDisplayKit in Swift. Adlai previously worked at Apportable. </p>
+    <td><p>Adlai (‘Ad-lee) Holler (<a href="https://github.com/adlai-holler">@adlai-holler</a>) joined the AsyncDisplayKit team after making major contributions to the framework while writing Tripstr with AsyncDisplayKit in Swift. Adlai previously worked at Apportable. </p>
     </td> 
   </tr>
 </table>
