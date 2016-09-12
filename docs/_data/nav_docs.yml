@@ -1,3 +1,9 @@
+- title: Layout API 2.0
+  items:
+  - layout2-quickstart
+  - layout2-layoutspec-types
+  - layout2-layoutspec-examples
+  - layout2-manual-layout
 - title: Quick Start
   items:
   - getting-started
