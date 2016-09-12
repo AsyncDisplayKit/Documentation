@@ -8,7 +8,7 @@ nextPage: installation.html
 
 ###Slack
 
-Join 200+ AsyncDisplayKit developers and the ASDK team on Slack for real-time debugging, the latest updates, and asynchronous banter.  <a href="http://asdk-slack-auto-invite.herokuapp.com">Sign up</a> or email AsyncDisplayKit(at)gmail.com for an invite.
+Join 300+ AsyncDisplayKit developers and the <a href="team.html">Pinterest team</a> on Slack for real-time debugging, the latest updates, and asynchronous banter. Use our self-service <a href="http://asdk-slack-auto-invite.herokuapp.com">signup</a> or email AsyncDisplayKit(at)gmail.com for an invite.
 
 ###Examples
 Browse through our many <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples">example projects</a>.  

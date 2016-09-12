@@ -1,3 +1,10 @@
+- title: Layout 2.0
+  items:
+  - layout2-quickstart
+  - layout2-layoutspec-types
+  - layout2-layoutspec-types-examples
+  - layout2-layoutSpecThatFits
+  - layout2-manual-layout
 - title: Quick Start
   items:
   - getting-started
@@ -47,7 +54,7 @@
   items:
   - hit-test-slop
   - batch-fetching-api
-  - implicit-hierarchy-mgmt
+  - automatic-subnode-mgmt
   - image-modification-block
   - placeholder-fade-duration
   - accessibility
