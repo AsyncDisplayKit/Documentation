@@ -84,7 +84,7 @@ Clip corners applies to two main types of corner rounding situations:
 <b>Check back soon! Clip corner methods may be released in AsyncDisplayKit 2.0 release</b>.
 </div>
 
-##Is it ever okay to use CALayer's .cornerRadius property?
+## Is it ever okay to use CALayer's .cornerRadius property?
 
 There are a few, quite rare cases in which it is appropriate to use `.cornerRadius.` These include when there is dynamic content moving _both_ through the inside and underneath the corner.  For certain animations, this is impossible to avoid.  However, in many cases, it is easy to adjust your design to eliminate one of the sources of movement.  One such case was discussed in the section on corner movement.
 
