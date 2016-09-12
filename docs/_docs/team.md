@@ -21,7 +21,7 @@ permalink: /docs/team.html
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/levi"></td>
-    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) manages the AsyncDisplayKit team and helped lead the rewrite of the Pinterest iOS app. Levi first used AsyncDisplayKit while developing NFL's iOS app.</p></td>
+    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) manages the AsyncDisplayKit team at Pinterest and helped lead the rewrite of the Pinterest iOS app. Levi first used AsyncDisplayKit while developing NFL's iOS app.</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/adlai-holler"></td>
