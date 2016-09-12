@@ -6,7 +6,7 @@ prevPage: subclassing.html
 nextPage: containers-asviewcontroller.html
 ---
 
-###Common Developer Mistakes
+### Common Developer Mistakes
 
 <ul>
 <li><a href = "faq.html#accessing-the-node-s-view-before-it-is-loaded">Do not access a node's view in `-init:`.</a></li>
@@ -14,7 +14,7 @@ nextPage: containers-asviewcontroller.html
 <li><a href = "faq.html#take-steps-to-avoid-a-retain-cycle-in-viewblocks">Take steps to avoid a retain cycle in viewBlocks.</a></li>
 </ul>
 
-###Common Conceptual Misunderstandings
+### Common Conceptual Misunderstandings
 
 <ul>
 <li><a href = "faq.html#ascellnode-reusability">ASCellNodes are not reusable.</a></li>
@@ -23,7 +23,7 @@ nextPage: containers-asviewcontroller.html
 
 </ul>
 
-###Common Performance Questions
+### Common Performance Questions
 <ul>
 <li><a href = "faq.html#calayer-s-cornerradius-property-kills-performance">If you care about performance, do not use CALayer's .cornerRadius property (or .shadowPath, border or mask).</a></li>
 <li><a href = "faq.html#asyncdisplaykit-does-not-support-uikit-auto-layout-or-interfacebuilder">ASDK does not support UIKit Auto Layout.</a></li>
@@ -37,7 +37,7 @@ Node `-init` methods are often called off the main thread, therefore it is imper
 Interacting with UIKit in `-init` can cause crashes and performance problems. 
 <br>
 
-###Make sure you access your data source outside the node block
+### Make sure you access your data source outside the node block
 <br>
 The `indexPath` parameter is only valid _outside_ the node block returned in `nodeBlockForItemAtIndexPath:` or `nodeBlockForRowAtIndexPath:`. Because these blocks are executed on a background thread, the `indexPath` may be invalid by execution time, due to additional changes in the data source. 
 
