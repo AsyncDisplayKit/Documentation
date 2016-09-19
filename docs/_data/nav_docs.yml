@@ -34,6 +34,7 @@
   - multiplex-image-node
 - title: Layout
   items:
+  - automatic-layout-examples-2
   - automatic-layout-basics
   - automatic-layout-containers
   - automatic-layout-examples
