@@ -6,16 +6,19 @@ prevPage: installation.html
 nextPage: image-modification-block.html
 ---
 
-AsyncDisplayKit **2.0 Beta** is (almost) here! Here's a brief summary of the changes on [master](https://github.com/facebook/AsyncDisplayKit) as of today:
+Here's a brief summary of the AsyncDisplayKit 2.0 Beta changes on [master](https://github.com/facebook/AsyncDisplayKit) as of today:
 
-**API naming improvements (find & replace):**
+### Layout
 
-- `.usesImplicitHierarchyManagement` renamed to `.automaticallyManagesSubnodes` for [Automatic Subnode Management](http://asyncdisplaykit.org/docs/implicit-hierarchy-mgmt.html)
-- `ASRelativeDimensionTypePercent` and associated functions renamed to use `Fraction` to be consistent with Apple terminology.
+- The most significant change in the 2.0 release is a sweeping upgrade to AsyncDisplayKit's Layout API. Read the <a href="layout2-conversion-guide.html">Conversion Guide</a> for an overview of the upgrades and to see examples showing how to convert your existing layout code. 
 
-**Updated Interface State callback method names**
+- The <a href = "layout-transition-api.html">Layout Transition API</a> (`transitionLayoutWithDuration:`) has been moved out of Beta. Significant new functionality is planed for future dot releases. 
 
-The new names are meant to unify the range update methods to show how they relate to each other & hopefully be a bit more self explanatory:
+- `.usesImplicitHierarchyManagement` has been renamed to `.automaticallyManagesSubnodes` for <a href = "http://asyncdisplaykit.org/docs/implicit-hierarchy-mgmt.html">Automatic Subnode Management</a>. This API has been moved out of Beta, but has a few documented <a href = "">limitations</a>. 
+
+### Updated interface state callback method names
+
+The new method names are meant to unify the range update methods to show how they relate to each other & be a bit more self-explanatory:
 
 - `didEnter/ExitPreloadState`
 - `didEnter/ExitDisplayState`
@@ -27,14 +30,8 @@ These new methods replace the following:
 - `displayStateDidChange:(BOOL)inDisplayState`
 - `visibleStateDidChange:(BOOL)isVisible`
 
-**Make sure to check:**
+### Gotchas
 
 - `constrainedSizeForNodeAtIndexPath:` moved from the `.dataSource` to the `.delegate` to be consistent with UIKit definitions of the roles. **Note:** Make sure that you provide a delegate for any `ASTableNode`, `ASCollectionNode` or `ASPagerNodes` that use this method. 
+
 - collection view update validation assertions are now enabled. If you see something like `"Invalid number of items in section 2. The number of items after the update (7) must be equal to the number of items before the update (4) plus or minus the number of items inserted or removed from the section (4 inserted, 0 removed)”`, please check the data source logic. If you have any questions, reach out to us on GitHub. 
-
-**Layout Changes:**
-
-- [Layout Transition API](http://asyncdisplaykit.org/docs/layout-transition-api.html) (`transitionLayoutWithDuration:`) has been moved out of Beta
-- `ASStackLayoutSpec`'s `.alignItems` property now defaults to `ASStackLayoutAlignItemsStretch` instead of `ASStackLayoutAlignItemsStart` to align with the CSS align-items property.
-
-The majority of the remaining (unmerged) changes will be in the Layout API. 

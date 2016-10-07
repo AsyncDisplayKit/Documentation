@@ -7,6 +7,7 @@ permalink: /docs/layout2-conversion-guide.html
 The most significant change in the **2.0** release is a sweeping upgrade to AsyncDisplayKit's Layout API:
 
 - Introduction of true flex factors
+- `ASStackLayoutSpec` `.alignItems` property default changed to `ASStackLayoutAlignItemsStretch`
 - Rename `ASStaticLayoutSpec` to `ASAbsoluteLayoutSpec`
 - Rename `ASLayoutable` to `ASLayoutElement`
 - Set `ASLayoutElement` properties via `style` property
@@ -19,6 +20,8 @@ The most significant change in the **2.0** release is a sweeping upgrade to Asyn
 - Introduction of `ASDimensionUnitAuto`
  
 In addition to the inline examples comparing **1.x** layout code vs **2.0** layout code, the [example projects](https://github.com/facebook/AsyncDisplayKit/tree/master/examples) and <a href = "layout2-quickstart.html">layout documentation</a> have been updated to use the new API.
+
+All other **2.0** changes not related to the Layout API are documented <a href="upgrading.html">here</a>. 
 
 ## Introduction of true flex factors
 
@@ -48,6 +51,10 @@ layoutElement.style.flexShrink = 1.0;
 </pre>
 </div>
 </div>
+
+## `ASStackLayoutSpec`'s `.alignItems` property default changed 
+
+`ASStackLayoutSpec`'s `.alignItems` property default changed to `ASStackLayoutAlignItemsStretch` instead of `ASStackLayoutAlignItemsStart` to align with the CSS align-items property.
 
 ## Rename `ASStaticLayoutSpec` to `ASAbsoluteLayoutSpec`
 
@@ -389,6 +396,8 @@ Due to the removal of `-[ASAbsoluteLayoutElement sizeRange]`, we also removed th
 ## Rename `ASRelativeDimension` to `ASDimension`
 
 To simplify the naming and support the fact that dimensions are widely used in ASDK now, `ASRelativeDimension` was renamed to `ASDimension`. Having a shorter name and handy functions to create it was an important goal for us.
+
+`ASRelativeDimensionTypePercent` and associated functions were renamed to use `Fraction` to be consistent with Apple terminology.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
