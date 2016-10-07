@@ -4,20 +4,19 @@ layout: docs
 permalink: /docs/layout2-layoutspec-types.html
 ---
 
-AsyncDisplayKit offers the following ASLayoutSpec subclasses which can be used to compose simple and very complex layouts. 
+AsyncDisplayKit offers the following `ASLayoutSpec` subclasses which can be used to compose simple and very complex layouts:
 
-- <a href = "layout2-layoutspec-types.html#asinsetlayoutspec"><code>ASInsetLayoutSpec</code></a>
+- `ASInsetLayoutSpec`
 - `ASOverlayLayoutSpec`
 - `ASBackgroundLayoutSpec`
 - `ASCenterLayoutSpec`
 - `ASRatioLayoutSpec`
-- `ASRelativeLayoutSpec`
+- `ASRelativeLayoutSpec` (formerly ASStaticLayoutSpec)
 - `ASStackLayoutSpec`
-- `ASStaticLayoutSpec`
 
 You may also subclass `ASLayoutSpec` in order to make your own, custom layout specs. 
 
-### `ASInsetLayoutSpec`
+## ASInsetLayoutSpec
 `ASInsetLayoutSpec` applies an inset margin around its child layoutable. **Note:** the child layoutable must have an instrinsic size or explicitly set its size.
 
 <img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
@@ -48,7 +47,7 @@ You may also subclass `ASLayoutSpec` in order to make your own, custom layout sp
 </div>
 </div>
 
-### ASOverlayLayoutSpec
+## ASOverlayLayoutSpec
 Lays out a component, stretching another component on top of it as an overlay. **Note:** the underlay layoutable must have an intrinsic size or explictly set a size to it.
 
 <img src="/static/images/layoutSpec-types/ASOverlayLayouSpec-diagram.png" width="65%">
@@ -74,7 +73,7 @@ Lays out a component, stretching another component on top of it as an overlay. *
 
 Note: A current limitation is that the order in which subnodes are added matters for this layout spec. The overlay layoutable must be added as a subnode to the parent node after the underlaying layoutable. Using ASM does not currently guarantee this order!
 
-### ASBackgroundLayoutSpec
+## ASBackgroundLayoutSpec
 Lays out a component, stretching another component behind it as a backdrop. **Note:** the foreground layoutable must have an intrinsic size.
 
 <img src="/static/images/layoutSpec-types/ASBackgroundLayoutSpec-diagram.png" width="65%">
@@ -101,7 +100,7 @@ Lays out a component, stretching another component behind it as a backdrop. **No
 
 Note: The order in which subnodes are added matters for this layout spec; the background object must be added as a subnode to the parent node before the foreground object. Using ASM does not currently guarantee this order!
 
-### ASCenterLayoutSpec
+## ASCenterLayoutSpec
 Centers a component in the available space. **Note:** The ASCenterLayoutSpec must have an intrinsic size.
 
 <img src="/static/images/layoutSpec-types/ASCenterLayoutSpec-diagram.png" width="65%">
@@ -127,7 +126,7 @@ Centers a component in the available space. **Note:** The ASCenterLayoutSpec mus
 </div>
 </div>
 
-### ASRatioLayoutSpec
+## ASRatioLayoutSpec
 Lays out a component at a fixed aspect ratio (which can be scaled). **Note:** This spec is great for objects that do not have an intrinsic size, such as ASNetworkImageNodes and ASVideoNodes.
 
 <img src="/static/images/layoutSpec-types/ASRatioLayoutSpec-diagram.png" width="65%">
@@ -151,7 +150,7 @@ Lays out a component at a fixed aspect ratio (which can be scaled). **Note:** Th
 </div>
 </div>
 
-### ASRelativeLayoutSpec
+## ASRelativeLayoutSpec
 Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.
 
 <div class = "highlight-group">
@@ -184,7 +183,7 @@ Lays out a component and positions it within the layout bounds according to vert
 </div>
 </div>
 
-### ASStackLayoutSpec: Flexbox Container
+## ASStackLayoutSpec: Flexbox Container
 Of all the layoutSpecs in ASDK,  ASStackLayoutSpec is probably the most useful and the most powerful. `ASStackLayoutSpec` can specify the layout of its children using the flexbox algorithm. Flexbox is designed to provide a consistent layout on different screen sizes. In a stack layout you align items in either a vertical or horizontal stack. A stack layout can be a child of another stack layout, which makes it possible to create almost any layout using a stack layout spec. You will normally use a combination of direction, alignItems, and justifyContent to achieve the right layout.
 
 <div class = "highlight-group">
@@ -218,7 +217,7 @@ Of all the layoutSpecs in ASDK,  ASStackLayoutSpec is probably the most useful a
 
 Flexbox works the same way in AsyncDisplayKit as it does in CSS on the web, with a few exceptions. The defaults are different, there is no `flex` parameter and `flexGrow` and `flexShrink` only supports a boolean value.
 
-### ASStaticLayoutSpec: Absolute Container
+## ASStaticLayoutSpec: Absolute Container
 Within `ASStaticLayoutSpec` you can specify exact locations (x/y coordinates) of its layoutable children by setting the `layoutPosition` property. Absolute layouts are less flexible and harder to maintain than other types of layouts without absolute positioning.
 
 <div class = "highlight-group">
@@ -253,7 +252,7 @@ Within `ASStaticLayoutSpec` you can specify exact locations (x/y coordinates) of
 </div>
 </div>
 
-### ASLayoutSpec
+## ASLayoutSpec
 `ASLayoutSpec` is the main class from that all layout spec's are subclassed. It's main job is to handle all the children management, but it also can be used to create custom layout specs. There should be not really a lot of situations where you have to create a custom subclasses of `ASLayoutSpec` though. Instead try to use provided layout specs and compose them together to create more advanced layouts. For examples how to create custom layout spec's look into the already provided layout specs for more details.
 
 Furthermore `ASLayoutSpec` objects can be used as a spacer in a `ASStackLayoutSpec` with other children, when `.flexGrow` and/or `.flexShrink` is applied.
