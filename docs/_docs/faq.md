@@ -27,6 +27,7 @@ nextPage: containers-asviewcontroller.html
 <ul>
 <li><a href = "faq.html#calayer-s-cornerradius-property-kills-performance">If you care about performance, do not use CALayer's .cornerRadius property (or .shadowPath, border or mask).</a></li>
 <li><a href = "faq.html#asyncdisplaykit-does-not-support-uikit-auto-layout-or-interfacebuilder">ASDK does not support UIKit Auto Layout.</a></li>
+<li><a href = "faq.html#asdisplaynode-keep-alive-reference">ASDisplayNode keep alive reference.</a></li>
 </ul>
 
 
@@ -84,4 +85,32 @@ For a longer discussion and easy alternative corner rounding solutions, please r
 UIKit Auto Layout and InterfaceBuilder are not supported by AsyncDisplayKit. It is worth noting that both of these technologies are not permitted in established and disciplined iOS development teams, such as at Facebook, Instagram, and Pinterest.
 
 However, AsyncDisplayKit's <a href = "automatic-layout-basics.html">Layout API</a> provides a variety of <a href = "automatic-layout-containers.html">ASLayoutSpec objects</a> that allow implementing automatic layout which is more efficient (multithreaded, off the main thread), easier to debug (can step into the code and see where all values come from, as it is open source), and reusable (you can build composable layouts that can be shared with different parts of the UI).
+<br>
+
+### ASDisplayNode keep alive reference
+
+<div class = "highlight-group">
+<div class = "code">
+<pre lang="objc" class="objcCode">
+ASTextNode *title=[[ASTextNode alloc]init];
+title.attributedString=Text;
+[self addSubnode:title];
+
+retain cycles
+(
+"-> _keepalive_node -> ASTextNode ",
+"-> _view -> _ASDisplayView "
+)
+</pre>
+</div>
+</div>
+
+<br>
+This retain cycle is intentionally created because the node is in a "live" view hierarchy (it is inside the a UIWindow that is onscreen).
+
+To see why this is necessary, consider that Apple also creates this retain cycle between UIView and CALayer. If you create a UIView and add its layer to a super layer, and then release the UIView, it will stay alive even though the CALayer delegate pointing to it is weak.
+
+For the same reason, if the node's view is a descendant of a window, but there is no reference to the node, we keep the node alive with a strong reference from the view.
+
+Good application design should not rely on this behavior, because a strong reference to the node should be maintained by the subnodes array or by an instance variable. However, this condition occasionally occurs, for example when using a UIView animation API. This cycle should never create a leak or even extend the lifecycle of a node any longer than it is absolutely necessary.
 <br>
