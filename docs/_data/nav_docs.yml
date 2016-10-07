@@ -1,10 +1,3 @@
-- title: Layout API 2.0
-  items:
-  - layout2-quickstart
-  - layout2-layoutspec-types
-  - layout2-layoutspec-examples
-  - layout2-manual-layout
-  - layout2-conversion-guide
 - title: Quick Start
   items:
   - getting-started
@@ -41,7 +34,6 @@
   - multiplex-image-node
 - title: Layout
   items:
-  - automatic-layout-examples-2
   - automatic-layout-basics
   - automatic-layout-containers
   - automatic-layout-examples
@@ -55,7 +47,7 @@
   items:
   - hit-test-slop
   - batch-fetching-api
-  - automatic-subnode-mgmt
+  - implicit-hierarchy-mgmt
   - image-modification-block
   - placeholder-fade-duration
   - accessibility
