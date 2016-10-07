@@ -6,7 +6,7 @@ prevPage: debug-tool-pixel-scaling.html
 nextPage: asvisibility.html
 ---
 
-##Visualize ASRangeController tuning parameters <a href="https://github.com/facebook/AsyncDisplayKit/pull/1390">(PR #1390)</a> 
+## Visualize ASRangeController tuning parameters <a href="https://github.com/facebook/AsyncDisplayKit/pull/1390">(PR #1390)</a> 
 <br>
 This debug feature adds a semi-transparent subview in the bottom right hand corner of the sharedApplication keyWindow that visualizes the ASRangeTuningParameters per each ASLayoutRangeType for each visible (on-screen) instance of ASRangeController. 
 
