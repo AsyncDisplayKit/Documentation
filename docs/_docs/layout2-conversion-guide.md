@@ -56,7 +56,7 @@ layoutElement.style.flexShrink = 1.0;
 
 `ASStackLayoutSpec`'s `.alignItems` property default changed to `ASStackLayoutAlignItemsStretch` instead of `ASStackLayoutAlignItemsStart` to align with the CSS align-items property.
 
-## Rename `ASStaticLayoutSpec` to `ASAbsoluteLayoutSpec`
+## Rename `ASStaticLayoutSpec` to `ASAbsoluteLayoutSpec` & behavior change
 
 `ASStaticLayoutSpec` has been renamed to `ASAbsoluteLayoutSpec`, to be consistent with web terminology and better represent the intended behavior.
 
@@ -75,6 +75,42 @@ ASAbsoluteLayoutSpec *layoutSpec = [ASAbsoluteLayoutSpec absoluteLayoutSpecWithC
 </pre>
 </div>
 </div>
+
+**Please note** that there has also been a behavior change introduced. The following text overlay layout was previously created using a `ASStaticLayoutSpec`, `ASInsetLayoutSpec` and `ASOverlayLayoutSpec` as seen in the code below. 
+
+<img src="/static/images/layout-examples-photo-with-inset-text-overlay-diagram.png">
+
+Using `INFINITY` for the `top` value in the `UIEdgeInsets` property of the `ASInsetLayoutSpec` allowed the text inset to start at the bottom. This was possible because it would adopt the size of the static layout spec's `_photoNode`.  
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+  <pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  _photoNode.preferredFrameSize = CGSizeMake(USER_IMAGE_HEIGHT*2, USER_IMAGE_HEIGHT*2);
+  <b>ASStaticLayoutSpec</b> *backgroundImageStaticSpec = [<b>ASStaticLayoutSpec</b> staticLayoutSpecWithChildren:@[_photoNode]];
+
+  UIEdgeInsets insets = UIEdgeInsetsMake(INFINITY, 12, 12, 12);
+  <b>ASInsetLayoutSpec</b> *textInsetSpec = [<b>ASInsetLayoutSpec</b> insetLayoutSpecWithInsets:insets child:_titleNode];
+
+  <b>ASOverlayLayoutSpec</b> *textOverlaySpec = [<b>ASOverlayLayoutSpec</b> overlayLayoutSpecWithChild:backgroundImageStaticSpec
+                                                                                 overlay:textInsetSpec];
+  
+  return textOverlaySpec;
+}
+  </pre>
+  <pre lang="swift" class = "swiftCode hidden">
+  </pre>
+</div>
+</div>
+
+With the new `ASAbsoluteLayoutSpec` and same code above, the layout would now look like the picture below. The text is still there, but at ~900 pts (offscreen).
+
+<img src="/static/images/layout-examples-photo-with-inset-text-overlay-diagram.png">
 
 ## Rename `ASLayoutable` to `ASLayoutElement`
 
