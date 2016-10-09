@@ -76,10 +76,12 @@ ASAbsoluteLayoutSpec *layoutSpec = [ASAbsoluteLayoutSpec absoluteLayoutSpecWithC
 </div>
 </div>
 
+<br>
 **Please note** that there has also been a behavior change introduced. The following text overlay layout was previously created using a `ASStaticLayoutSpec`, `ASInsetLayoutSpec` and `ASOverlayLayoutSpec` as seen in the code below. 
 
 <img src="/static/images/layout-examples-photo-with-inset-text-overlay-diagram.png">
 
+<br>
 Using `INFINITY` for the `top` value in the `UIEdgeInsets` property of the `ASInsetLayoutSpec` allowed the text inset to start at the bottom. This was possible because it would adopt the size of the static layout spec's `_photoNode`.  
 
 <div class = "highlight-group">
@@ -108,6 +110,7 @@ Using `INFINITY` for the `top` value in the `UIEdgeInsets` property of the `ASIn
 </div>
 </div>
 
+<br>
 With the new `ASAbsoluteLayoutSpec` and same code above, the layout would now look like the picture below. The text is still there, but at ~900 pts (offscreen).
 
 <img src="/static/images/layout-examples-photo-with-inset-text-overlay-diagram.png">
