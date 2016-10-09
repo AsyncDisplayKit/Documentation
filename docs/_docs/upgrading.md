@@ -10,7 +10,7 @@ Here's a brief summary of the AsyncDisplayKit 2.0 Beta changes on [master](https
 
 ### Layout
 
-- The most significant change in the 2.0 release is a sweeping upgrade to AsyncDisplayKit's Layout API. Read the <a href="layout2-conversion-guide.html">Conversion Guide</a> for an overview of the upgrades and to see examples showing how to convert your existing layout code. 
+- The most significant change in the 2.0 release is a **sweeping upgrade to AsyncDisplayKit's Layout API**. Read the <a href="layout2-conversion-guide.html"><b>Conversion Guide</b></a> for an overview of the upgrades and to see examples showing how to convert your existing layout code. 
 
 - The <a href = "layout-transition-api.html">Layout Transition API</a> (`transitionLayoutWithDuration:`) has been moved out of Beta. Significant new functionality is planed for future dot releases. 
 
