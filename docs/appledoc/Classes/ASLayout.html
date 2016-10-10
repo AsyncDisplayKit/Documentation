@@ -56,13 +56,9 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/constrainedSizeRange">constrainedSizeRange</option>
-		
-		<option value="//api/name/dirty">dirty</option>
-		
 		<option value="//api/name/frame">frame</option>
 		
-		<option value="//api/name/layoutableObject">layoutableObject</option>
+		<option value="//api/name/layoutElement">layoutElement</option>
 		
 		<option value="//api/name/position">position</option>
 		
@@ -78,15 +74,13 @@
 	
 	<optgroup label="Class Methods">
 		
-		<option value="//api/name/flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:">+ flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:</option>
-		
 		<option value="//api/name/layoutWithLayout:position:">+ layoutWithLayout:position:</option>
 		
-		<option value="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:">+ layoutWithLayoutableObject:constrainedSizeRange:size:</option>
+		<option value="//api/name/layoutWithLayoutElement:size:">+ layoutWithLayoutElement:size:</option>
 		
-		<option value="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:">+ layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:</option>
+		<option value="//api/name/layoutWithLayoutElement:size:position:sublayouts:">+ layoutWithLayoutElement:size:position:sublayouts:</option>
 		
-		<option value="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:">+ layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:</option>
+		<option value="//api/name/layoutWithLayoutElement:size:sublayouts:">+ layoutWithLayoutElement:size:sublayouts:</option>
 		
 	</optgroup>
 	
@@ -96,7 +90,7 @@
 		
 		<option value="//api/name/filteredNodeLayoutTree">- filteredNodeLayoutTree</option>
 		
-		<option value="//api/name/initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:">- initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:</option>
+		<option value="//api/name/initWithLayoutElement:size:position:sublayouts:">- initWithLayoutElement:size:position:sublayouts:</option>
 		
 	</optgroup>
 	
@@ -132,7 +126,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>A node in the layout tree that represents the size and position of the object that created it (ASLayoutable).</p>
+						<p>A node in the layout tree that represents the size and position of the object that created it (ASLayoutElement).</p>
 					</div>
 					
 					
@@ -148,8 +142,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/layoutableObject" title="layoutableObject"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutableObject">&nbsp;&nbsp;layoutableObject</a></code>
+	<a name="//api/name/layoutElement" title="layoutElement"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutElement">&nbsp;&nbsp;layoutElement</a></code>
 </h3>
 
 	<div class="method-info">
@@ -164,7 +158,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) id&lt;ASLayoutable&gt; layoutableObject</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) id&lt;ASLayoutElement&gt; layoutElement</code></div>
 
 		    
 			
@@ -200,12 +194,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The type of ASLayoutable that created this layout</p>
+				<p>The type of ASLayoutElement that created this layout</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ASLayoutableType type</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) ASLayoutElementType type</code></div>
 
 		    
 			
@@ -246,7 +240,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGSize size</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) CGSize size</code></div>
 
 		    
 			
@@ -287,7 +281,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) CGPoint position</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) CGPoint position</code></div>
 
 		    
 			
@@ -301,47 +295,6 @@
 				<h4 class="method-subtitle">Discussion</h4>
 				<p>When being used as a sublayout, this property must not equal CGPointNull.</p>
 			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayout.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/constrainedSizeRange" title="constrainedSizeRange"></a>
-	<h3 class="method-title"><code><a href="#//api/name/constrainedSizeRange">&nbsp;&nbsp;constrainedSizeRange</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The size range that was use to determine the size of the layout.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ASSizeRange constrainedSizeRange</code></div>
-
-		    
-			
-
-			
-
-			
-
 			
 
 			
@@ -374,48 +327,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray&lt;ASLayout*&gt; *sublayouts</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayout.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/dirty" title="dirty"></a>
-	<h3 class="method-title"><code><a href="#//api/name/dirty">&nbsp;&nbsp;dirty</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Mark the layout dirty for future regeneration.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, getter=isDirty) BOOL dirty</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, copy, readonly) NSArray&lt;ASLayout*&gt; *sublayouts</code></div>
 
 		    
 			
@@ -456,7 +368,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGRect frame</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) CGRect frame</code></div>
 
 		    
 			
@@ -486,8 +398,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:" title="initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:">&ndash;&nbsp;initWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:</a></code>
+	<a name="//api/name/initWithLayoutElement:size:position:sublayouts:" title="initWithLayoutElement:size:position:sublayouts:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithLayoutElement:size:position:sublayouts:">&ndash;&nbsp;initWithLayoutElement:size:position:sublayouts:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -502,7 +414,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)initWithLayoutableObject:(id&lt;ASLayoutable&gt;)<em>layoutableObject</em> constrainedSizeRange:(ASSizeRange)<em>sizeRange</em> size:(CGSize)<em>size</em> position:(CGPoint)<em>position</em> sublayouts:(NSArray *)<em>sublayouts</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithLayoutElement:(id&lt;ASLayoutElement&gt;)<em>layoutElement</em> size:(CGSize)<em>size</em> position:(CGPoint)<em>position</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
 
 		    
 			
@@ -527,8 +439,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:" title="layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:">+&nbsp;layoutWithLayoutableObject:constrainedSizeRange:size:position:sublayouts:</a></code>
+	<a name="//api/name/layoutWithLayoutElement:size:position:sublayouts:" title="layoutWithLayoutElement:size:position:sublayouts:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutElement:size:position:sublayouts:">+&nbsp;layoutWithLayoutElement:size:position:sublayouts:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -543,7 +455,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutableObject:(id&lt;ASLayoutable&gt;)<em>layoutableObject</em> constrainedSizeRange:(ASSizeRange)<em>sizeRange</em> size:(CGSize)<em>size</em> position:(CGPoint)<em>position</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutElement:(id&lt;ASLayoutElement&gt;)<em>layoutElement</em> size:(CGSize)<em>size</em> position:(CGPoint)<em>position</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
 
 		    
 			
@@ -552,8 +464,8 @@
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>layoutableObject</code></th>
-						<td><p>The backing ASLayoutable object.</p></td>
+						<th scope="row" class="argument-name"><code>layoutElement</code></th>
+						<td><p>The backing ASLayoutElement object.</p></td>
 					</tr>
 				
 					<tr>
@@ -595,8 +507,8 @@
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:" title="layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:">+&nbsp;layoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:</a></code>
+	<a name="//api/name/layoutWithLayoutElement:size:sublayouts:" title="layoutWithLayoutElement:size:sublayouts:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutElement:size:sublayouts:">+&nbsp;layoutWithLayoutElement:size:sublayouts:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -614,7 +526,7 @@ or for creating a sublayout of which the position is yet to be determined.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutableObject:(id&lt;ASLayoutable&gt;)<em>layoutableObject</em> constrainedSizeRange:(ASSizeRange)<em>sizeRange</em> size:(CGSize)<em>size</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutElement:(id&lt;ASLayoutElement&gt;)<em>layoutElement</em> size:(CGSize)<em>size</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
 
 		    
 			
@@ -623,8 +535,8 @@ or for creating a sublayout of which the position is yet to be determined.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>layoutableObject</code></th>
-						<td><p>The backing ASLayoutable object.</p></td>
+						<th scope="row" class="argument-name"><code>layoutElement</code></th>
+						<td><p>The backing ASLayoutElement object.</p></td>
 					</tr>
 				
 					<tr>
@@ -661,8 +573,8 @@ or for creating a sublayout of which the position is yet to be determined.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:" title="layoutWithLayoutableObject:constrainedSizeRange:size:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutableObject:constrainedSizeRange:size:">+&nbsp;layoutWithLayoutableObject:constrainedSizeRange:size:</a></code>
+	<a name="//api/name/layoutWithLayoutElement:size:" title="layoutWithLayoutElement:size:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutWithLayoutElement:size:">+&nbsp;layoutWithLayoutElement:size:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -679,7 +591,7 @@ or a sublayout of which the position is yet to be determined.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutableObject:(id&lt;ASLayoutable&gt;)<em>layoutableObject</em> constrainedSizeRange:(ASSizeRange)<em>sizeRange</em> size:(CGSize)<em>size</em></code></div>
+			<div class="method-subsection method-declaration"><code>+ (instancetype)layoutWithLayoutElement:(id&lt;ASLayoutElement&gt;)<em>layoutElement</em> size:(CGSize)<em>size</em></code></div>
 
 		    
 			
@@ -688,76 +600,13 @@ or a sublayout of which the position is yet to be determined.</p>
 				<table class="argument-def parameter-def">
 				
 					<tr>
-						<th scope="row" class="argument-name"><code>layoutableObject</code></th>
-						<td><p>The backing ASLayoutable object.</p></td>
+						<th scope="row" class="argument-name"><code>layoutElement</code></th>
+						<td><p>The backing ASLayoutElement object.</p></td>
 					</tr>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>size</code></th>
 						<td><p>The size of this layout.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayout.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:" title="flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:">+&nbsp;flattenedLayoutWithLayoutableObject:constrainedSizeRange:size:sublayouts:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Convenience initializer that is flattened and has CGPointNull position.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (instancetype)flattenedLayoutWithLayoutableObject:(id&lt;ASLayoutable&gt;)<em>layoutableObject</em> constrainedSizeRange:(ASSizeRange)<em>sizeRange</em> size:(CGSize)<em>size</em> sublayouts:(nullable NSArray&lt;ASLayout*&gt; *)<em>sublayouts</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>layoutableObject</code></th>
-						<td><p>The backing ASLayoutable object.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>size</code></th>
-						<td><p>The size of this layout.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>sublayouts</code></th>
-						<td><p>Sublayouts belong to the new layout.</p></td>
 					</tr>
 				
 				</table>
@@ -897,7 +746,7 @@ or a sublayout of which the position is yet to be determined.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

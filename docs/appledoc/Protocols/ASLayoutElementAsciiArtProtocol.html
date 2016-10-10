@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASStaticLayoutable Protocol Reference</title>
+	<title>ASLayoutElementAsciiArtProtocol Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -54,17 +52,17 @@
 
 	
 	
-	<optgroup label="Properties">
+
+	
+
+	
+	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/layoutPosition">layoutPosition</option>
+		<option value="//api/name/asciiArtName">- asciiArtName</option>
 		
-		<option value="//api/name/sizeRange">sizeRange</option>
+		<option value="//api/name/asciiArtString">- asciiArtString</option>
 		
 	</optgroup>
-	
-
-	
-
 	
 	
 </select>
@@ -79,26 +77,21 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASStaticLayoutable Protocol Reference</h1>
+					<h1 class="title">ASLayoutElementAsciiArtProtocol Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
 	<th>Declared in</th>
-	<td>ASStaticLayoutable.h</td>
+	<td>ASAsciiArtBoxCreator.h</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Layout options that can be defined for an ASLayoutable being added to a ASStaticLayoutSpec.</p>
-					</div>
-					
-					
 
 					
 					
@@ -111,8 +104,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/sizeRange" title="sizeRange"></a>
-	<h3 class="method-title"><code><a href="#//api/name/sizeRange">&nbsp;&nbsp;sizeRange</a></code>
+	<a name="//api/name/asciiArtString" title="asciiArtString"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asciiArtString">&ndash;&nbsp;asciiArtString</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -122,12 +115,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>If specified, the child&rsquo;s size is restricted according to this size. Percentages are resolved relative to the static layout spec.</p>
+				<p>Returns an ascii-art representation of this object and its children.
+For example, an ASInsetSpec may return something like this:</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) ASRelativeSizeRange sizeRange</code></div>
+			<div class="method-subsection method-declaration"><code>- (NSString *)asciiArtString</code></div>
 
 		    
 			
@@ -136,6 +130,13 @@
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>&ndash;ASInsetLayoutSpec&ndash;</p>
+
+<h2>|     ASTextNode    |</h2>
+			</div>
 			
 
 			
@@ -145,15 +146,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStaticLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASAsciiArtBoxCreator.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/layoutPosition" title="layoutPosition"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutPosition">&nbsp;&nbsp;layoutPosition</a></code>
+	<a name="//api/name/asciiArtName" title="asciiArtName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asciiArtName">&ndash;&nbsp;asciiArtName</a></code>
 <span class="task-item-suffix">required method</span></h3>
 
 	<div class="method-info">
@@ -163,12 +164,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The position of this object within its parent spec.</p>
+				<p>returns the name of this object that will display in the ascii art. Usually this can
+simply be NSStringFromClass([self class]).</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGPoint layoutPosition</code></div>
+			<div class="method-subsection method-declaration"><code>- (NSString *)asciiArtName</code></div>
 
 		    
 			
@@ -186,7 +188,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStaticLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASAsciiArtBoxCreator.h</code></p>
 			</div>
 			
 			
@@ -207,7 +209,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

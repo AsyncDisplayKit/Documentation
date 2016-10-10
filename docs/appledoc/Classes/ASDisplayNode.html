@@ -68,6 +68,10 @@
 		
 		<option value="//api/name/hitTestSlop">hitTestSlop</option>
 		
+		<option value="//api/name/inDisplayState">inDisplayState</option>
+		
+		<option value="//api/name/inPreloadState">inPreloadState</option>
+		
 		<option value="//api/name/interfaceState">interfaceState</option>
 		
 		<option value="//api/name/layer">layer</option>
@@ -84,8 +88,6 @@
 		
 		<option value="//api/name/placeholderFadeDuration">placeholderFadeDuration</option>
 		
-		<option value="//api/name/preferredFrameSize">preferredFrameSize</option>
-		
 		<option value="//api/name/shouldAnimateSizeChanges">shouldAnimateSizeChanges</option>
 		
 		<option value="//api/name/shouldRasterizeDescendants">shouldRasterizeDescendants</option>
@@ -97,6 +99,8 @@
 		<option value="//api/name/synchronous">synchronous</option>
 		
 		<option value="//api/name/view">view</option>
+		
+		<option value="//api/name/visible">visible</option>
 		
 	</optgroup>
 	
@@ -132,9 +136,9 @@
 		
 		<option value="//api/name/insertSubnode:belowSubnode:">- insertSubnode:belowSubnode:</option>
 		
-		<option value="//api/name/measure:">- measure:</option>
+		<option value="//api/name/layoutThatFits:">- layoutThatFits:</option>
 		
-		<option value="//api/name/measureWithSizeRange:">- measureWithSizeRange:</option>
+		<option value="//api/name/onDidLoad:">- onDidLoad:</option>
 		
 		<option value="//api/name/pointInside:withEvent:">- pointInside:withEvent:</option>
 		
@@ -176,7 +180,7 @@
 	<td>ASDealloc2MainObject</td>
 </tr><tr>
 	<th>Conforms to</th>
-	<td><a href="../Protocols/ASLayoutable.html">ASLayoutable</a></td>
+	<td><a href="../Protocols/ASLayoutElement.html">ASLayoutElement</a></td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>ASDisplayNode.h</td>
@@ -508,6 +512,68 @@ queue. The layer will render synchronously and -layout and touch handling method
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/onDidLoad:" title="onDidLoad:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/onDidLoad:">&ndash;&nbsp;onDidLoad:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Add a block of work to be performed on the main thread when the node&rsquo;s view or layer is loaded. Thread safe.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)onDidLoad:(ASDisplayNodeDidLoadBlock)<em>body</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>body</code></th>
+						<td><p>The work to be performed when the node is loaded.</p>
+
+<p>@precondition The node is not already loaded.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Be careful not to retain self in <code>body</code>. Change the block parameter list to <code>^(MYCustomNode *self) {}</code> if you
+want to shadow self (e.g. if calling this during <code>init</code>).</p></div><div class="note"><p><strong>Note:</strong> This will only be called the next time the node is loaded. If the node is later added to a subtree of a node
+that has <code>shouldRasterizeDescendants=YES</code>, and is unloaded, this block will not be called if it is loaded again.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -533,7 +599,7 @@ queue. The layer will render synchronously and -layout and touch handling method
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nullable, atomic, copy) NSString *name</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, copy) NSString *name</code></div>
 
 		    
 			
@@ -676,7 +742,7 @@ well.</p></div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (atomic, readonly, assign, getter=isNodeLoaded) BOOL nodeLoaded</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, assign, getter=isNodeLoaded) BOOL nodeLoaded</code></div>
 
 		    
 			
@@ -800,6 +866,129 @@ well.</p></div>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/visible" title="visible"></a>
+	<h3 class="method-title"><code><a href="#//api/name/visible">&nbsp;&nbsp;visible</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns YES if the node is – at least partially – visible in a window.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, getter=isVisible) BOOL visible</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/inPreloadState" title="inPreloadState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/inPreloadState">&nbsp;&nbsp;inPreloadState</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns YES if the node is in the preloading interface state.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, getter=isInPreloadState) BOOL inPreloadState</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/inDisplayState" title="inDisplayState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/inDisplayState">&nbsp;&nbsp;inDisplayState</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns YES if the node is in the displaying interface state.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly, getter=isInDisplayState) BOOL inDisplayState</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/interfaceState" title="interfaceState"></a>
 	<h3 class="method-title"><code><a href="#//api/name/interfaceState">&nbsp;&nbsp;interfaceState</a></code>
 </h3>
@@ -816,7 +1005,7 @@ well.</p></div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ASInterfaceState interfaceState</code></div>
+			<div class="method-subsection method-declaration"><code>@property (readonly) ASInterfaceState interfaceState</code></div>
 
 		    
 			
@@ -863,8 +1052,8 @@ well.</p></div>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/measure:" title="measure:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/measure:">&ndash;&nbsp;measure:</a></code>
+	<a name="//api/name/layoutThatFits:" title="layoutThatFits:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layoutThatFits:">&ndash;&nbsp;layoutThatFits:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -874,89 +1063,12 @@ well.</p></div>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Asks the node to measure and return the size that best fits its subnodes.</p>
+				<p>Asks the node to return a layout based on given size range.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (CGSize)measure:(CGSize)<em>constrainedSize</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>constrainedSize</code></th>
-						<td><p>The maximum size the receiver should fit in.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>A new size that fits the receiver&rsquo;s subviews.</p>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Though this method does not set the bounds of the view, it does have side effects&ndash;caching both the
-constraint and the result.</p><div class="warning"><p><strong>Warning:</strong> Subclasses must not override this; it calls -measureWithSizeRange: with zero min size.
--measureWithSizeRange: caches results from -calculateLayoutThatFits:.  Calling this method may
-be expensive if result is not cached.</p></div>
-			</div>
-			
-
-			
-
-			
-			<div class="method-subsection see-also-section">
-				<h4 class="method-subtitle">See Also</h4>
-				<ul>
-					
-					<li><code><p><a href="#//api/name/measureWithSizeRange:">- measureWithSizeRange:</a></p></code></li>
-					
-					<li><code><p><a href="../Categories/ASDisplayNode+Subclassing.html#//api/name/calculateLayoutThatFits:">[ASDisplayNode(Subclassing) calculateLayoutThatFits:]</a></p></code></li>
-					
-				</ul>
-			</div>
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/measureWithSizeRange:" title="measureWithSizeRange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/measureWithSizeRange:">&ndash;&nbsp;measureWithSizeRange:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Asks the node to measure a layout based on given size range.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (ASLayout *)measureWithSizeRange:(ASSizeRange)<em>constrainedSize</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (ASLayout *)layoutThatFits:(ASSizeRange)<em>constrainedSize</em></code></div>
 
 		    
 			
@@ -1147,55 +1259,6 @@ calling -measure: on them in -calculateLayoutThatFits.</p><div class="warning"><
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
 				<p>The minimum and maximum constrained sizes used by calculateLayoutThatFits:.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/preferredFrameSize" title="preferredFrameSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/preferredFrameSize">&nbsp;&nbsp;preferredFrameSize</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Provides a default intrinsic content size for calculateSizeThatFits:. This is useful when laying out
-a node that either has no intrinsic content size or should be laid out at a different size than its intrinsic content
-size. For example, this property could be set on an ASImageNode to display at a size different from the underlying
-image size.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (atomic, assign, readwrite) CGSize preferredFrameSize</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The preferred frame size of this node</p>
 			</div>
 			
 
@@ -2129,7 +2192,7 @@ retain in memory.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Triggers a recursive call to fetchData when the node has an interfaceState of ASInterfaceStateFetchData</p>
+				<p>Triggers a recursive call to fetchData when the node has an interfaceState of ASInterfaceStatePreload</p>
 			</div>
 			
 		    
@@ -2699,7 +2762,7 @@ it and want hitTestSlop applied.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

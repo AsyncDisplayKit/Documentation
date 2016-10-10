@@ -56,6 +56,10 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/child">child</option>
+		
+		<option value="//api/name/children">children</option>
+		
 		<option value="//api/name/isMutable">isMutable</option>
 		
 		<option value="//api/name/parent">parent</option>
@@ -65,22 +69,6 @@
 
 	
 
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/child">- child</option>
-		
-		<option value="//api/name/childForIndex:">- childForIndex:</option>
-		
-		<option value="//api/name/children">- children</option>
-		
-		<option value="//api/name/setChild:">- setChild:</option>
-		
-		<option value="//api/name/setChild:forIndex:">- setChild:forIndex:</option>
-		
-		<option value="//api/name/setChildren:">- setChildren:</option>
-		
-	</optgroup>
 	
 	
 </select>
@@ -104,7 +92,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Conforms to</th>
-	<td><a href="../Protocols/ASLayoutable.html">ASLayoutable</a></td>
+	<td><a href="../Protocols/ASLayoutElement.html">ASLayoutElement</a></td>
 </tr><tr>
 	<th>Declared in</th>
 	<td>ASLayoutSpec.h</td>
@@ -192,7 +180,7 @@ set to NO and any further mutations will cause an assert.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, weak) id&lt;ASLayoutable&gt; parent</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, weak) id&lt;ASLayoutElement&gt; parent</code></div>
 
 		    
 			
@@ -217,8 +205,8 @@ set to NO and any further mutations will cause an assert.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setChild:" title="setChild:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setChild:">&ndash;&nbsp;setChild:</a></code>
+	<a name="//api/name/child" title="child"></a>
+	<h3 class="method-title"><code><a href="#//api/name/child">&nbsp;&nbsp;child</a></code>
 </h3>
 
 	<div class="method-info">
@@ -233,7 +221,7 @@ set to NO and any further mutations will cause an assert.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setChild:(id&lt;ASLayoutable&gt;)<em>child</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable, strong, nonatomic) id&lt;ASLayoutElement&gt; child</code></div>
 
 		    
 			
@@ -262,80 +250,10 @@ responsibility of holding on to the spec children. Some layout specs, like ASIns
 only require a single child.</p>
 
 <p>For layout specs that require a known number of children (ASBackgroundLayoutSpec, for example)
-a subclass should use this method to set the &ldquo;primary&rdquo; child. This is actually the same as calling
-setChild:forIdentifier:0. All other children should be set by defining convenience methods
-that call setChild:forIdentifier behind the scenes.</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutSpec.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/setChild:forIndex:" title="setChild:forIndex:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setChild:forIndex:">&ndash;&nbsp;setChild:forIndex:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Adds a child with the given identifier to this layout spec.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)setChild:(id&lt;ASLayoutable&gt;)<em>child</em> forIndex:(NSUInteger)<em>index</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>child</code></th>
-						<td><p>A child to be added.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>index</code></th>
-						<td><p>An index associated with the child.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p>Every ASLayoutSpec must act on at least one child. The ASLayoutSpec base class takes the
-responsibility of holding on to the spec children. Some layout specs, like ASInsetLayoutSpec,
-only require a single child.</p>
-
-<p>For layout specs that require a known number of children (ASBackgroundLayoutSpec, for example)
-a subclass can use the setChild method to set the &ldquo;primary&rdquo; child. It should then use this method
+a subclass should use this method to set the &ldquo;primary&rdquo; child. It can then use setChild:forIdentifier:
 to set any other required children. Ideally a subclass would hide this from the user, and use the
-setChild:forIndex: internally. For example, ASBackgroundLayoutSpec exposes a backgroundChild
-property that behind the scenes is calling setChild:forIndex:.</p>
+setChild:forIdentifier: internally. For example, ASBackgroundLayoutSpec exposes a backgroundChild
+property that behind the scenes is calling setChild:forIdentifier:.</p>
 			</div>
 			
 
@@ -353,8 +271,8 @@ property that behind the scenes is calling setChild:forIndex:.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/setChildren:" title="setChildren:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/setChildren:">&ndash;&nbsp;setChildren:</a></code>
+	<a name="//api/name/children" title="children"></a>
+	<h3 class="method-title"><code><a href="#//api/name/children">&nbsp;&nbsp;children</a></code>
 </h3>
 
 	<div class="method-info">
@@ -369,7 +287,7 @@ property that behind the scenes is calling setChild:forIndex:.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setChildren:(NSArray&lt;id&lt;ASLayoutable&gt; &gt; *)<em>children</em></code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable, strong, nonatomic) NSArray&lt;id&lt;ASLayoutElement&gt; &gt; *children</code></div>
 
 		    
 			
@@ -379,7 +297,7 @@ property that behind the scenes is calling setChild:forIndex:.</p>
 				
 					<tr>
 						<th scope="row" class="argument-name"><code>children</code></th>
-						<td><p>An array of ASLayoutable children to be added.</p></td>
+						<td><p>An array of ASLayoutElement children to be added.</p></td>
 					</tr>
 				
 				</table>
@@ -414,141 +332,6 @@ setChild: and setChild:forIdentifier: methods to do something appropriate or to 
 			
 		</div>
 	</div>
-</div><div class="section-method">
-	<a name="//api/name/child" title="child"></a>
-	<h3 class="method-title"><code><a href="#//api/name/child">&ndash;&nbsp;child</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the child added to this layout spec using the default identifier.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (nullable id&lt;ASLayoutable&gt;)child</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutSpec.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/childForIndex:" title="childForIndex:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/childForIndex:">&ndash;&nbsp;childForIndex:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the child added to this layout spec using the given index.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (nullable id&lt;ASLayoutable&gt;)childForIndex:(NSUInteger)<em>index</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>index</code></th>
-						<td><p>An identifier associated withe the child.</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutSpec.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/children" title="children"></a>
-	<h3 class="method-title"><code><a href="#//api/name/children">&ndash;&nbsp;children</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns all children added to this layout spec.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (nullable NSArray&lt;id&lt;ASLayoutable&gt; &gt; *)children</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutSpec.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
 </div>
 						</div>
 						
@@ -564,7 +347,7 @@ setChild: and setChild:forIdentifier: methods to do something appropriate or to 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

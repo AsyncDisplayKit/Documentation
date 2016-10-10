@@ -66,9 +66,9 @@
 		
 		<option value="//api/name/tableView:didEndDisplayingNode:forRowAtIndexPath:">- tableView:didEndDisplayingNode:forRowAtIndexPath:</option>
 		
-		<option value="//api/name/tableView:didEndDisplayingNodeForRowAtIndexPath:">- tableView:didEndDisplayingNodeForRowAtIndexPath:</option>
-		
 		<option value="//api/name/tableView:willBeginBatchFetchWithContext:">- tableView:willBeginBatchFetchWithContext:</option>
+		
+		<option value="//api/name/tableView:willDisplayNode:forRowAtIndexPath:">- tableView:willDisplayNode:forRowAtIndexPath:</option>
 		
 		<option value="//api/name/tableView:willDisplayNodeForRowAtIndexPath:">- tableView:willDisplayNodeForRowAtIndexPath:</option>
 		
@@ -125,8 +125,8 @@ responsible for deciding their preferred onscreen height in -calculateSizeThatFi
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/tableView:willDisplayNodeForRowAtIndexPath:" title="tableView:willDisplayNodeForRowAtIndexPath:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/tableView:willDisplayNodeForRowAtIndexPath:">&ndash;&nbsp;tableView:willDisplayNodeForRowAtIndexPath:</a></code>
+	<a name="//api/name/tableView:willDisplayNode:forRowAtIndexPath:" title="tableView:willDisplayNode:forRowAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tableView:willDisplayNode:forRowAtIndexPath:">&ndash;&nbsp;tableView:willDisplayNode:forRowAtIndexPath:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -136,13 +136,13 @@ responsible for deciding their preferred onscreen height in -calculateSizeThatFi
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Informs the delegate that the table view will add the node
+				<p>Informs the delegate that the table view will add the given node
 at the given index path to the view hierarchy.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tableView:(ASTableView *)<em>tableView</em> willDisplayNodeForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tableView:(ASTableView *)<em>tableView</em> willDisplayNode:(ASCellNode *)<em>node</em> forRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
 
 		    
 			
@@ -153,6 +153,11 @@ at the given index path to the view hierarchy.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>tableView</code></th>
 						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>node</code></th>
+						<td><p>The node that will be displayed.</p></td>
 					</tr>
 				
 					<tr>
@@ -240,6 +245,13 @@ or its containing section with @c deleteRowsAtIndexPaths:withRowAnimation: or @c
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> AsyncDisplayKit processes table view edits asynchronously. The index path
+passed into this method may not correspond to the same item in your data source
+if your data source has been updated since the last edit was processed.</p></div>
+			</div>
 			
 
 			
@@ -449,8 +461,8 @@ Note: the widths in the returned size range are ignored!</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/tableView:didEndDisplayingNodeForRowAtIndexPath:" title="tableView:didEndDisplayingNodeForRowAtIndexPath:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/tableView:didEndDisplayingNodeForRowAtIndexPath:">&ndash;&nbsp;tableView:didEndDisplayingNodeForRowAtIndexPath:</a></code>
+	<a name="//api/name/tableView:willDisplayNodeForRowAtIndexPath:" title="tableView:willDisplayNodeForRowAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tableView:willDisplayNodeForRowAtIndexPath:">&ndash;&nbsp;tableView:willDisplayNodeForRowAtIndexPath:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -460,15 +472,32 @@ Note: the widths in the returned size range are ignored!</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Informs the delegate that the table view did remove the node which was previously
-at the given index path from the view hierarchy.</p>
+				<p>Informs the delegate that the table view will add the node
+at the given index path to the view hierarchy.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tableView:(ASTableView *)<em>tableView</em> didEndDisplayingNodeForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tableView:(ASTableView *)<em>tableView</em> willDisplayNodeForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tableView</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the row that will be displayed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -482,7 +511,7 @@ at the given index path from the view hierarchy.</p>
 passed into this method may not correspond to the same item in your data source
 if your data source has been updated since the last edit was processed.</p>
 
-<p>This method is deprecated. Use @c tableView:didEndDisplayingNode:forRowAtIndexPath: instead.</p></div>
+<p>This method is deprecated. Use @c tableView:willDisplayNode:forRowAtIndexPath: instead.</p></div>
 			</div>
 			
 
@@ -514,7 +543,7 @@ if your data source has been updated since the last edit was processed.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
