@@ -57,20 +57,17 @@ As a user scrolls, nodes move through the ranges and react appropriately by load
 
 ### Visible Range 
 ```
--didEnterVisibleState
--didExitVisibleState
+-did{Enter,Exit}VisibleState
 ```
 
 ### Display Range
 ```
--didEnterDisplayState
--didExitDisplayState
+-did{Enter,Exit}DisplayState
 ```
 
 ### Fetch Data Range
 ```
--didEnterPreloadState
--didExitPreloadState
+-did{Enter,Exit}PreloadState
 ```
 
 Just remember to call super ok? 😉
