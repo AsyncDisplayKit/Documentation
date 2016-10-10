@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASStackLayoutable Protocol Reference</title>
+	<title>ASStackLayoutElement Protocol Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -91,7 +91,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASStackLayoutable Protocol Reference</h1>
+					<h1 class="title">ASStackLayoutElement Protocol Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -100,7 +100,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>ASStackLayoutable.h</td>
+	<td>ASStackLayoutElement.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -110,7 +110,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Layout options that can be defined for an ASLayoutable being added to a ASStackLayoutSpec.</p>
+						<p>Layout options that can be defined for an ASLayoutElement being added to a ASStackLayoutSpec.</p>
 					</div>
 					
 					
@@ -161,7 +161,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -179,11 +179,8 @@ Used when attached to a stack layout.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<ul>
-<li>@abstract Additional space to place after this object in the stacking direction.</li>
-<li>Used when attached to a stack layout.</li>
-</ul>
-
+				<p>Additional space to place after this object in the stacking direction.
+Used when attached to a stack layout.</p>
 			</div>
 			
 		    
@@ -206,7 +203,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -224,13 +221,14 @@ Used when attached to a stack layout.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>If the sum of childrens' stack dimensions is less than the minimum size, should this object grow?
-Used when attached to a stack layout.</p>
+				<p>If the sum of childrens' stack dimensions is less than the minimum size, how much should this component grow?
+This value represents the &ldquo;flex grow factor&rdquo; and determines how much this component should grow in relation to any
+other flexible children.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL flexGrow</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) CGFloat flexGrow</code></div>
 
 		    
 			
@@ -248,7 +246,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -266,13 +264,14 @@ Used when attached to a stack layout.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>If the sum of childrens' stack dimensions is greater than the maximum size, should this object shrink?
-Used when attached to a stack layout.</p>
+				<p>If the sum of childrens' stack dimensions is greater than the maximum size, how much should this component shrink?
+This value represents the &ldquo;flex shrink factor&rdquo; and determines how much this component should shink in relation to
+other flexible children.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL flexShrink</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) CGFloat flexShrink</code></div>
 
 		    
 			
@@ -290,7 +289,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -309,13 +308,13 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection brief-description">
 				<p>Specifies the initial size in the stack dimension for this object.
-Default to ASRelativeDimensionUnconstrained.
+Default to ASDimensionAuto
 Used when attached to a stack layout.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) ASRelativeDimension flexBasis</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) ASDimension flexBasis</code></div>
 
 		    
 			
@@ -333,7 +332,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -375,7 +374,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -416,7 +415,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -457,7 +456,7 @@ Used when attached to a stack layout.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASStackLayoutable.h</code></p>
+				<p><code class="declared-in-ref">ASStackLayoutElement.h</code></p>
 			</div>
 			
 			
@@ -478,7 +477,7 @@ Used when attached to a stack layout.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

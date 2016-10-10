@@ -82,6 +82,8 @@
 		
 		<option value="//api/name/calculateLayoutThatFits:">- calculateLayoutThatFits:</option>
 		
+		<option value="//api/name/calculateLayoutThatFits:restrictedToSize:relativeToParentSize:">- calculateLayoutThatFits:restrictedToSize:relativeToParentSize:</option>
+		
 		<option value="//api/name/calculateSizeThatFits:">- calculateSizeThatFits:</option>
 		
 		<option value="//api/name/calculatedLayoutDidChange">- calculatedLayoutDidChange</option>
@@ -92,13 +94,23 @@
 		
 		<option value="//api/name/descriptionForRecursiveDescription">- descriptionForRecursiveDescription</option>
 		
+		<option value="//api/name/didEnterDisplayState">- didEnterDisplayState</option>
+		
+		<option value="//api/name/didEnterPreloadState">- didEnterPreloadState</option>
+		
+		<option value="//api/name/didEnterVisibleState">- didEnterVisibleState</option>
+		
+		<option value="//api/name/didExitDisplayState">- didExitDisplayState</option>
+		
 		<option value="//api/name/didExitHierarchy">- didExitHierarchy</option>
+		
+		<option value="//api/name/didExitPreloadState">- didExitPreloadState</option>
+		
+		<option value="//api/name/didExitVisibleState">- didExitVisibleState</option>
 		
 		<option value="//api/name/didLoad">- didLoad</option>
 		
 		<option value="//api/name/displayDidFinish">- displayDidFinish</option>
-		
-		<option value="//api/name/displayStateDidChange:">- displayStateDidChange:</option>
 		
 		<option value="//api/name/displayWillStart">- displayWillStart</option>
 		
@@ -120,8 +132,6 @@
 		
 		<option value="//api/name/layoutSpecThatFits:">- layoutSpecThatFits:</option>
 		
-		<option value="//api/name/loadStateDidChange:">- loadStateDidChange:</option>
-		
 		<option value="//api/name/placeholderImage">- placeholderImage</option>
 		
 		<option value="//api/name/recursivelySetNeedsDisplayAtScale:">- recursivelySetNeedsDisplayAtScale:</option>
@@ -139,10 +149,6 @@
 		<option value="//api/name/touchesEnded:withEvent:">- touchesEnded:withEvent:</option>
 		
 		<option value="//api/name/touchesMoved:withEvent:">- touchesMoved:withEvent:</option>
-		
-		<option value="//api/name/visibilityDidChange:">- visibilityDidChange:</option>
-		
-		<option value="//api/name/visibleStateDidChange:">- visibleStateDidChange:</option>
 		
 		<option value="//api/name/willEnterHierarchy">- willEnterHierarchy</option>
 		
@@ -545,6 +551,54 @@ override -layoutSpecThatFits: or -calculateSizeThatFits: instead.</p><div class=
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/calculateLayoutThatFits:restrictedToSize:relativeToParentSize:" title="calculateLayoutThatFits:restrictedToSize:relativeToParentSize:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/calculateLayoutThatFits:restrictedToSize:relativeToParentSize:">&ndash;&nbsp;calculateLayoutThatFits:restrictedToSize:relativeToParentSize:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ASDisplayNode&rsquo;s implementation of -layoutThatFits:parentSize: calls this method to resolve the node&rsquo;s size
+against parentSize, intersect it with constrainedSize, and call -calculateLayoutThatFits: with the result.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ASLayout *)calculateLayoutThatFits:(ASSizeRange)<em>constrainedSize</em> restrictedToSize:(ASLayoutElementSize)<em>size</em> relativeToParentSize:(CGSize)<em>parentSize</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>In certain advanced cases, you may want to customize this logic. Overriding this method allows you to receive all
+three parameters and do the computation yourself.</p><div class="warning"><p><strong>Warning:</strong> Overriding this method should be done VERY rarely.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode+Subclasses.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/calculateSizeThatFits:" title="calculateSizeThatFits:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/calculateSizeThatFits:">&ndash;&nbsp;calculateSizeThatFits:</a></code>
 </h3>
@@ -588,7 +642,7 @@ override -layoutSpecThatFits: or -calculateSizeThatFits: instead.</p><div class=
 				<p>Subclasses that override should expect this method to be called on a non-main thread. The returned size
 is wrapped in an ASLayout and cached for quick access during -layout. Other expensive work that needs to
 be done before display can be performed here, and using ivars to cache any valuable intermediate results is
-encouraged.</p><div class="note"><p><strong>Note:</strong> Subclasses that override are committed to manual layout. Therefore, -layout: must be overriden to layout all subnodes or subviews.</p></div><div class="note"><p><strong>Note:</strong> This method should not be called directly outside of ASDisplayNode; use -measure: or -calculatedLayout instead.</p></div>
+encouraged.</p><div class="note"><p><strong>Note:</strong> Subclasses that override are committed to manual layout. Therefore, -layout: must be overriden to layout all subnodes or subviews.</p></div><div class="note"><p><strong>Note:</strong> This method should not be called directly outside of ASDisplayNode; use -layoutThatFits: or layoutThatFits:parentSize: instead.</p></div>
 			</div>
 			
 
@@ -1087,8 +1141,8 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/visibilityDidChange:" title="visibilityDidChange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/visibilityDidChange:">&ndash;&nbsp;visibilityDidChange:</a></code>
+	<a name="//api/name/didEnterVisibleState" title="didEnterVisibleState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didEnterVisibleState">&ndash;&nbsp;didEnterVisibleState</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1098,12 +1152,12 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Called whenever the visiblity of the node changed.</p>
+				<p>Called whenever the node becomes visible.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)visibilityDidChange:(BOOL)<em>isVisible</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didEnterVisibleState</code></div>
 
 		    
 			
@@ -1115,7 +1169,7 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Subclasses may use this to monitor when they become visible.</p>
+				<p>Subclasses may use this to monitor when they become visible.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
 			</div>
 			
 
@@ -1133,8 +1187,8 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/visibleStateDidChange:" title="visibleStateDidChange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/visibleStateDidChange:">&ndash;&nbsp;visibleStateDidChange:</a></code>
+	<a name="//api/name/didExitVisibleState" title="didExitVisibleState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didExitVisibleState">&ndash;&nbsp;didExitVisibleState</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1144,12 +1198,12 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Called whenever the visiblity of the node changed.</p>
+				<p>Called whenever the node is no longer visible.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)visibleStateDidChange:(BOOL)<em>isVisible</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didExitVisibleState</code></div>
 
 		    
 			
@@ -1161,7 +1215,7 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Subclasses may use this to monitor when they become visible.</p>
+				<p>Subclasses may use this to monitor when they are no longer visible.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
 			</div>
 			
 
@@ -1179,8 +1233,8 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/displayStateDidChange:" title="displayStateDidChange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/displayStateDidChange:">&ndash;&nbsp;displayStateDidChange:</a></code>
+	<a name="//api/name/didEnterDisplayState" title="didEnterDisplayState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didEnterDisplayState">&ndash;&nbsp;didEnterDisplayState</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1190,12 +1244,12 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Called whenever the the node has entered or exited the display state.</p>
+				<p>Called whenever the the node has entered the display state.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)displayStateDidChange:(BOOL)<em>inDisplayState</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didEnterDisplayState</code></div>
 
 		    
 			
@@ -1207,7 +1261,7 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Subclasses may use this to monitor when a node should be rendering its content.</p><div class="note"><p><strong>Note:</strong> This method can be called from any thread and should therefore be thread safe.</p></div>
+				<p>Subclasses may use this to monitor when a node should be rendering its content.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
 			</div>
 			
 
@@ -1225,8 +1279,8 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/loadStateDidChange:" title="loadStateDidChange:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/loadStateDidChange:">&ndash;&nbsp;loadStateDidChange:</a></code>
+	<a name="//api/name/didExitDisplayState" title="didExitDisplayState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didExitDisplayState">&ndash;&nbsp;didExitDisplayState</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1236,12 +1290,12 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Called whenever the the node has entered or left the load state.</p>
+				<p>Called whenever the the node has exited the display state.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)loadStateDidChange:(BOOL)<em>inLoadState</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)didExitDisplayState</code></div>
 
 		    
 			
@@ -1253,7 +1307,99 @@ completed.</p><div class="note"><p><strong>Note:</strong> Called on the main thr
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>Subclasses may use this to monitor data for a node should be loaded, either from a local or remote source.</p><div class="note"><p><strong>Note:</strong> This method can be called from any thread and should therefore be thread safe.</p></div>
+				<p>Subclasses may use this to monitor when a node should no longer be rendering its content.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode+Subclasses.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didEnterPreloadState" title="didEnterPreloadState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didEnterPreloadState">&ndash;&nbsp;didEnterPreloadState</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called whenever the the node has entered the preload state.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didEnterPreloadState</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Subclasses may use this to monitor data for a node should be preloaded, either from a local or remote source.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASDisplayNode+Subclasses.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didExitPreloadState" title="didExitPreloadState"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didExitPreloadState">&ndash;&nbsp;didExitPreloadState</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Called whenever the the node has exited the preload state.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)didExitPreloadState</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Subclasses may use this to monitor whether preloading data for a node should be canceled.</p><div class="note"><p><strong>Note:</strong> This method is guaranteed to be called on main.</p></div>
 			</div>
 			
 
@@ -2400,7 +2546,7 @@ displayed.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

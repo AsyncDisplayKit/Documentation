@@ -56,9 +56,19 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/asyncDataSource">asyncDataSource</option>
+		
+		<option value="//api/name/asyncDelegate">asyncDelegate</option>
+		
+		<option value="//api/name/collectionNode">collectionNode</option>
+		
 		<option value="//api/name/layoutInspector">layoutInspector</option>
 		
 		<option value="//api/name/leadingScreensForBatching">leadingScreensForBatching</option>
+		
+		<option value="//api/name/scrollDirection">scrollDirection</option>
+		
+		<option value="//api/name/scrollableDirections">scrollableDirections</option>
 		
 		<option value="//api/name/zeroContentInsets">zeroContentInsets</option>
 		
@@ -83,6 +93,8 @@
 		<option value="//api/name/indexPathForNode:">- indexPathForNode:</option>
 		
 		<option value="//api/name/initWithCollectionViewLayout:">- initWithCollectionViewLayout:</option>
+		
+		<option value="//api/name/initWithFrame:collectionViewLayout:">- initWithFrame:collectionViewLayout:</option>
 		
 		<option value="//api/name/insertItemsAtIndexPaths:">- insertItemsAtIndexPaths:</option>
 		
@@ -111,10 +123,6 @@
 		<option value="//api/name/reloadItemsAtIndexPaths:">- reloadItemsAtIndexPaths:</option>
 		
 		<option value="//api/name/reloadSections:">- reloadSections:</option>
-		
-		<option value="//api/name/scrollDirection">- scrollDirection</option>
-		
-		<option value="//api/name/scrollableDirections">- scrollableDirections</option>
 		
 		<option value="//api/name/setTuningParameters:forRangeMode:rangeType:">- setTuningParameters:forRangeMode:rangeType:</option>
 		
@@ -164,16 +172,12 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Asynchronous UICollectionView with Intelligent Preloading capabilities.</p>
-
-<p>ASCollectionNode is recommended over ASCollectionView.  This class exists for adoption convenience.</p>
-
-<p>ASCollectionView is a true subclass of UICollectionView, meaning it is pointer-compatible
+						<p>Asynchronous UICollectionView with Intelligent Preloading capabilities.</p><p>ASCollectionView is a true subclass of UICollectionView, meaning it is pointer-compatible
 with code that currently uses UICollectionView.</p>
 
 <p>The main difference is that asyncDataSource expects -nodeForItemAtIndexPath, an ASCellNode, and
 the sizeForItemAtIndexPath: method is eliminated (as are the performance problems caused by it).
-This is made possible because ASCellNodes can calculate their own size, and preload ahead of time.</p>
+This is made possible because ASCellNodes can calculate their own size, and preload ahead of time.</p><div class="note"><p><strong>Note:</strong> ASCollectionNode is strongly recommended over ASCollectionView.  This class exists for adoption convenience.</p></div>
 					</div>
 					
 					
@@ -200,7 +204,7 @@ This is made possible because ASCellNodes can calculate their own size, and prel
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initializer.</p>
+				<p>Initializes an ASCollectionView</p>
 			</div>
 			
 		    
@@ -226,6 +230,216 @@ This is made possible because ASCellNodes can calculate their own size, and prel
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes and returns a newly allocated collection view object with the specified layout.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithFrame:collectionViewLayout:" title="initWithFrame:collectionViewLayout:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithFrame:collectionViewLayout:">&ndash;&nbsp;initWithFrame:collectionViewLayout:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an ASCollectionView</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em> collectionViewLayout:(UICollectionViewLayout *)<em>layout</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>frame</code></th>
+						<td><p>The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>layout</code></th>
+						<td><p>The layout object to use for organizing items. The collection view stores a strong reference to the specified object. Must not be nil.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes and returns a newly allocated collection view object with the specified frame and layout.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/collectionNode" title="collectionNode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/collectionNode">&nbsp;&nbsp;collectionNode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the corresponding ASCollectionNode</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak, readonly) ASCollectionNode *collectionNode</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>collectionNode The corresponding ASCollectionNode which exists even if directly allocating &amp; handling the view class.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/asyncDelegate" title="asyncDelegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asyncDelegate">&nbsp;&nbsp;asyncDelegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The object that acts as the asynchronous delegate of the collection view</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ASCollectionDelegate&gt; asyncDelegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The delegate must adopt the ASCollectionDelegate protocol. The collection view maintains a weak reference to the delegate object.</p>
+
+<p>The delegate object is responsible for providing size constraints for nodes and indicating whether batch fetching should begin.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/asyncDataSource" title="asyncDataSource"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asyncDataSource">&nbsp;&nbsp;asyncDataSource</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The object that acts as the asynchronous data source of the collection view</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ASCollectionDataSource&gt; asyncDataSource</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The datasource must adopt the ASCollectionDataSource protocol. The collection view maintains a weak reference to the datasource object.</p>
+
+<p>The datasource object is responsible for providing nodes or node creation blocks to the collection view.</p>
+			</div>
 			
 
 			
@@ -598,7 +812,7 @@ The asyncDataSource must be updated to reflect the changes before the update blo
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)performBatchAnimated:(BOOL)<em>animated</em> updates:(void ( ^ _Nullable ) ( ))<em>updates</em> completion:(void ( ^ _Nullable ) ( BOOL ))<em>completion</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)performBatchAnimated:(BOOL)<em>animated</em> updates:(nullable __attribute ( ( noescape ) ) void ( ^ ) ( ))<em>updates</em> completion:(nullable void ( ^ ) ( BOOL finished ))<em>completion</em></code></div>
 
 		    
 			
@@ -664,7 +878,7 @@ The asyncDataSource must be updated to reflect the changes before update block c
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)performBatchUpdates:(void ( ^ _Nullable ) ( ))<em>updates</em> completion:(void ( ^ _Nullable ) ( BOOL ))<em>completion</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)performBatchUpdates:(nullable __attribute ( ( noescape ) ) void ( ^ ) ( ))<em>updates</em> completion:(nullable void ( ^ ) ( BOOL finished ))<em>completion</em></code></div>
 
 		    
 			
@@ -724,7 +938,7 @@ NO if they were interrupted. This parameter may be nil. If supplied, the block i
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)reloadDataWithCompletion:(void ( ^ _Nullable ) ( ))<em>completion</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)reloadDataWithCompletion:(nullable void ( ^ ) ( ))<em>completion</em></code></div>
 
 		    
 			
@@ -885,6 +1099,11 @@ while all the cells load.</p></div>
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method invalidates and lays out every cell node in the collection view.</p>
+			</div>
 			
 
 			
@@ -1680,7 +1899,7 @@ before this method is called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSArray&lt;ASCellNode*&gt; *)visibleNodes</code></div>
+			<div class="method-subsection method-declaration"><code>- (NSArray&lt;__kindofASCellNode*&gt; *)visibleNodes</code></div>
 
 		    
 			
@@ -1764,7 +1983,7 @@ before this method is called.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/scrollDirection" title="scrollDirection"></a>
-	<h3 class="method-title"><code><a href="#//api/name/scrollDirection">&ndash;&nbsp;scrollDirection</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/scrollDirection">&nbsp;&nbsp;scrollDirection</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1779,7 +1998,7 @@ before this method is called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (ASScrollDirection)scrollDirection</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ASScrollDirection scrollDirection</code></div>
 
 		    
 			
@@ -1810,7 +2029,7 @@ before this method is called.</p>
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/scrollableDirections" title="scrollableDirections"></a>
-	<h3 class="method-title"><code><a href="#//api/name/scrollableDirections">&ndash;&nbsp;scrollableDirections</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/scrollableDirections">&nbsp;&nbsp;scrollableDirections</a></code>
 </h3>
 
 	<div class="method-info">
@@ -1825,7 +2044,7 @@ before this method is called.</p>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (ASScrollDirection)scrollableDirections</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ASScrollDirection scrollableDirections</code></div>
 
 		    
 			
@@ -2010,7 +2229,7 @@ its flow layout behaves predictably and does not log undefined layout warnings.<
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
