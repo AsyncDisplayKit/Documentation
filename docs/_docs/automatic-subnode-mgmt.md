@@ -1,7 +1,7 @@
 ---
 title: Automatic Subnode Management
 layout: docs
-permalink: /docs/implicit-hierarchy-mgmt.html
+permalink: /docs/automatic-subnode-mgmt.html
 prevPage: batch-fetching-api.html
 nextPage: image-modification-block.html
 ---
