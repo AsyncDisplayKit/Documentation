@@ -2,21 +2,21 @@
 title: Upgrading to 2.0 <b><i>(New)</i></b>
 layout: docs
 permalink: /docs/upgrading.html
-prevPage: installation.html
-nextPage: image-modification-block.html
 ---
 
-Here's a brief summary of the AsyncDisplayKit 2.0 Beta changes on [master](https://github.com/facebook/AsyncDisplayKit) as of today:
+Here's a brief summary of the AsyncDisplayKit 2.0 Beta API breaking changes on `master` as of today:
 
 ### Layout
 
-- The most significant change in the 2.0 release is a **sweeping upgrade to AsyncDisplayKit's Layout API**. Read the <a href="layout2-conversion-guide.html"><b>Conversion Guide</b></a> for an overview of the upgrades and to see examples showing how to convert your existing layout code. 
+The most significant change in the 2.0 release is a sweeping upgrade to AsyncDisplayKit's Layout API. Please read the <a href="layout2-conversion-guide.html"><b>Layout 2.0 Conversion Guide</b></a> for an overview of the upgrades and to see examples showing how to convert your existing layout code. 
+
+Other layout updates include:
 
 - The <a href = "layout-transition-api.html">Layout Transition API</a> (`transitionLayoutWithDuration:`) has been moved out of Beta. Significant new functionality is planed for future dot releases. 
 
 - `.usesImplicitHierarchyManagement` has been renamed to `.automaticallyManagesSubnodes` for <a href = "http://asyncdisplaykit.org/docs/implicit-hierarchy-mgmt.html">Automatic Subnode Management</a>. This API has been moved out of Beta, but has a few documented <a href = "">limitations</a>. 
 
-### Updated interface state callback method names
+### Updated Interface State Callback Methods
 
 The new method names are meant to unify the range update methods to show how they relate to each other & be a bit more self-explanatory:
 

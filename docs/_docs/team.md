@@ -13,7 +13,7 @@ permalink: /docs/team.html
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/maicki"></td>
-    <td><p>Michael Schneider (<a href="https://github.com/maicki">@maicki</a>) is a German software developer who is especially passionate about framework development and API design. He is currently architecting the Layout API improvements for the 2.0 launch. Michael previously worked on Pocket for iOS, Mac and Chrome and the Instapaper Mac app.</p></td>
+    <td><p>Michael Schneider (<a href="https://github.com/maicki">@maicki</a>) is a iOS engineer at Pinterest who is especially passionate about framework development and API design. He is currently architecting the Layout API improvements for the 2.0 launch. Michael previously worked on Pocket for iOS, Mac and Chrome and the Instapaper Mac app.</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/nguyenhuy"></td>
@@ -21,11 +21,11 @@ permalink: /docs/team.html
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/levi"></td>
-    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) manages the AsyncDisplayKit team at Pinterest and helped lead the rewrite of the Pinterest iOS app. Levi first used AsyncDisplayKit while developing NFL's iOS app.</p></td>
+    <td><p>Levi McCallum (<a href="https://github.com/levi">@levi </a>) is an iOS engineer at Pinterest where he manages the core team working on app platform and infrastructure. He is a core contributor to AsyncDisplayKit and deeply passionate about building frameworks that make building fast apps effortless and scalable. Follow him on Twitter @levi.</p></td>
   </tr>
   <tr>
     <td><img src="https://avatars.githubusercontent.com/adlai-holler"></td>
-    <td><p>Adlai (‘Ad-lee) Holler (<a href="https://github.com/adlai-holler">@adlai-holler</a>) joined the AsyncDisplayKit team after making major contributions to the framework while writing Tripstr with AsyncDisplayKit in Swift. Adlai previously worked at Apportable. </p>
+    <td><p>Adlai (‘Ad-lee) Holler (<a href="https://github.com/adlai-holler">@adlai-holler</a>) joined Pinterest AsyncDisplayKit team after making major contributions to the framework while writing Tripstr with ASDK in Swift. Adlai previously worked at Apportable. </p>
     </td> 
   </tr>
 </table>

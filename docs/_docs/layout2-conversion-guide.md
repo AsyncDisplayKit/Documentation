@@ -1,5 +1,5 @@
 ---
-title: Layout 2.0 Conversion Guide
+title: 2.0 Layout Upgrades <b><i>(New)</i></b>
 layout: docs
 permalink: /docs/layout2-conversion-guide.html
 ---
