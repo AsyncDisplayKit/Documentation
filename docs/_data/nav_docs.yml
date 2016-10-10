@@ -36,13 +36,8 @@
   items:
   - layout2-conversion-guide
   - layout2-quickstart
-  - automatic-layout-examples-2
-  - automatic-layout-basics
   - automatic-layout-containers
-  - automatic-layout-examples
-  - background-layout-spec
-  - layout-options
-  - layout-engine
+  - automatic-layout-examples-2
   - layout-api-debugging
   - layout-api-sizing
   - layout-transition-api
