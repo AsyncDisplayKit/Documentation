@@ -2,8 +2,6 @@
 title: Upgrading to 2.0 <b><i>(New)</i></b>
 layout: docs
 permalink: /docs/upgrading.html
-prevPage: installation.html
-nextPage: image-modification-block.html
 ---
 
 Here's a brief summary of the AsyncDisplayKit 2.0 Beta changes on [master](https://github.com/facebook/AsyncDisplayKit) as of today:
