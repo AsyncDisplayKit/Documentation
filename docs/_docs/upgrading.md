@@ -1,5 +1,5 @@
 ---
-title: Upgrading to 2.0 <b><i>(New)</i></b>
+title: Upgrading to 2.0 <b><i>(Beta)</i></b>
 layout: docs
 permalink: /docs/upgrading.html
 ---
