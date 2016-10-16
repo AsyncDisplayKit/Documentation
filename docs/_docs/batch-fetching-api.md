@@ -36,7 +36,7 @@ For tables it would look something like:
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (BOOL)shouldBatchFetchForTableView:(ASTableView *)tableView
+- (BOOL)shouldBatchFetchForTableNode:(ASTableNode *)tableNode
 {
   if (_weNeedMoreContent) {
     return YES;
@@ -46,7 +46,7 @@ For tables it would look something like:
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-func shouldBatchFetchForTableView(tableView: ASTableView) -> Bool {
+func shouldBatchFetchForTableNode(tableNode: ASTableNode) -> Bool {
   if (weNeedMoreContent) {
     return true
   }
@@ -65,7 +65,7 @@ and for collections:
 <div class = "code">
 <pre lang="objc" class="objcCode">
 
-- (BOOL)shouldBatchFetchForCollectionView:(ASCollectionView *)collectionView
+- (BOOL)shouldBatchFetchForCollectionNode:(ASCollectionNode *)collectionNode
 {
   if (_weNeedMoreContent) {
     return YES;
@@ -75,7 +75,7 @@ and for collections:
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-func shouldBatchFetchForCollectionView(collectionView: ASCollectionView) -> Bool {
+func shouldBatchFetchForCollectionNode(collectionNode: ASCollectionNode) -> Bool {
   if (weNeedMoreContent) {
     return true
   }
@@ -90,11 +90,11 @@ These methods will be called when the user has scrolled into the batch fetching 
 
 If you return NO, then no new batch fetching process will happen.  If you return YES, the batch fetching mechanism will start and the following method will be called next.
 
-`-tableView:willBeginBatchFetchWithContext:`
+`-tableNode:willBeginBatchFetchWithContext:`
 
 or
 
-`-collectionView:willBeginBatchFetchWithContext:`
+`-collectionNode:willBeginBatchFetchWithContext:`
 
 This is where you should actually fetch data, be it from a web API or some local database.
 
@@ -107,13 +107,13 @@ This is where you should actually fetch data, be it from a web API or some local
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (void)tableView:(ASTableView *)tableView willBeginBatchFetchWithContext:(ASBatchContext *)context 
+- (void)tableNode:(ASTableNode *)tableNode willBeginBatchFetchWithContext:(ASBatchContext *)context 
 {
   // Fetch data most of the time asynchronoulsy from an API or local database
   NSArray *newPhotos = [SomeSource getNewPhotos];
 
-  // Insert data into table or collection view
-  [self insertNewRowsInTableView:newPhotos];
+  // Insert data into table or collection node
+  [self insertNewRowsInTableNode:newPhotos];
 
   // Decide if it's still necessary to trigger more batch fetches in the future
   _stillDataToFetch = ...;
@@ -123,12 +123,12 @@ This is where you should actually fetch data, be it from a web API or some local
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-func tableView(tableView: ASTableView, willBeginBatchFetchWithContext context: ASBatchContext) {
+func tableNode(tableNode: ASTableNode, willBeginBatchFetchWithContext context: ASBatchContext) {
   // Fetch data most of the time asynchronoulsy from an API or local database
   let newPhotos = SomeSource.getNewPhotos()
 
   // Insert data into table or collection view
-  insertNewRowsInTableView(newPhotos)
+  insertNewRowsInTableNode(newPhotos)
 
   // Decide if it's still necessary to trigger more batch fetches in the future
   stillDataToFetch = ...

@@ -37,11 +37,11 @@ with your choice of **_one_** of the following methods
 
 <div class = "code">
   <pre lang="objc" class="objcCode">
-- (ASCellNode *)tableView:(ASTableView *)tableView nodeForRowAtIndexPath:(NSIndexPath *)indexPath
+- (ASCellNode *)tableNode:(ASTableNode *)tableNode nodeForRowAtIndexPath:(NSIndexPath *)indexPath
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func tableView(tableView: UITableView, nodeForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNode
+override func tableNode(tableNode: ASTableNode, nodeForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNode
   </pre>
 </div>
 </div>
@@ -56,15 +56,16 @@ or
 
 <div class = "code">
   <pre lang="objc" class="objcCode">
-- (ASCellNodeBlock)tableView:(ASTableView *)tableView nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath
+- (ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func tableView(tableView: UITableView, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock
+override func tableNode(tableNode: ASTableNode, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock
   </pre>
 </div>
 </div>
 
+<br>
 <div class = "note">
 It is recommended that you use the node block version of these methods so that your collection node will be able to prepare and display all of its cells concurrently. This means that all subnode initialization methods can be run in the background.  Make sure to keep 'em thread safe.
 </div>
@@ -100,7 +101,7 @@ An `ASTableNode` is assigned to be managed by an `ASViewController` in its `-ini
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func initWithModel(models: Array<Model>) {
+func initWithModel(models: Array&lt;Model&gt;) {
     let tableNode = ASTableNode(style:.Plain)
 
     super.initWithNode(tableNode)
@@ -119,7 +120,7 @@ func initWithModel(models: Array<Model>) {
 
 It is very important that node blocks be thread-safe. One aspect of that is ensuring that the data model is accessed _outside_ of the node block. Therefore, it is unlikely that you should need to use the index inside of the block. 
 
-Consider the following `-tableView:nodeBlockForRowAtIndexPath:` method from the `PhotoFeedNodeController.m` file in the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a>.
+Consider the following `-tableNode:nodeBlockForRowAtIndexPath:` method from the `PhotoFeedNodeController.m` file in the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a>.
 
 In the example below, you can see how the index is used to access the photo model before creating the node block.
 
@@ -127,7 +128,7 @@ In the example below, you can see how the index is used to access the photo mode
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
   <pre lang="objc" class="objcCode">
-- (ASCellNodeBlock)tableView:(ASTableView *)tableView nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath
+- (ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PhotoModel *photoModel = [_photoFeed objectAtIndex:indexPath.row];
     
@@ -143,7 +144,7 @@ In the example below, you can see how the index is used to access the photo mode
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func tableView(tableView: UITableView!, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock! {
+func tableNode(tableNode: UITableNode!, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock! {
     guard photoFeed.count > indexPath.row else { return nil }
 
     let photoModel = photoFeed[indexPath.row]
@@ -167,9 +168,9 @@ func tableView(tableView: UITableView!, nodeBlockForRowAtIndexPath indexPath: NS
 If you've used previous versions of ASDK, you'll notice that `ASTableView` has been removed in favor of `ASTableNode`.
 
 <div class = "note">
-ASTableView, an actual UITableView subclass, is still used internally by ASTableNode. While it should not be created directly, it can still be used directly by accessing the .view property of an ASTableNode.
+<code>ASTableView</code>, an actual <code>UITableView</code> subclass, is still used internally by <code>ASTableNode</code>. While it should not be created directly, it can still be used directly by accessing the <code>.view</code> property of an <code>ASTableNode</code>.
 
-Don't forget that a node's <code>view</code> or <code>layer</code> property should only be accessed after viewDidLoad or didLoad, respectively, have been called.
+Don't forget that a node's <code>view</code> or <code>layer</code> property should only be accessed after <code>-viewDidLoad</code> or <code>-didLoad</code>, respectively, have been called.
 </div>
 
 For example, you may want to set a table's separator style property. This can be done by accessing the table node's view in the `-viewDidLoad:` method as seen in the example below. 
@@ -209,17 +210,20 @@ This is because nodes are responsible for determining their own height based on 
 A node defines its height by way of the layoutSpec returned in the `-layoutSpecThatFits:` method. All nodes given a constrained size are able to calculate their desired size.
 
 <div class = "note">
-By default, a tableNode provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is 0.  The maximim width is also the tableNode's width but the maximum height is FLT_MAX.
-
-This is all to say, a tableNode's cells will always fill the full width of the tableNode, but their height is flexible making self-sizing cells something that happens automatically. 
+By default, a <code>ASTableNode</code> provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is <code>0</code>.  The maximim width is also the <code>tableNode</code>'s width but the maximum height is <code>FLT_MAX</code>.
+<br><br>
+This is all to say, a <code>tableNode</code>'s cells will always fill the full width of the <code>tableNode</code>, but their height is flexible making self-sizing cells something that happens automatically. 
 </div>
 
-If you call `-setNeedsLayout` on an ASCellNode, it will automatically perform another layout pass and if its overall desired size has changed, the table or collection will be informed and will update itself. 
+If you call `-setNeedsLayout` on an `ASCellNode`, it will automatically perform another layout pass and if its overall desired size has changed, the table will be informed and will update itself. 
 
-This is different from UIKit where normally you would have to call reload row / item. This saves tons of code, check out the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a> to see side by side implementations of an UITableView and ASTableNode implemented social media feed. 
+This is different from `UIKit` where normally you would have to call reload row / item. This saves tons of code, check out the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a> to see side by side implementations of an `UITableView` and `ASTableNode` implemented social media feed. 
 
-### Sample Apps with ASTableNodes
+### Sample Apps using ASTableNode
 <ul>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram</a></li>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/Kittens">Kittens</a></li>
+  <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/HorizontalwithinVerticalScrolling">HorizontalwithinVerticalScrolling</a></li>
+  <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/VerticalWithinHorizontalScrolling">VerticalWithinHorizontalScrolling</a></li>
+  <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/SocialAppLayout">SocialAppLayout</a></li>
 </ul>
