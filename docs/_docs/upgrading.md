@@ -20,13 +20,13 @@ Other layout updates include:
 
 Another significant change in the 2.0 release is an update to the Collection / Table APIs. These APIs have been moved from the view space (`collectionView` / `tableView`) to the node space (`collectionNode` / `tableNode`). 
 
-Any `indexPath` that is passed to the `collectionView` space references data that has been synced with `ASCollectionNode`'s underlying `UICollectionView`. Conversly, any `indexPath` that is passed to the `collectionNode` space references asynchronous data that *might not yet* have been synced with ASCollectionNode's underlying `UICollectionView`. The same concepts apply to `ASTableNode`.
+- Any `indexPath` that is passed to the `collectionView` space references data that has been synced with `ASCollectionNode`'s underlying `UICollectionView`. Conversly, any `indexPath` that is passed to the `collectionNode` space references asynchronous data that *might not yet* have been synced with ASCollectionNode's underlying `UICollectionView`. The same concepts apply to `ASTableNode`.
 
-An exception to this is `ASTableNode`'s `-didSelectRowAtIndexPath:`, which is called in UIKit space to make sure that `indexPath` indicies reference the data in the onscreen (data that has been synced to the underlying `UICollectionView` `dataSource`).
+- An exception to this is `ASTableNode`'s `-didSelectRowAtIndexPath:`, which is called in UIKit space to make sure that `indexPath` indicies reference the data in the onscreen (data that has been synced to the underlying `UICollectionView` `dataSource`).
 
-While previous versions of the framework required the developer to be aware of the asynchronous interplay between `ASCollectionNode` and its underlying `UICollectionView`, this new API should provide better safegaurds against developer-introduced data source inconsistencies. 
+- While previous versions of the framework required the developer to be aware of the asynchronous interplay between `ASCollectionNode` and its underlying `UICollectionView`, this new API should provide better safegaurds against developer-introduced data source inconsistencies. 
 
-**Please Note** that not all of the older `collectionNode` and `tableNode` `dataSource` / `delegate` methods will warn that they have been deprecated. So, please `cmd` + `shift` + `f` to search for instances of `tableView` and `collectionView` in your project’s code. Most, if not all, of these methods have new node versions. 
+- **Please Note** that not all of the older `collectionNode` and `tableNode` `dataSource` / `delegate` methods will warn that they have been deprecated. So, please `cmd` + `shift` + `f` to search for instances of `tableView` and `collectionView` in your project’s code. Most, if not all, of these methods have new node versions. 
 
 Other table / collection updates include:
 
@@ -42,7 +42,7 @@ Other table / collection updates include:
 
 - collection view update validation assertions are now enabled. If you see something like `"Invalid number of items in section 2. The number of items after the update (7) must be equal to the number of items before the update (4) plus or minus the number of items inserted or removed from the section (4 inserted, 0 removed)”`, please check the data source logic. If you have any questions, reach out to us on GitHub. 
 
-New API Resources: 
+Collection / Table API Resources: 
 
 - PR [#2390](https://github.com/facebook/AsyncDisplayKit/pull/2390) and PR [#2381](https://github.com/facebook/AsyncDisplayKit/pull/2381) show how we converted the [example projects](https://github.com/facebook/AsyncDisplayKit/tree/master/examples) to conform to this new API. 
 
@@ -61,9 +61,3 @@ These new methods replace the following:
 - `loadStateDidChange:(BOOL)inLoadState`
 - `displayStateDidChange:(BOOL)inDisplayState`
 - `visibleStateDidChange:(BOOL)isVisible`
-
-
-
-
-
-
