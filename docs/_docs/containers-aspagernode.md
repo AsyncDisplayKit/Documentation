@@ -6,9 +6,9 @@ prevPage: containers-ascollectionnode.html
 nextPage: display-node.html
 ---
 
-`ASPagerNode` is a subclass of `ASCollectionNode` with a specific UICollectionViewLayout used under the hood. 
+`ASPagerNode` is a subclass of `ASCollectionNode` with a specific `UICollectionViewLayout` used under the hood. 
 
-Using it allows you to produce a page style UI similar to what you'd create with UIKit's UIPageViewController. ASPagerNode currently supports staying on the correct page during rotation. It does _not_ currently support circular scrolling.
+Using it allows you to produce a page style UI similar to what you'd create with UIKit's `UIPageViewController`. `ASPagerNode` currently supports staying on the correct page during rotation. It does _not_ currently support circular scrolling.
 
 The main dataSource methods are:
 
@@ -55,7 +55,7 @@ func pagerNode(pagerNode: ASPagerNode!, nodeBlockAtIndex index: Int) -> ASCellNo
 </div>
 </div>
 
-These two methods, just as with ASCollectionNode and ASTableNode need to return either an ASCellNode or an ASCellNodeBlock - a block that creates an `ASCellNode` and can be run on a background thread. 
+These two methods, just as with `ASCollectionNode` and `ASTableNode` need to return either an `ASCellNode` or an `ASCellNodeBlock` - a block that creates an `ASCellNode` and can be run on a background thread. 
 
 Note that neither methods should rely on cell reuse (they will be called once per row). Also, unlike UIKit, these methods are not called when the row is just about to display. 
 
@@ -102,7 +102,7 @@ func pagerNode(pagerNode: ASPagerNode!, nodeBlockAtIndex index: Int) -> ASCellNo
 
 ### Using an ASViewController For Optimal Performance
 
-One especially useful pattern is to return an ASCellNode that is initialized with an existing UIViewController or ASViewController. For optimal performance, use an ASViewController.
+One especially useful pattern is to return an `ASCellNode` that is initialized with an existing `UIViewController` or `ASViewController`. For optimal performance, use an `ASViewController`.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -143,7 +143,7 @@ In this example, you can see that the node is constructed using the `-initWithVi
 
 ### Sample Apps
 
-Check out the following sample apps to see an ASPagerNode in action:
+Check out the following sample apps to see an `ASPagerNode` in action:
 <ul>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/PagerNode">PagerNode</a></li>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/VerticalWithinHorizontalScrolling">VerticalWithinHorizontalScrolling</a></li>

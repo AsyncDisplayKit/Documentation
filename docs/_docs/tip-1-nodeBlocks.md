@@ -2,20 +2,20 @@
 
 AsyncDisplayKit’s `ASCollectionNode` replaces `UICollectionView`’s required method
 ```
-collectionView:cellForItemAtIndexPath:
+collectionNode:cellForItemAtIndexPath:
 ```
 with your choice of **one** of the two following methods 
 ```
 // called on main thread, ASCellNode initialized on main and then returned 
-collectionView:nodeForItemAtIndexPath:           
+collectionNode:nodeForItemAtIndexPath:           
 ```
 ```
 // called on main thread, ASCellNodeBlock returned, then
 // ASCellNode initialized in background when block is called by system
-collectionView:nodeBlockForItemAtIndexPath:  
+collectionNode:nodeBlockForItemAtIndexPath:  
 ```
 
-`ASTableNode` has the same options: `tableView:nodeForRow:` and `tableView:nodeBlockforRow:`. 
+`ASTableNode` has the same options: `tableNode:nodeForRow:` and `tableNode:nodeBlockforRow:`. 
 
 `ASPagerNode` does as well: `pagerNode:nodeAtIndex:` and `pagerNode:nodeBlockAtIndex:`.
 
@@ -33,7 +33,7 @@ The most important aspect to consider is accessing properties on self that may c
 
 Here's an example of a simple nodeBlock:
 ```
-- (ASCellNodeBlock)collectionView:(ASCollectionView *)collectionView nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath
+- (ASCellNodeBlock)collectionNode:(ASCollectionNode *)collectionNode nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // data model is accessed outside of the node block
     PIBoard *board = [self.boards objectAtIndex:indexPath.item];

@@ -49,6 +49,7 @@ func initWithModel(models: Array<Model>) {
     self.models = models
     
     self.tableNode = tableNode
+    self.tableNode.delegate = self
     self.tableNode.dataSource = self
     
     return self
