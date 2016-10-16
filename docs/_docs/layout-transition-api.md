@@ -13,7 +13,7 @@ With this system, you simply specify the desired layout and AsyncDisplayKit will
 There are also easy to use APIs that allow you to fully customize the starting position of newly introduced elements, as well as the ending position of removed elements. 
 
 <div class = "note">
-Use of <a href="implicit-hierarchy-mgmt.html">Implicit Hierarchy Management</a> is required to use the Layout Transition API.
+Use of <a href="automatic-subnode-mgmt.html">Automatic Subnode Management</a> is required to use the Layout Transition API.
 </div>
 
 ## Animating between Layouts
@@ -82,7 +82,7 @@ This method is called after the new layout has been calculated via `transitionLa
 </span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (void)animateLayoutTransition:(id<ASContextTransitioning>)context
+- (void)animateLayoutTransition:(id&lt;ASContextTransitioning&gt;)context
 {
   if (self.fieldState == SignupNodeName) {
     CGRect initialNameFrame = [context initialFrameForNode:self.ageField];
@@ -125,7 +125,7 @@ The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/Asyn
 
 It is imperative to call `completeTransition:` on the context object once your animation has finished, as it will perform the necessary internal steps for the newly calculated layout to become the current `calculatedLayout`.
 
-Note that there hasn't been a use of `addSubnode:` or `removeFromSupernode` during the transition. AsyncDisplayKit's layout transition API analyzes the differences in the node hierarchy between the old and new layout, implicitly performing node insertions and removals via <a href="implicit-hierarchy-management.html">Implicit Hierarchy Management</a>. 
+Note that there hasn't been a use of `addSubnode:` or `removeFromSupernode` during the transition. AsyncDisplayKit's layout transition API analyzes the differences in the node hierarchy between the old and new layout, implicitly performing node insertions and removals via <a href="automatic-subnode-mgmt.html">Automatic Subnode Management</a>. 
 
 Nodes are inserted before your implementation of `animateLayoutTransition:` is called and this is a good place to manually manage the hierarchy before you begin the animation. Removals are preformed in `didCompleteLayoutTransition:` after you call `completeTransition:` on the context object. If you need to manually perform deletions, override `didCompleteLayoutTransition:` and perform your custom operations. Note that this will override the default behavior and it is recommended to either call `super` or walk through the `removedSubnodes` getter in the context object to perform the cleanup.
 
@@ -137,7 +137,7 @@ Passing NO to `transitionLayoutWithAnimation:` will still run through your `anim
 </span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (void)animateLayoutTransition:(id<ASContextTransitioning>)context
+- (void)animateLayoutTransition:(id&lt;ASContextTransitioning&gt;)context
 {
   if ([context isAnimated]) {
     // perform animation
@@ -161,13 +161,17 @@ This method is similar to `transitionLayoutWithAnimation:`, but will not trigger
 </span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id&lt;UIViewControllerTransitionCoordinator&gt;)coordinator
 {
   [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+  [coordinator animateAlongsideTransition:^(id&lt;UIViewControllerTransitionCoordinatorContext&gt;  _Nonnull context) {
     [self.node transitionLayoutWithSizeRange:ASSizeRangeMake(size, size) animated:YES];
   } completion:nil];
 }
 </pre>
 </div>
 </div>
+
+## Examples that use the Layout Transition API
+
+- [ASDKLayoutTransition](https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKLayoutTransition)

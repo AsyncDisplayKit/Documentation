@@ -56,6 +56,10 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/dataSource">dataSource</option>
+		
+		<option value="//api/name/delegate">delegate</option>
+		
 		<option value="//api/name/view">view</option>
 		
 	</optgroup>
@@ -65,6 +69,10 @@
 
 	
 	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithCollectionViewLayout:">- initWithCollectionViewLayout:</option>
+		
+		<option value="//api/name/initWithFrame:collectionViewLayout:">- initWithFrame:collectionViewLayout:</option>
 		
 		<option value="//api/name/reloadData">- reloadData</option>
 		
@@ -103,6 +111,9 @@
 	<th>Inherits from</th>
 	<td><a href="../Classes/ASDisplayNode.html">ASDisplayNode</a> : ASDealloc2MainObject</td>
 </tr><tr>
+	<th>Conforms to</th>
+	<td>ASRangeControllerUpdateRangeProtocol</td>
+</tr><tr>
 	<th>Declared in</th>
 	<td>ASCollectionNode.h</td>
 </tr>
@@ -131,6 +142,127 @@ as a subnode of another node, and provide room for many (great) features and imp
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/initWithCollectionViewLayout:" title="initWithCollectionViewLayout:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithCollectionViewLayout:">&ndash;&nbsp;initWithCollectionViewLayout:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an ASCollectionNode</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithCollectionViewLayout:(UICollectionViewLayout *)<em>layout</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>layout</code></th>
+						<td><p>The layout object to use for organizing items. The collection view stores a strong reference to the specified object. Must not be nil.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes and returns a newly allocated collection node object with the specified layout.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithFrame:collectionViewLayout:" title="initWithFrame:collectionViewLayout:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithFrame:collectionViewLayout:">&ndash;&nbsp;initWithFrame:collectionViewLayout:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes an ASCollectionNode</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithFrame:(CGRect)<em>frame</em> collectionViewLayout:(UICollectionViewLayout *)<em>layout</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>frame</code></th>
+						<td><p>The frame rectangle for the collection view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This frame is passed to the superclass during initialization.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>layout</code></th>
+						<td><p>The layout object to use for organizing items. The collection view stores a strong reference to the specified object. Must not be nil.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Initializes and returns a newly allocated collection node object with the specified frame and layout.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/view" title="view"></a>
 	<h3 class="method-title"><code><a href="#//api/name/view">&nbsp;&nbsp;view</a></code>
 </h3>
@@ -142,12 +274,58 @@ as a subnode of another node, and provide room for many (great) features and imp
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns a view.</p>
+				<p>Returns the corresponding ASCollectionView</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (strong, nonatomic, readonly) ASCollectionView *view</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>view The corresponding ASCollectionView.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The object that acts as the asynchronous delegate of the collection view</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) id&lt;ASCollectionDelegate&gt; delegate</code></div>
 
 		    
 			
@@ -159,9 +337,9 @@ as a subnode of another node, and provide room for many (great) features and imp
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>The view property is lazily initialized, similar to UIViewController.
-To go the other direction, use ASViewToDisplayNode() in ASDisplayNodeExtras.h.</p><div class="warning"><p><strong>Warning:</strong> The first access to it must be on the main thread, and should only be used on the main thread thereafter as
-well.</p></div>
+				<p>The delegate must adopt the ASCollectionDelegate protocol. The collection view maintains a weak reference to the delegate object.</p>
+
+<p>The delegate object is responsible for providing size constraints for nodes and indicating whether batch fetching should begin.</p><div class="note"><p><strong>Note:</strong> This is a convenience method which sets the asyncDelegate on the collection node&rsquo;s collection view.</p></div>
 			</div>
 			
 
@@ -172,7 +350,55 @@ well.</p></div>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASDisplayNode.h</code></p>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dataSource" title="dataSource"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataSource">&nbsp;&nbsp;dataSource</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The object that acts as the asynchronous data source of the collection view</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (weak, nonatomic) id&lt;ASCollectionDataSource&gt; dataSource</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The datasource must adopt the ASCollectionDataSource protocol. The collection view maintains a weak reference to the datasource object.</p>
+
+<p>The datasource object is responsible for providing nodes or node creation blocks to the collection view.</p><div class="note"><p><strong>Note:</strong> This is a convenience method which sets the asyncDatasource on the collection node&rsquo;s collection view.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
 			</div>
 			
 			
@@ -437,7 +663,7 @@ well.</p></div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)reloadDataWithCompletion:(void ( ^ ) ( ))<em>completion</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)reloadDataWithCompletion:(nullable void ( ^ ) ( ))<em>completion</em></code></div>
 
 		    
 			
@@ -587,7 +813,7 @@ while all the cells load.</p></div>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

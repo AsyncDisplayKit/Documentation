@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASLayoutablePrivate Protocol Reference</title>
+	<title>ASLayoutElementStyle() Category Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -43,8 +43,6 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
 
 	
 	
@@ -56,19 +54,15 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/isFinalLayoutable">isFinalLayoutable</option>
+		<option value="//api/name/delegate">delegate</option>
+		
+		<option value="//api/name/size">size</option>
 		
 	</optgroup>
 	
 
 	
 
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/finalLayoutable">- finalLayoutable</option>
-		
-	</optgroup>
 	
 	
 </select>
@@ -83,30 +77,18 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASLayoutablePrivate Protocol Reference</h1>
+					<h1 class="title">ASLayoutElementStyle() Category Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
-	<th>Conforms to</th>
-	<td>NSObject</td>
-</tr><tr>
 	<th>Declared in</th>
-	<td>ASLayoutablePrivate.h</td>
+	<td>ASLayoutElementStylePrivate.h</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The base protocol for ASLayoutable. Generally the methods/properties in this class do not need to be
-called by the end user and are only called internally. However, there may be a case where the methods are useful.</p>
-					</div>
-					
-					
 
 					
 					
@@ -119,9 +101,9 @@ called by the end user and are only called internally. However, there may be a c
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/finalLayoutable" title="finalLayoutable"></a>
-	<h3 class="method-title"><code><a href="#//api/name/finalLayoutable">&ndash;&nbsp;finalLayoutable</a></code>
-<span class="task-item-suffix">required method</span></h3>
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -130,31 +112,25 @@ called by the end user and are only called internally. However, there may be a c
 			
 			
 			<div class="method-subsection brief-description">
-				<p>This method can be used to give the user a chance to wrap an ASLayoutable in an ASLayoutSpec
-just before it is added to a parent ASLayoutSpec. For example, if you wanted an ASTextNode that was always
-inside of an ASInsetLayoutSpec, you could subclass ASTextNode and implement finalLayoutable so that it wraps
-itself in an inset spec.</p>
-
-<p>Note that any ASLayoutable other than self that is returned MUST set isFinalLayoutable to YES. Make sure
-to do this BEFORE adding a child to the ASLayoutable.</p>
+				<p>The object that acts as the delegate of the style.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (id&lt;ASLayoutable&gt;)finalLayoutable</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nullable, nonatomic, weak) id&lt;ASLayoutElementStyleDelegate&gt; delegate</code></div>
 
 		    
 			
 
 			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>The layoutable that will be added to the parent layout spec. Defaults to self.</p>
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The delegate must adopt the ASLayoutElementStyleDelegate protocol. The delegate is not retained.</p>
 			</div>
-			
-
-			
-
 			
 
 			
@@ -164,16 +140,16 @@ to do this BEFORE adding a child to the ASLayoutable.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutablePrivate.h</code></p>
+				<p><code class="declared-in-ref">ASLayoutElementStylePrivate.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/isFinalLayoutable" title="isFinalLayoutable"></a>
-	<h3 class="method-title"><code><a href="#//api/name/isFinalLayoutable">&nbsp;&nbsp;isFinalLayoutable</a></code>
-<span class="task-item-suffix">required method</span></h3>
+	<a name="//api/name/size" title="size"></a>
+	<h3 class="method-title"><code><a href="#//api/name/size">&nbsp;&nbsp;size</a></code>
+</h3>
 
 	<div class="method-info">
 		<div class="pointy-thing"></div>
@@ -182,13 +158,12 @@ to do this BEFORE adding a child to the ASLayoutable.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A flag to indicate that this ASLayoutable was created in finalLayoutable. This MUST be set to YES
-before adding a child to this layoutable.</p>
+				<p>A size constraint that should apply to this ASLayoutElement.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL isFinalLayoutable</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) ASLayoutElementSize size</code></div>
 
 		    
 			
@@ -206,7 +181,7 @@ before adding a child to this layoutable.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutablePrivate.h</code></p>
+				<p><code class="declared-in-ref">ASLayoutElementStylePrivate.h</code></p>
 			</div>
 			
 			
@@ -227,7 +202,7 @@ before adding a child to this layoutable.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

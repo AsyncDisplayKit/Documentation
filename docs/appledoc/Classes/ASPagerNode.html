@@ -56,8 +56,6 @@
 		
 		<option value="//api/name/currentPageIndex">currentPageIndex</option>
 		
-		<option value="//api/name/delegate">delegate</option>
-		
 		<option value="//api/name/view">view</option>
 		
 	</optgroup>
@@ -68,6 +66,10 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/dataSource">- dataSource</option>
+		
+		<option value="//api/name/delegate">- delegate</option>
+		
 		<option value="//api/name/init">- init</option>
 		
 		<option value="//api/name/initWithCollectionViewLayout:">- initWithCollectionViewLayout:</option>
@@ -77,6 +79,8 @@
 		<option value="//api/name/scrollToPageAtIndex:animated:">- scrollToPageAtIndex:animated:</option>
 		
 		<option value="//api/name/setDataSource:">- setDataSource:</option>
+		
+		<option value="//api/name/setDelegate:">- setDelegate:</option>
 		
 	</optgroup>
 	
@@ -218,7 +222,97 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setDataSource:(id&lt;ASPagerDataSource&gt;)<em>dataSource</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setDataSource:(nullable id&lt;ASPagerDataSource&gt;)<em>dataSource</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASPagerNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dataSource" title="dataSource"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dataSource">&ndash;&nbsp;dataSource</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The object that acts as the asynchronous data source of the collection view</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable id&lt;ASPagerDataSource&gt;)dataSource</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The datasource must adopt the ASCollectionDataSource protocol. The collection view maintains a weak reference to the datasource object.</p>
+
+<p>The datasource object is responsible for providing nodes or node creation blocks to the collection view.</p><div class="note"><p><strong>Note:</strong> This is a convenience method which sets the asyncDatasource on the collection node&rsquo;s collection view.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setDelegate:" title="setDelegate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setDelegate:">&ndash;&nbsp;setDelegate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delegate is optional.
+This includes UIScrollViewDelegate as well as most methods from UICollectionViewDelegate, like willDisplay&hellip;</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setDelegate:(nullable id&lt;ASPagerDelegate&gt;)<em>delegate</em></code></div>
 
 		    
 			
@@ -244,7 +338,7 @@
 	</div>
 </div><div class="section-method">
 	<a name="//api/name/delegate" title="delegate"></a>
-	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&ndash;&nbsp;delegate</a></code>
 </h3>
 
 	<div class="method-info">
@@ -254,13 +348,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Delegate is optional, and uses the same protocol as ASCollectionNode.
-This includes UIScrollViewDelegate as well as most methods from UICollectionViewDelegate, like willDisplay&hellip;</p>
+				<p>The object that acts as the asynchronous delegate of the collection view</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ASPagerDelegate&gt; delegate</code></div>
+			<div class="method-subsection method-declaration"><code>- (nullable id&lt;ASPagerDelegate&gt;)delegate</code></div>
 
 		    
 			
@@ -269,6 +362,13 @@ This includes UIScrollViewDelegate as well as most methods from UICollectionView
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The delegate must adopt the ASCollectionDelegate protocol. The collection view maintains a weak reference to the delegate object.</p>
+
+<p>The delegate object is responsible for providing size constraints for nodes and indicating whether batch fetching should begin.</p><div class="note"><p><strong>Note:</strong> This is a convenience method which sets the asyncDelegate on the collection node&rsquo;s collection view.</p></div>
+			</div>
 			
 
 			
@@ -278,7 +378,7 @@ This includes UIScrollViewDelegate as well as most methods from UICollectionView
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASPagerNode.h</code></p>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
 			</div>
 			
 			
@@ -463,7 +563,7 @@ This includes UIScrollViewDelegate as well as most methods from UICollectionView
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -1,9 +1,9 @@
 - title: Quick Start
   items:
+  - upgrading
   - getting-started
   - resources
   - installation
-  - upgrading
 - title: Core Concepts
   items:
   - intelligent-preloading
@@ -34,13 +34,10 @@
   - multiplex-image-node
 - title: Layout
   items:
-  - automatic-layout-examples-2
-  - automatic-layout-basics
+  - layout2-conversion-guide
+  - layout2-quickstart
   - automatic-layout-containers
-  - automatic-layout-examples
-  - background-layout-spec
-  - layout-options
-  - layout-engine
+  - automatic-layout-examples-2
   - layout-api-debugging
   - layout-api-sizing
   - layout-transition-api

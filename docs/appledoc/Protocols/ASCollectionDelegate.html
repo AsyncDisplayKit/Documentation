@@ -60,11 +60,13 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/collectionView:constrainedSizeForNodeAtIndexPath:">- collectionView:constrainedSizeForNodeAtIndexPath:</option>
+		
 		<option value="//api/name/collectionView:didEndDisplayingNode:forItemAtIndexPath:">- collectionView:didEndDisplayingNode:forItemAtIndexPath:</option>
 		
-		<option value="//api/name/collectionView:didEndDisplayingNodeForItemAtIndexPath:">- collectionView:didEndDisplayingNodeForItemAtIndexPath:</option>
-		
 		<option value="//api/name/collectionView:willBeginBatchFetchWithContext:">- collectionView:willBeginBatchFetchWithContext:</option>
+		
+		<option value="//api/name/collectionView:willDisplayNode:forItemAtIndexPath:">- collectionView:willDisplayNode:forItemAtIndexPath:</option>
 		
 		<option value="//api/name/collectionView:willDisplayNodeForItemAtIndexPath:">- collectionView:willDisplayNodeForItemAtIndexPath:</option>
 		
@@ -120,8 +122,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/collectionView:willDisplayNodeForItemAtIndexPath:" title="collectionView:willDisplayNodeForItemAtIndexPath:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/collectionView:willDisplayNodeForItemAtIndexPath:">&ndash;&nbsp;collectionView:willDisplayNodeForItemAtIndexPath:</a></code>
+	<a name="//api/name/collectionView:constrainedSizeForNodeAtIndexPath:" title="collectionView:constrainedSizeForNodeAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/collectionView:constrainedSizeForNodeAtIndexPath:">&ndash;&nbsp;collectionView:constrainedSizeForNodeAtIndexPath:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -131,13 +133,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Informs the delegate that the collection view will add the node
-at the given index path to the view hierarchy.</p>
+				<p>Provides the constrained size range for measuring the node at the index path.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)collectionView:(ASCollectionView *)<em>collectionView</em> willDisplayNodeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (ASSizeRange)collectionView:(ASCollectionView *)<em>collectionView</em> constrainedSizeForNodeAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
 
 		    
 			
@@ -148,6 +149,75 @@ at the given index path to the view hierarchy.</p>
 					<tr>
 						<th scope="row" class="argument-name"><code>collectionView</code></th>
 						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the node.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A constrained size range for layout the node at this index path.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionView.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/collectionView:willDisplayNode:forItemAtIndexPath:" title="collectionView:willDisplayNode:forItemAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/collectionView:willDisplayNode:forItemAtIndexPath:">&ndash;&nbsp;collectionView:willDisplayNode:forItemAtIndexPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Informs the delegate that the collection view will add the given node
+at the given index path to the view hierarchy.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)collectionView:(ASCollectionView *)<em>collectionView</em> willDisplayNode:(ASCellNode *)<em>node</em> forItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>collectionView</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>node</code></th>
+						<td><p>The node that will be displayed.</p></td>
 					</tr>
 				
 					<tr>
@@ -388,8 +458,8 @@ should occur.</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/collectionView:didEndDisplayingNodeForItemAtIndexPath:" title="collectionView:didEndDisplayingNodeForItemAtIndexPath:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/collectionView:didEndDisplayingNodeForItemAtIndexPath:">&ndash;&nbsp;collectionView:didEndDisplayingNodeForItemAtIndexPath:</a></code>
+	<a name="//api/name/collectionView:willDisplayNodeForItemAtIndexPath:" title="collectionView:willDisplayNodeForItemAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/collectionView:willDisplayNodeForItemAtIndexPath:">&ndash;&nbsp;collectionView:willDisplayNodeForItemAtIndexPath:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -399,15 +469,32 @@ should occur.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Informs the delegate that the collection view did remove the node which was previously
-at the given index path from the view hierarchy.</p>
+				<p>Informs the delegate that the collection view will add the node
+at the given index path to the view hierarchy.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)collectionView:(ASCollectionView *)<em>collectionView</em> didEndDisplayingNodeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)collectionView:(ASCollectionView *)<em>collectionView</em> willDisplayNodeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
 
 		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>collectionView</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the item that will be displayed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
 			
 
 			
@@ -421,7 +508,7 @@ at the given index path from the view hierarchy.</p>
 passed into this method may not correspond to the same item in your data source
 if your data source has been updated since the last edit was processed.</p>
 
-<p>This method is deprecated. Use @c collectionView:didEndDisplayingNode:forItemAtIndexPath: instead.</p></div>
+<p>This method is deprecated. Use @c collectionView:willDisplayNode:forItemAtIndexPath: instead.</p></div>
 			</div>
 			
 
@@ -453,7 +540,7 @@ if your data source has been updated since the last edit was processed.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-07-11</p>
+						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
