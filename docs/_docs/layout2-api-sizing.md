@@ -6,137 +6,161 @@ permalink: /docs/layout2-api-sizing.html
 
 The easiest way to understand the compound dimension types in the Layout API is to see all the units in relation to one another.
 
-<table style="width:100%" class = "paddingBetweenCols">
-  <tr>
-    <th></th>
-    <th>Pts.</th>
-    <th>Pts. or %</th> 
-    <th></th> 
-  </tr>
-  <tr>
-    <td>value</td>
-    <td>CGFloat</td>
-    <td>ASDimension</td>
-    <td>{type, value}</td>
-  </tr>
-  <tr>
-    <td>{width,height}</td>
-    <td>CGSize</td>
-    <td>ASRelativeSize</td>
-    <td>{width,height}.{type,value}</td>
-  </tr>
-  <tr>
-    <td>{min,max}.{width,height}</td>
-    <td>ASSizeRange</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+<img src="/static/images/layout2-api-sizing.png">
 
-## Values  (CGFloat, ASDimension)
+## Values (`CGFloat`, `ASDimension`)
 <br>
-`ASDimension` is essentially a normal **CGFloat with support for representing either a point value, or a % value**.  It allows the same API to take in both fixed values, as well as relative ones.
+`ASDimension` is essentially a **normal CGFloat with support for representing either a point value, a relative percentage value, or an auto value**.  
 
-ASDimension is used to set the `flexBasis` property on a child of an `ASStackLayoutSpec`.  The flexBasis property specifies the initial size in the stack dimension for this object, where the stack dimension is whether it is a horizontal or vertical stack.  
+This unit allows the same API to take in both fixed values, as well as relative ones.
 
-When a relative (%) value is used, it is resolved against the size of the parent.  For example, an item with 50% flexBasis will ultimately have a point value set on it at the time that the stack achieves a concrete size.
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+<b>// dimension returned is relative (%)</b>
+ASDimensionMake(@"50%");  
+ASDimensionMakeWithFraction(0.5);
 
-<div class = "note">
-Note that .flexBasis can be set on any &lt;ASLayoutable&gt; (a node, or a layout spec), but will only take effect if that element is added as a child of a <i>stack</i> layout spec. This container-dependence of layoutable properties is a key area we’re working on clarifying.
+<b>// dimension returned in points</b>
+ASDimensionMake(@"70pt")
+ASDimensionMake(70);      
+ASDimensionMakeWithPoints(70);
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
 </div>
 
-### Constructing ASDimensions
-<br>
-`ASDimension.h` contains 3 convenience functions to construct an `ASDimension`.  It is easiest to use function that corresponds to the type (top 2 functions).
+### Example using `ASDimension`
 
-``` 
-    ASRelativeDimensionMakeWithPoints(CGFloat points);
-    ASRelativeDimensionMakeWithPercent(CGFloat percent);
-    ASRelativeDimensionMake(ASRelativeDimensionType type, CGFloat value);
-```
-### ASRelativeDimension Example
-<br>
-`PIPlaceSingleDetailNode` uses flexBasis to set 2 child nodes of a horizontal stack to share the width 40 / 60:
+`ASDimension` is used to set the `flexBasis` property on a child of an `ASStackLayoutSpec`.  The `flexBasis` property specifies an object's initial size in the stack dimension, where the stack dimension is whether it is a horizontal or vertical stack.
 
-```
-    leftSideStack.flexBasis = ASRelativeDimensionMakeWithPercent(0.4f);
-    self.detailLabel.flexBasis  = ASRelativeDimensionMakeWithPercent(0.6f);
-    [horizontalStack setChildren:@[leftSideStack, self.detailLabel]];
-```
+In the following view, we want the left stack to occupy `40%` of the horizontal width and the right stack to occupy `60%` of the width. 
 
 <img src="/static/images/flexbasis.png" width="40%" height="40%">
 
-## Sizes (CGSize,  ASRelativeSize)
-<br>
-`ASRelativeSize` is **similar to a CGSize, but its width and height may represent either a point or percent value.**  In fact, their unit type may even be different from one another. ASRelativeSize doesn't have a direct use in the Layout API, except to construct an ASRelativeSizeRange.
+We do this by setting the `.flexBasis` property on the two childen of the horizontal stack:
 
-- an ASRelativeSize consists of a `.width` and `.height` that are each `ASRelativeDimensions`. 
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+self.leftStack.style.flexBasis = ASDimensionMake(@"40%");
+self.rightStack.style.flexBasis = ASDimensionMake(@"60%");
 
-- the type of the width and height are independent; either one individually, or both, may be a point or percent value. (e.g. you could specify that an ASRelativeSize that has a height in points, but a variable % width)
-
-### Constructing ASRelativeSizes
-<br>
-`ASRelativeSize.h` contains 2 convenience functions to construct an `ASRelativeSize`.  **If you don't need to support relative (%) values, you can construct an ASRelativeSize with just a CGSize.**
-
-``` 
-    ASRelativeSizeMake(ASRelativeDimension width, ASRelativeDimension height);
-    ASRelativeSizeMakeWithCGSize(CGSize size);
-```
-## Size Ranges (ASSizeRange, ASRelativeSizeRange)
-
-Because the layout spec system allows flexibility with elements growing and shrinking, we sometimes need to provide limits / boundaries to its flexibility.
-
-There are two size range types, but in essence, both contain a minimum and maximum size and that are used to influence the result of layout measurements.
-
-In the Pinterest code base, the **minimum size seems to be only necessary for stack specs in order to determine how much space to fill in between the children.**  For example, with buttons in a nav bar, we don’t want them to stack as closely together as they can fit — rather a minimum width, as wide as the screen, is specified and causes the stack to add spacing to satisfy that constraint.
-
-**It’s much more common that the “max” constraint is what matters, though.**  This is the case when text is wrapping or truncating - it’s encountering the maximum allowed width.  Setting a minimum width for text doesn’t actually do anything—the text can’t be made longer—unless it’s in a stack, and spacing is added around it.
-
-### ASSizeRange
-<br>
-UIKit doesn't provide a structure to bundle a minimum and maximum CGSize.  So `ASSizeRange` was created to support **a minimum and maximum CGSize pair**. 
-
-The `constrainedSize` that is passed as an input to `layoutSpecThatFits:` is an ASSizeRange. 
-
-```
-    - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize;
-```
-
-### ASRelativeSizeRange
-<br>
-`ASRelativeSizeRange` is essentially **a minimum and maximum size pair, that are used to constrain the size of a layout object.**  The minimum and maximum sizes must **support both point and relative sizes**, which is where our friend the ASRelativeSize comes in.  Hence, an ASRelativeSizeRange consists of a minimum and maximum `ASRelativeSize`. 
-
-ASRelativeSizeRange is used to set the `sizeRange` property on a child of an `ASStaticLayoutSpec`.  If specified, the child's size is restricted according to this size.  
-
-<div class = "note">
-Note that .sizeRange can be set on any &ltASLayoutable&gt (a node, or a layout spec), but will only take effect if that element is added as a child of a <i>static</i> layout spec. This container-dependence of layoutable properties is a key area we’re working on clarifying.
+[horizontalStack setChildren:@[self.leftStack, self.rightStack]];
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
 </div>
 
-### ASSizeRange vs. ASRelativeSizeRange
+## Sizes (`CGSize`, `ASLayoutSize`)
+
+`ASLayoutSize` is similar to a `CGSize`, but its **width and height values may represent either a point or percent value**. The type of the width and height are independent; either one may be a point or percent value.
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+ASLayoutSizeMake(ASDimension width, ASDimension height);
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
+</div>
+
 <br>
-Why do we pass a `ASSizeRange *constrainedSize` to a node's `layoutSpecThatFits:` function, but a `ASRelativeSizeRange` for the `.sizeRange` property on an element provided as a child of a layout spec?
+`ASLayoutSize` is used for setting a layout element's `.preferredLayoutSize`, `.minLayoutSize` and `.maxLayoutSize` properties. It allows the same API to take in both fixed sizes, as well as relative ones.
 
- It’s pretty rare that you need the percent feature for a .sizeRange feature, but it’s there to make the API as flexible as possible. The input value of the constrainedSize that comes into the argument, has already been resolved by the parent’s size. It may have been influenced by a percent type, but has always be converted by that point into points. 
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+// Dimension type "Auto" indicates that the layout element may 
+// be resolved in whatever way makes most sense given the circumstances
+ASDimension width = ASDimensionMake(ASDimensionUnitAuto, 0);  
+ASDimension height = ASDimensionMake(@"50%");
 
-### Constructing ASRelativeSizeRange
+layoutElement.style.preferredLayoutSize = ASLayoutSizeMake(width, height);
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
+</div>
+
 <br>
-`ASRelativeSize.h` contains 4 convenience functions to construct an `ASRelativeSizeRange` from the various smaller units.  
+If you do not need relative values, you can set the layout element's `.preferredSize`, `.minSize` and `.maxSize` properties. The properties take regular `CGSize` values. 
 
-- Percentage and point values can be combined. E.g. you could specify that an object is a certain height in points, but a variable percentage width. 
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+layoutElement.style.preferredSize = CGSizeMake(30, 160);
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
+</div>
 
-- If you only care to constrain the min / max or width / height, you can pass in CGFLOAT_MIN, CGFLOAT_MAX, constrainedSize.max.width, etc
-
-Most of the time, relative values are not needed for a size range _and_ the design requires an object to be forced to a particular size (min size = max size = no range). In this common case, you can use:
-
-```
-    ASRelativeSizeRangeMakeWithExactCGSize(CGSize exact);
-```
-
-## Sizing Conclusion
 <br>
-Here we have our original table, which has been annotated to show the uses of the various units in the Layout API.
+Most of the time, you won't want to constrain both width and height. In these cases, you can individually set a layout element's size properties using `ASDimension` values.
 
-<img src="/static/images/layout-api-sizing-2.png">
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+layoutElement.style.width     = ASDimensionMake(@"50%");
+layoutElement.style.minWidth  = ASDimensionMake(@"50%");
+layoutElement.style.maxWidth  = ASDimensionMake(@"50%");
 
-It’s worth noting that that there’s a certain flexibility to be able to use so many powerful options with a single API - flexBasis and sizeRange can be used to set points and percentages in different directions. However, since the majority of do not use the full set of options, we should adjust the API so that the powerful capabilities are a slightly more hidden.
+layoutElement.style.height    = ASDimensionMake(@"50%");
+layoutElement.style.minHeight = ASDimensionMake(@"50%");
+layoutElement.style.maxHeight = ASDimensionMake(@"50%");
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
+</div>
 
+## Size Range (`ASSizeRange`)
+
+`UIKit` doesn't provide a structure to bundle a minimum and maximum `CGSize`. So, `ASSizeRange` was created to support **a minimum and maximum CGSize pair**. 
+
+`ASSizeRange` is used mostly in the internals of the layout API. However, the `constrainedSize` value passed as an input to `layoutSpecThatFits:` is an `ASSizeRange`.  
+   
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+</pre>
+</div>
+</div>
+
+<br>
+The `constrainedSize` passed to an `ASDisplayNode` subclass' `layoutSpecThatFits:` method is the minimum and maximum sizes that the node should fit in. The minimum and maximum `CGSize`s contained in `constrainedSize` can be used to size the node's layout elements.
