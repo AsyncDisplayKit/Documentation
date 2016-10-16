@@ -171,3 +171,7 @@ This method is similar to `transitionLayoutWithAnimation:`, but will not trigger
 </pre>
 </div>
 </div>
+
+## Examples that use the Layout Transition API
+
+- [ASDKLayoutTransition](https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKLayoutTransition)
