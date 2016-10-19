@@ -52,9 +52,9 @@ Collection / Table API Resources:
 
 The new method names are meant to unify the range update methods to show how they relate to each other & be a bit more self-explanatory:
 
-- `didEnter/ExitPreloadState`
-- `didEnter/ExitDisplayState`
-- `didEnter/ExitVisibleState`
+- `didEnterPreloadState / didExitPreloadState`
+- `didEnterDisplayStat / didExitDisplayState`
+- `didEnterVisibleState / didExitVisibleState`
 
 These new methods replace the following:
 
