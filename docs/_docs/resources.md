@@ -17,6 +17,8 @@ If you are new to AsyncDisplayKit, we recommend that you start with the <a href=
 
 ### Videos
 <ul>
+  <li>"
+Layout at Scale with AsyncDisplayKit 2" video coming soon! <a href = "https://speakerdeck.com/stillmotion/layout-at-scale-with-asyncdisplaykit-2">slides</a> [NSMeetup 2016]
   <li><a href = "https://youtu.be/yuDqvE5n_1g">ASCollectionNode</a> [Pinterest HQ 2016]
   <li><a href = "https://www.youtube.com/watch?v=8ngXakpE2x8">AsyncDisplayKit State of the Code</a> [WWDC 2016]
   <li><a href = "https://www.youtube.com/watch?v=RY_X7l1g79Q">AsyncDisplayKit 2.0: Intelligent User Interfaces</a> [NSSpain 2015]
