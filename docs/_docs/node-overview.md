@@ -44,7 +44,7 @@ A key advantage of using nodes over UIKit components is that **all nodes preform
   </tr>
   <tr>
     <td><a href = "video-node.html"><code>ASVideoNode</code></a><br>
-        <code>ASVideoPlayerNode</code></a></td>
+        <code>ASVideoPlayerNode</code></td>
     <td>in place of UIKit's <code>AVPlayerLayer</code><br>
         in place of UIKit's <code>UIMoviePlayer</code></td> 
   </tr>
