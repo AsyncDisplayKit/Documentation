@@ -217,8 +217,8 @@ Of all the layoutSpecs in ASDK,  ASStackLayoutSpec is probably the most useful a
 
 Flexbox works the same way in AsyncDisplayKit as it does in CSS on the web, with a few exceptions. The defaults are different, there is no `flex` parameter and `flexGrow` and `flexShrink` only supports a boolean value.
 
-## ASStaticLayoutSpec: Absolute Container
-Within `ASStaticLayoutSpec` you can specify exact locations (x/y coordinates) of its layoutable children by setting the `layoutPosition` property. Absolute layouts are less flexible and harder to maintain than other types of layouts without absolute positioning.
+## ASAbsoluteLayoutSpec: Absolute Container
+Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) of its layoutable children by setting the `layoutPosition` property. Absolute layouts are less flexible and harder to maintain than other types of layouts without absolute positioning.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -242,7 +242,7 @@ Within `ASStaticLayoutSpec` you can specify exact locations (x/y coordinates) of
   hlsVideoNode.layoutPosition = CGPointMake(0.0, maxConstrainedSize.height / 3.0);
   hlsVideoNode.size = ASSizeMakeFromCGSize(CGSizeMake(maxConstrainedSize.width / 2.0, maxConstrainedSize.height / 3.0));
 
-  return [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[guitarVideoNode, nicCageVideoNode, simonVideoNode, hlsVideoNode]];
+  return [ASAbsoluteLayoutSpec absoluteLayoutSpecWithChildren:@[guitarVideoNode, nicCageVideoNode, simonVideoNode, hlsVideoNode]];
 }
 </pre>
 

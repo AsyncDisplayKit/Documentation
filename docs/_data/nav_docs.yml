@@ -36,9 +36,8 @@
   items:
   - layout2-conversion-guide
   - layout2-quickstart
-  - automatic-layout-containers
+  - layout2-layoutspec-types
   - automatic-layout-examples-2
-  - layout-api-debugging
   - layout2-api-sizing
   - layout-transition-api
 - title: Conveniences
