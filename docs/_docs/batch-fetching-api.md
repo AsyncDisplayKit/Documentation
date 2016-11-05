@@ -119,7 +119,7 @@ This is where you should actually fetch data, be it from a web API or some local
   _stillDataToFetch = ...;
 
   // Properly finish the batch fetch
-  [context completeBatchFetching:YES]
+  [context completeBatchFetching:YES];
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
