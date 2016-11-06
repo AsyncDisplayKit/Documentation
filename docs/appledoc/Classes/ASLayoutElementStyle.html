@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AsyncDisplayKit </a>
+				<a href="../index.html">  </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Facebook</a>
+				<a href="../index.html">AsyncDisplayKit</a>
 			</p>
 			
 		</div>
@@ -54,27 +54,13 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/alignSelf">alignSelf</option>
-		
-		<option value="//api/name/ascender">ascender</option>
-		
 		<option value="//api/name/delegate">delegate</option>
-		
-		<option value="//api/name/descender">descender</option>
-		
-		<option value="//api/name/flexBasis">flexBasis</option>
-		
-		<option value="//api/name/flexGrow">flexGrow</option>
-		
-		<option value="//api/name/flexShrink">flexShrink</option>
 		
 		<option value="//api/name/height">height</option>
 		
-		<option value="//api/name/layoutPosition">layoutPosition</option>
-		
 		<option value="//api/name/maxHeight">maxHeight</option>
 		
-		<option value="//api/name/maxRelativeSize">maxRelativeSize</option>
+		<option value="//api/name/maxLayoutSize">maxLayoutSize</option>
 		
 		<option value="//api/name/maxSize">maxSize</option>
 		
@@ -82,19 +68,15 @@
 		
 		<option value="//api/name/minHeight">minHeight</option>
 		
-		<option value="//api/name/minRelativeSize">minRelativeSize</option>
+		<option value="//api/name/minLayoutSize">minLayoutSize</option>
 		
 		<option value="//api/name/minSize">minSize</option>
 		
 		<option value="//api/name/minWidth">minWidth</option>
 		
-		<option value="//api/name/preferredRelativeSize">preferredRelativeSize</option>
+		<option value="//api/name/preferredLayoutSize">preferredLayoutSize</option>
 		
 		<option value="//api/name/preferredSize">preferredSize</option>
-		
-		<option value="//api/name/spacingAfter">spacingAfter</option>
-		
-		<option value="//api/name/spacingBefore">spacingBefore</option>
 		
 		<option value="//api/name/width">width</option>
 		
@@ -532,10 +514,10 @@ provided, the layout element’s size will default to it’s intrinsic content s
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<p>This method is optional, but one of either preferredSize or preferredRelativeSize is required
+				<p>This method is optional, but one of either preferredSize or preferredLayoutSize is required
 for nodes that either have no intrinsic content size or
 should be laid out at a different size than its intrinsic content size. For example, this property could be
-set on an ASImageNode to display at a size different from the underlying image size.</p>
+set on an ASImageNode to display at a size different from the underlying image size.</p><div class="warning"><p><strong>Warning:</strong> Calling the getter when the size&rsquo;s width or height are relative will cause an assert.</p></div>
 			</div>
 			
 
@@ -653,8 +635,8 @@ since 160 pts is higher than the maximum width of 120 pts, the maximum width wou
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/preferredRelativeSize" title="preferredRelativeSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/preferredRelativeSize">&nbsp;&nbsp;preferredRelativeSize</a></code>
+	<a name="//api/name/preferredLayoutSize" title="preferredLayoutSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/preferredLayoutSize">&nbsp;&nbsp;preferredLayoutSize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -664,16 +646,16 @@ since 160 pts is higher than the maximum width of 120 pts, the maximum width wou
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Provides a suggested RELATIVE size for a layout element. An ASRelativeSize uses percentages rather
-than points to specify layout. E.g. width should be 50% of the parent’s width. If the optional minRelativeSize or
-maxRelativeSize are provided, and the preferredRelativeSize exceeds these, the minRelativeSize or maxRelativeSize
+				<p>Provides a suggested RELATIVE size for a layout element. An ASLayoutSize uses percentages rather
+than points to specify layout. E.g. width should be 50% of the parent’s width. If the optional minLayoutSize or
+maxLayoutSize are provided, and the preferredLayoutSize exceeds these, the minLayoutSize or maxLayoutSize
 will be enforced. If this optional value is not provided, the layout element’s size will default to its intrinsic content size
 provided calculateSizeThatFits:</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASRelativeSize preferredRelativeSize</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASLayoutSize preferredLayoutSize</code></div>
 
 		    
 			
@@ -698,8 +680,8 @@ provided calculateSizeThatFits:</p>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/minRelativeSize" title="minRelativeSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/minRelativeSize">&nbsp;&nbsp;minRelativeSize</a></code>
+	<a name="//api/name/minLayoutSize" title="minLayoutSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minLayoutSize">&nbsp;&nbsp;minLayoutSize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -716,7 +698,7 @@ relative size, the child’s minimum relative size will be enforced and its size
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASRelativeSize minRelativeSize</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASLayoutSize minLayoutSize</code></div>
 
 		    
 			
@@ -741,8 +723,8 @@ relative size, the child’s minimum relative size will be enforced and its size
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/maxRelativeSize" title="maxRelativeSize"></a>
-	<h3 class="method-title"><code><a href="#//api/name/maxRelativeSize">&nbsp;&nbsp;maxRelativeSize</a></code>
+	<a name="//api/name/maxLayoutSize" title="maxLayoutSize"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maxLayoutSize">&nbsp;&nbsp;maxLayoutSize</a></code>
 </h3>
 
 	<div class="method-info">
@@ -759,385 +741,7 @@ relative size, the child’s maximum relative size will be enforced and its size
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASRelativeSize maxRelativeSize</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/spacingBefore" title="spacingBefore"></a>
-	<h3 class="method-title"><code><a href="#//api/name/spacingBefore">&nbsp;&nbsp;spacingBefore</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Additional space to place before this object in the stacking direction.
-Used when attached to a stack layout.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat spacingBefore</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/spacingAfter" title="spacingAfter"></a>
-	<h3 class="method-title"><code><a href="#//api/name/spacingAfter">&nbsp;&nbsp;spacingAfter</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Additional space to place after this object in the stacking direction.
-Used when attached to a stack layout.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat spacingAfter</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/flexGrow" title="flexGrow"></a>
-	<h3 class="method-title"><code><a href="#//api/name/flexGrow">&nbsp;&nbsp;flexGrow</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If the sum of childrens' stack dimensions is less than the minimum size, how much should this component grow?
-This value represents the &ldquo;flex grow factor&rdquo; and determines how much this component should grow in relation to any
-other flexible children.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat flexGrow</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/flexShrink" title="flexShrink"></a>
-	<h3 class="method-title"><code><a href="#//api/name/flexShrink">&nbsp;&nbsp;flexShrink</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>If the sum of childrens' stack dimensions is greater than the maximum size, how much should this component shrink?
-This value represents the &ldquo;flex shrink factor&rdquo; and determines how much this component should shink in relation to
-other flexible children.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat flexShrink</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/flexBasis" title="flexBasis"></a>
-	<h3 class="method-title"><code><a href="#//api/name/flexBasis">&nbsp;&nbsp;flexBasis</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Specifies the initial size in the stack dimension for this object.
-Default to ASDimensionAuto
-Used when attached to a stack layout.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) ASDimension flexBasis</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/alignSelf" title="alignSelf"></a>
-	<h3 class="method-title"><code><a href="#//api/name/alignSelf">&nbsp;&nbsp;alignSelf</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Orientation of the object along cross axis, overriding alignItems
-Used when attached to a stack layout.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) ASStackLayoutAlignSelf alignSelf</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/ascender" title="ascender"></a>
-	<h3 class="method-title"><code><a href="#//api/name/ascender">&nbsp;&nbsp;ascender</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Used for baseline alignment. The distance from the top of the object to its baseline.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat ascender</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/descender" title="descender"></a>
-	<h3 class="method-title"><code><a href="#//api/name/descender">&nbsp;&nbsp;descender</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Used for baseline alignment. The distance from the baseline of the object to its bottom.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat descender</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayoutElement.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/layoutPosition" title="layoutPosition"></a>
-	<h3 class="method-title"><code><a href="#//api/name/layoutPosition">&nbsp;&nbsp;layoutPosition</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The position of this object within its parent spec.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGPoint layoutPosition</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) ASLayoutSize maxLayoutSize</code></div>
 
 		    
 			
@@ -1176,7 +780,7 @@ Used when attached to a stack layout.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
+						<p class="copyright">Copyright &copy; 2016 AsyncDisplayKit. All rights reserved. Updated: 2016-11-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

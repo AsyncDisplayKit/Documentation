@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AsyncDisplayKit </a>
+				<a href="../index.html">  </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Facebook</a>
+				<a href="../index.html">AsyncDisplayKit</a>
 			</p>
 			
 		</div>
@@ -64,7 +64,15 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/_initWithFrame:style:dataControllerClass:ownedByNode:">- _initWithFrame:style:dataControllerClass:ownedByNode:</option>
+		<option value="//api/name/_initWithFrame:style:dataControllerClass:">- _initWithFrame:style:dataControllerClass:</option>
+		
+		<option value="//api/name/convertIndexPathFromTableNode:waitingIfNeeded:">- convertIndexPathFromTableNode:waitingIfNeeded:</option>
+		
+		<option value="//api/name/convertIndexPathToTableNode:">- convertIndexPathToTableNode:</option>
+		
+		<option value="//api/name/convertIndexPathsToTableNode:">- convertIndexPathsToTableNode:</option>
+		
+		<option value="//api/name/sectionIndexWidth">- sectionIndexWidth</option>
 		
 	</optgroup>
 	
@@ -105,8 +113,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/_initWithFrame:style:dataControllerClass:ownedByNode:" title="_initWithFrame:style:dataControllerClass:ownedByNode:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/_initWithFrame:style:dataControllerClass:ownedByNode:">&ndash;&nbsp;_initWithFrame:style:dataControllerClass:ownedByNode:</a></code>
+	<a name="//api/name/_initWithFrame:style:dataControllerClass:" title="_initWithFrame:style:dataControllerClass:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/_initWithFrame:style:dataControllerClass:">&ndash;&nbsp;_initWithFrame:style:dataControllerClass:</a></code>
 </h3>
 
 	<div class="method-info">
@@ -121,7 +129,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (instancetype)_initWithFrame:(CGRect)<em>frame</em> style:(UITableViewStyle)<em>style</em> dataControllerClass:(Class)<em>dataControllerClass</em> ownedByNode:(BOOL)<em>ownedByNode</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (instancetype)_initWithFrame:(CGRect)<em>frame</em> style:(UITableViewStyle)<em>style</em> dataControllerClass:(Class)<em>dataControllerClass</em></code></div>
 
 		    
 			
@@ -143,11 +151,6 @@ The frame of the table view changes as table cells are added and deleted.</p></t
 					<tr>
 						<th scope="row" class="argument-name"><code>dataControllerClass</code></th>
 						<td><p>A controller class injected to and used to create a data controller for the table view.</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>ownedByNode</code></th>
-						<td><p>Indicates whether the tableView is owned by an ASTableNode.</p></td>
 					</tr>
 				
 				</table>
@@ -214,6 +217,211 @@ The frame of the table view changes as table cells are added and deleted.</p></t
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/convertIndexPathFromTableNode:waitingIfNeeded:" title="convertIndexPathFromTableNode:waitingIfNeeded:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/convertIndexPathFromTableNode:waitingIfNeeded:">&ndash;&nbsp;convertIndexPathFromTableNode:waitingIfNeeded:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempt to get the view-layer index path for the row with the given index path.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSIndexPath *)convertIndexPathFromTableNode:(NSIndexPath *)<em>indexPath</em> waitingIfNeeded:(BOOL)<em>wait</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the row.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>wait</code></th>
+						<td><p>If the item hasn&rsquo;t reached the view yet, this attempts to wait for updates to commit.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableViewInternal.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/convertIndexPathToTableNode:" title="convertIndexPathToTableNode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/convertIndexPathToTableNode:">&ndash;&nbsp;convertIndexPathToTableNode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempt to get the node index path given the view-layer index path.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSIndexPath *)convertIndexPathToTableNode:(NSIndexPath *)<em>indexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the row.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableViewInternal.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/convertIndexPathsToTableNode:" title="convertIndexPathsToTableNode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/convertIndexPathsToTableNode:">&ndash;&nbsp;convertIndexPathsToTableNode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempt to get the node index paths given the view-layer index paths.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSArray&lt;NSIndexPath*&gt; *)convertIndexPathsToTableNode:(NSArray&lt;NSIndexPath*&gt; *)<em>indexPaths</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPaths</code></th>
+						<td><p>An array of index paths in the view space</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableViewInternal.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sectionIndexWidth" title="sectionIndexWidth"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sectionIndexWidth">&ndash;&nbsp;sectionIndexWidth</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the width of the section index view on the right-hand side of the table, if one is present.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (CGFloat)sectionIndexWidth</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableViewInternal.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -229,7 +437,7 @@ The frame of the table view changes as table cells are added and deleted.</p></t
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
+						<p class="copyright">Copyright &copy; 2016 AsyncDisplayKit. All rights reserved. Updated: 2016-11-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

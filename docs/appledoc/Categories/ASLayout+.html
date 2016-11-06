@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASLayout(Debugging) Category Reference</title>
+	<title>ASLayout() Category Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -52,15 +52,15 @@
 
 	
 	
-
-	
-
-	
-	<optgroup label="Instance Methods">
+	<optgroup label="Properties">
 		
-		<option value="//api/name/recursiveDescription">- recursiveDescription</option>
+		<option value="//api/name/position">position</option>
 		
 	</optgroup>
+	
+
+	
+
 	
 	
 </select>
@@ -75,13 +75,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASLayout(Debugging) Category Reference</h1>
+					<h1 class="title">ASLayout() Category Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>ASLayout.h</td>
+	<td>ASLayoutSpec+Subclasses.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -99,8 +99,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/recursiveDescription" title="recursiveDescription"></a>
-	<h3 class="method-title"><code><a href="#//api/name/recursiveDescription">&ndash;&nbsp;recursiveDescription</a></code>
+	<a name="//api/name/position" title="position"></a>
+	<h3 class="method-title"><code><a href="#//api/name/position">&nbsp;&nbsp;position</a></code>
 </h3>
 
 	<div class="method-info">
@@ -110,12 +110,12 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Recrusively output the description of the layout tree.</p>
+				<p>Position in parent. Default to CGPointNull.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSString *)recursiveDescription</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readwrite) CGPoint position</code></div>
 
 		    
 			
@@ -124,6 +124,11 @@
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>When being used as a sublayout, this property must not equal CGPointNull.</p>
+			</div>
 			
 
 			
@@ -133,7 +138,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayout.h</code></p>
+				<p><code class="declared-in-ref">ASLayoutSpec+Subclasses.h</code></p>
 			</div>
 			
 			

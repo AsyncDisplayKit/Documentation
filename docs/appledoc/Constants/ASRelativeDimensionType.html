@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASLayoutElementType Constants Reference</title>
+	<title>ASRelativeDimensionType Constants Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -59,13 +59,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASLayoutElementType Constants Reference</h1>
+					<h1 class="title">ASRelativeDimensionType Constants Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>ASLayoutElement.h</td>
+	<td>ASDimension.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -75,11 +75,18 @@
 					
 
                     
-                    <h3 class="subsubtitle method-title">ASLayoutElementType</h3>
+                    <h3 class="subsubtitle method-title">ASRelativeDimensionType</h3>
                     
 					
 					<div class="section section-overview">
-                        <p>Type of ASLayoutElement</p>
+                        <p>A dimension relative to constraints to be provided in the future.
+A ASDimension can be one of three types:</p>
+
+<p>&ldquo;Auto&rdquo; - This indicated &ldquo;I have no opinion&rdquo; and may be resolved in whatever way makes most sense given the circumstances.</p>
+
+<p>&ldquo;Points&rdquo; - Just a number. It will always resolve to exactly this amount.</p>
+
+<p>&ldquo;Percent&rdquo; - Multiplied to a provided parent amount to resolve a final amount.</p>
 					</div>
 					
 					
@@ -87,11 +94,13 @@
                         <!-- display enum values -->
                         
                         <h4 class="method-subtitle">Definition</h4>
-                        <code>typedef NS_ENUM(NSUInteger, ASLayoutElementType ) {<br>
+                        <code>typedef NS_ENUM(NSInteger, ASRelativeDimensionType ) {<br>
                             
-                            &nbsp;&nbsp; <a href="">ASLayoutElementTypeLayoutSpec</a>,<br>
+                            &nbsp;&nbsp; <a href="">ASRelativeDimensionTypeAuto</a>,<br>
                             
-                            &nbsp;&nbsp; <a href="">ASLayoutElementTypeDisplayNode</a>,<br>
+                            &nbsp;&nbsp; <a href="">ASRelativeDimensionTypePoints</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">ASRelativeDimensionTypeFraction</a>,<br>
                             
                             };</code>
                     
@@ -101,11 +110,11 @@
                         <h4 class="method-subtitle">Constants</h4>
                         <dl class="termdef">
                             
-                            <dt><a name="" title="ASLayoutElementTypeLayoutSpec"></a><code>ASLayoutElementTypeLayoutSpec</code></dt>
+                            <dt><a name="" title="ASRelativeDimensionTypeAuto"></a><code>ASRelativeDimensionTypeAuto</code></dt>
 <dd>
 
 
-<p>Type of ASLayoutElement</p>
+<p>This indicates &ldquo;I have no opinion&rdquo; and may be resolved in whatever way makes most sense given the circumstances.</p>
 
 
 
@@ -113,16 +122,16 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">ASLayoutElement.h</code>.
+		Declared In <code class="declared-in-ref">ASDimension.h</code>.
 	</p>
 	
 </dd>
                             
-                            <dt><a name="" title="ASLayoutElementTypeDisplayNode"></a><code>ASLayoutElementTypeDisplayNode</code></dt>
+                            <dt><a name="" title="ASRelativeDimensionTypePoints"></a><code>ASRelativeDimensionTypePoints</code></dt>
 <dd>
 
 
-<p>Type of ASLayoutElement</p>
+<p>Just a number. It will always resolve to exactly this amount. This is the default type.</p>
 
 
 
@@ -130,7 +139,24 @@
 
     
 	<p>
-		Declared In <code class="declared-in-ref">ASLayoutElement.h</code>.
+		Declared In <code class="declared-in-ref">ASDimension.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="ASRelativeDimensionTypeFraction"></a><code>ASRelativeDimensionTypeFraction</code></dt>
+<dd>
+
+
+<p>Multiplied to a provided parent amount to resolve a final amount.</p>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">ASDimension.h</code>.
 	</p>
 	
 </dd>
@@ -147,7 +173,7 @@
                     
                     <div class="method-subsection declared-in-section">
                         <h4 class="method-subtitle">Declared In</h4>
-                        <p><code class="declared-in-ref">ASLayoutElement.h</code></p>
+                        <p><code class="declared-in-ref">ASDimension.h</code></p>
                     </div>
                     
                     
