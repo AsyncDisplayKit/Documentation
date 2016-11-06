@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>ASLayout(Debugging) Category Reference</title>
+	<title>ASCollectionNode(Deprecated) Category Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -58,7 +58,7 @@
 	
 	<optgroup label="Instance Methods">
 		
-		<option value="//api/name/recursiveDescription">- recursiveDescription</option>
+		<option value="//api/name/reloadDataImmediately">- reloadDataImmediately</option>
 		
 	</optgroup>
 	
@@ -75,13 +75,13 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">ASLayout(Debugging) Category Reference</h1>
+					<h1 class="title">ASCollectionNode(Deprecated) Category Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Declared in</th>
-	<td>ASLayout.h</td>
+	<td>ASCollectionNode.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -99,8 +99,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/recursiveDescription" title="recursiveDescription"></a>
-	<h3 class="method-title"><code><a href="#//api/name/recursiveDescription">&ndash;&nbsp;recursiveDescription</a></code>
+	<a name="//api/name/reloadDataImmediately" title="reloadDataImmediately"></a>
+	<h3 class="method-title"><code><a href="#//api/name/reloadDataImmediately">&ndash;&nbsp;reloadDataImmediately</a></code>
 </h3>
 
 	<div class="method-info">
@@ -110,12 +110,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Recrusively output the description of the layout tree.</p>
+				<p>Reload everything from scratch, destroying the working range and all cached nodes. (<b class="deprecated">Deprecated:</b><span class="deprecated"> This method is deprecated in 2.0. Use @c reloadDataWithCompletion: and
+then @c waitUntilAllUpdatesAreCommitted instead.</span>)</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (NSString *)recursiveDescription</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)reloadDataImmediately</code></div>
 
 		    
 			
@@ -124,6 +125,11 @@
 
 			
 
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> This method is substantially more expensive than UICollectionView&rsquo;s version.</p></div>
+			</div>
 			
 
 			
@@ -133,7 +139,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASLayout.h</code></p>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
 			</div>
 			
 			

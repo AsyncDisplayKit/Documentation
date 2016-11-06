@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AsyncDisplayKit </a>
+				<a href="../index.html">  </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Facebook</a>
+				<a href="../index.html">AsyncDisplayKit</a>
 			</p>
 			
 		</div>
@@ -60,7 +60,13 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/shouldBatchFetchForTableNode:">- shouldBatchFetchForTableNode:</option>
+		
 		<option value="//api/name/shouldBatchFetchForTableView:">- shouldBatchFetchForTableView:</option>
+		
+		<option value="//api/name/tableNode:constrainedSizeForRowAtIndexPath:">- tableNode:constrainedSizeForRowAtIndexPath:</option>
+		
+		<option value="//api/name/tableNode:willBeginBatchFetchWithContext:">- tableNode:willBeginBatchFetchWithContext:</option>
 		
 		<option value="//api/name/tableView:constrainedSizeForRowAtIndexPath:">- tableView:constrainedSizeForRowAtIndexPath:</option>
 		
@@ -96,7 +102,7 @@
 	<td><a href="../Protocols/ASCommonTableViewDelegate.html">ASCommonTableViewDelegate</a><br />NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>ASTableView.h</td>
+	<td>ASTableNode.h</td>
 </tr>
 						</tbody></table></div>
 					
@@ -125,6 +131,199 @@ responsible for deciding their preferred onscreen height in -calculateSizeThatFi
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/tableNode:constrainedSizeForRowAtIndexPath:" title="tableNode:constrainedSizeForRowAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tableNode:constrainedSizeForRowAtIndexPath:">&ndash;&nbsp;tableNode:constrainedSizeForRowAtIndexPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Provides the constrained size range for measuring the row at the index path.
+Note: the widths in the returned size range are ignored!</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (ASSizeRange)tableNode:(ASTableNode *)<em>tableNode</em> constrainedSizeForRowAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tableNode</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the node.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A constrained size range for layout the node at this index path.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tableNode:willBeginBatchFetchWithContext:" title="tableNode:willBeginBatchFetchWithContext:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tableNode:willBeginBatchFetchWithContext:">&ndash;&nbsp;tableNode:willBeginBatchFetchWithContext:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Receive a message that the tableView is near the end of its data set and more data should be fetched if necessary.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tableNode:(ASTableNode *)<em>tableNode</em> willBeginBatchFetchWithContext:(ASBatchContext *)<em>context</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>context</code></th>
+						<td><p>A context object that must be notified when the batch fetch is completed.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tableView</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>You must eventually call -completeBatchFetching: with an argument of YES in order to receive future
+notifications to do batch fetches. This method is called on a background queue.</p>
+
+<p>ASTableView currently only supports batch events for tail loads. If you require a head load, consider implementing a
+UIRefreshControl.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/shouldBatchFetchForTableNode:" title="shouldBatchFetchForTableNode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/shouldBatchFetchForTableNode:">&ndash;&nbsp;shouldBatchFetchForTableNode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Tell the tableView if batch fetching should begin.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)shouldBatchFetchForTableNode:(ASTableNode *)<em>tableNode</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tableView</code></th>
+						<td><p>The sender.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Use this method to conditionally fetch batches. Example use cases are: limiting the total number of
+objects that can be fetched or no network connection.</p>
+
+<p>If not implemented, the tableView assumes that it should notify its asyncDelegate when batch fetching
+should occur.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/tableView:willDisplayNode:forRowAtIndexPath:" title="tableView:willDisplayNode:forRowAtIndexPath:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/tableView:willDisplayNode:forRowAtIndexPath:">&ndash;&nbsp;tableView:willDisplayNode:forRowAtIndexPath:</a></code>
 </h3>
@@ -189,7 +388,7 @@ if your data source has been updated since the last edit was processed.</p></div
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -261,7 +460,7 @@ if your data source has been updated since the last edit was processed.</p></div
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -328,7 +527,7 @@ UIRefreshControl.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -390,7 +589,7 @@ should occur.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -454,7 +653,7 @@ Note: the widths in the returned size range are ignored!</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -522,7 +721,7 @@ if your data source has been updated since the last edit was processed.</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">ASTableView.h</code></p>
+				<p><code class="declared-in-ref">ASTableNode.h</code></p>
 			</div>
 			
 			
@@ -543,7 +742,7 @@ if your data source has been updated since the last edit was processed.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
+						<p class="copyright">Copyright &copy; 2016 AsyncDisplayKit. All rights reserved. Updated: 2016-11-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

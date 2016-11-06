@@ -14,11 +14,11 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AsyncDisplayKit </a>
+				<a href="../index.html">  </a>
 			</h1>
 
 			<p id="developer-home">
-				<a href="../index.html">Facebook</a>
+				<a href="../index.html">AsyncDisplayKit</a>
 			</p>
 			
 		</div>
@@ -56,11 +56,23 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/allowsMultipleSelection">allowsMultipleSelection</option>
+		
+		<option value="//api/name/allowsSelection">allowsSelection</option>
+		
 		<option value="//api/name/dataSource">dataSource</option>
 		
 		<option value="//api/name/delegate">delegate</option>
 		
+		<option value="//api/name/indexPathsForSelectedItems">indexPathsForSelectedItems</option>
+		
+		<option value="//api/name/indexPathsForVisibleItems">indexPathsForVisibleItems</option>
+		
+		<option value="//api/name/numberOfSections">numberOfSections</option>
+		
 		<option value="//api/name/view">view</option>
+		
+		<option value="//api/name/visibleNodes">visibleNodes</option>
 		
 	</optgroup>
 	
@@ -70,15 +82,55 @@
 	
 	<optgroup label="Instance Methods">
 		
+		<option value="//api/name/cellForItemAtIndexPath:">- cellForItemAtIndexPath:</option>
+		
+		<option value="//api/name/contextForSection:">- contextForSection:</option>
+		
+		<option value="//api/name/deleteItemsAtIndexPaths:">- deleteItemsAtIndexPaths:</option>
+		
+		<option value="//api/name/deleteSections:">- deleteSections:</option>
+		
+		<option value="//api/name/deselectItemAtIndexPath:animated:">- deselectItemAtIndexPath:animated:</option>
+		
+		<option value="//api/name/indexPathForItemAtPoint:">- indexPathForItemAtPoint:</option>
+		
+		<option value="//api/name/indexPathForNode:">- indexPathForNode:</option>
+		
 		<option value="//api/name/initWithCollectionViewLayout:">- initWithCollectionViewLayout:</option>
 		
 		<option value="//api/name/initWithFrame:collectionViewLayout:">- initWithFrame:collectionViewLayout:</option>
 		
+		<option value="//api/name/insertItemsAtIndexPaths:">- insertItemsAtIndexPaths:</option>
+		
+		<option value="//api/name/insertSections:">- insertSections:</option>
+		
+		<option value="//api/name/moveItemAtIndexPath:toIndexPath:">- moveItemAtIndexPath:toIndexPath:</option>
+		
+		<option value="//api/name/moveSection:toSection:">- moveSection:toSection:</option>
+		
+		<option value="//api/name/nodeForItemAtIndexPath:">- nodeForItemAtIndexPath:</option>
+		
+		<option value="//api/name/numberOfItemsInSection:">- numberOfItemsInSection:</option>
+		
+		<option value="//api/name/performBatchAnimated:updates:completion:">- performBatchAnimated:updates:completion:</option>
+		
+		<option value="//api/name/performBatchUpdates:completion:">- performBatchUpdates:completion:</option>
+		
+		<option value="//api/name/registerSupplementaryNodeOfKind:">- registerSupplementaryNodeOfKind:</option>
+		
+		<option value="//api/name/relayoutItems">- relayoutItems</option>
+		
 		<option value="//api/name/reloadData">- reloadData</option>
 		
-		<option value="//api/name/reloadDataImmediately">- reloadDataImmediately</option>
-		
 		<option value="//api/name/reloadDataWithCompletion:">- reloadDataWithCompletion:</option>
+		
+		<option value="//api/name/reloadItemsAtIndexPaths:">- reloadItemsAtIndexPaths:</option>
+		
+		<option value="//api/name/reloadSections:">- reloadSections:</option>
+		
+		<option value="//api/name/scrollToItemAtIndexPath:atScrollPosition:animated:">- scrollToItemAtIndexPath:atScrollPosition:animated:</option>
+		
+		<option value="//api/name/selectItemAtIndexPath:animated:scrollPosition:">- selectItemAtIndexPath:animated:scrollPosition:</option>
 		
 		<option value="//api/name/setTuningParameters:forRangeMode:rangeType:">- setTuningParameters:forRangeMode:rangeType:</option>
 		
@@ -87,6 +139,8 @@
 		<option value="//api/name/tuningParametersForRangeMode:rangeType:">- tuningParametersForRangeMode:rangeType:</option>
 		
 		<option value="//api/name/tuningParametersForRangeType:">- tuningParametersForRangeType:</option>
+		
+		<option value="//api/name/waitUntilAllUpdatesAreCommitted">- waitUntilAllUpdatesAreCommitted</option>
 		
 	</optgroup>
 	
@@ -405,6 +459,91 @@ as a subnode of another node, and provide room for many (great) features and imp
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/allowsSelection" title="allowsSelection"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allowsSelection">&nbsp;&nbsp;allowsSelection</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A Boolean value that indicates whether users can select items in the collection node.
+If the value of this property is YES (the default), users can select items. If you want more fine-grained control over the selection of items, you must provide a delegate object and implement the appropriate methods of the UICollectionNodeDelegate protocol.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL allowsSelection</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allowsMultipleSelection" title="allowsMultipleSelection"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allowsMultipleSelection">&nbsp;&nbsp;allowsMultipleSelection</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A Boolean value that determines whether users can select more than one item in the collection node.
+This property controls whether multiple items can be selected simultaneously. The default value of this property is NO.
+When the value of this property is YES, tapping a cell adds it to the current selection (assuming the delegate permits the cell to be selected). Tapping the cell again removes it from the selection.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL allowsMultipleSelection</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/tuningParametersForRangeType:" title="tuningParametersForRangeType:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/tuningParametersForRangeType:">&ndash;&nbsp;tuningParametersForRangeType:</a></code>
 </h3>
@@ -647,6 +786,782 @@ as a subnode of another node, and provide room for many (great) features and imp
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/scrollToItemAtIndexPath:atScrollPosition:animated:" title="scrollToItemAtIndexPath:atScrollPosition:animated:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/scrollToItemAtIndexPath:atScrollPosition:animated:">&ndash;&nbsp;scrollToItemAtIndexPath:atScrollPosition:animated:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Scrolls the collection to the given item.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)scrollToItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> atScrollPosition:(UICollectionViewScrollPosition)<em>scrollPosition</em> animated:(BOOL)<em>animated</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the item.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>scrollPosition</code></th>
+						<td><p>Where the item should end up after the scroll.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>animated</code></th>
+						<td><p>Whether the scroll should be animated or not.</p>
+
+<p>This method must be called on the main thread.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerSupplementaryNodeOfKind:" title="registerSupplementaryNodeOfKind:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerSupplementaryNodeOfKind:">&ndash;&nbsp;registerSupplementaryNodeOfKind:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers the given kind of supplementary node for use in creating node-backed supplementary elements.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)registerSupplementaryNodeOfKind:(NSString *)<em>elementKind</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>elementKind</code></th>
+						<td><p>The kind of supplementary node that will be requested through the data source.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Use this method to register support for the use of supplementary nodes in place of the default
+<code>registerClass:forSupplementaryViewOfKind:withReuseIdentifier:</code> and <code>registerNib:forSupplementaryViewOfKind:withReuseIdentifier:</code>
+methods. This method will register an internal backing view that will host the contents of the supplementary nodes
+returned from the data source.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performBatchAnimated:updates:completion:" title="performBatchAnimated:updates:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performBatchAnimated:updates:completion:">&ndash;&nbsp;performBatchAnimated:updates:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Perform a batch of updates asynchronously, optionally disabling all animations in the batch. This method must be called from the main thread.
+The data source must be updated to reflect the changes before the update block completes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)performBatchAnimated:(BOOL)<em>animated</em> updates:(nullable __attribute ( ( noescape ) ) void ( ^ ) ( ))<em>updates</em> completion:(nullable void ( ^ ) ( BOOL finished ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>animated</code></th>
+						<td><p>NO to disable animations for this batch</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>updates</code></th>
+						<td><p>The block that performs the relevant insert, delete, reload, or move operations.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>A completion handler block to execute when all of the operations are finished. This block takes a single
+Boolean parameter that contains the value YES if all of the related animations completed successfully or
+NO if they were interrupted. This parameter may be nil. If supplied, the block is run on the main thread.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/performBatchUpdates:completion:" title="performBatchUpdates:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/performBatchUpdates:completion:">&ndash;&nbsp;performBatchUpdates:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Perform a batch of updates asynchronously, optionally disabling all animations in the batch. This method must be called from the main thread.
+The data source must be updated to reflect the changes before the update block completes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)performBatchUpdates:(nullable __attribute ( ( noescape ) ) void ( ^ ) ( ))<em>updates</em> completion:(nullable void ( ^ ) ( BOOL finished ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>updates</code></th>
+						<td><p>The block that performs the relevant insert, delete, reload, or move operations.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>A completion handler block to execute when all of the operations are finished. This block takes a single
+Boolean parameter that contains the value YES if all of the related animations completed successfully or
+NO if they were interrupted. This parameter may be nil. If supplied, the block is run on the main thread.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/waitUntilAllUpdatesAreCommitted" title="waitUntilAllUpdatesAreCommitted"></a>
+	<h3 class="method-title"><code><a href="#//api/name/waitUntilAllUpdatesAreCommitted">&ndash;&nbsp;waitUntilAllUpdatesAreCommitted</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Blocks execution of the main thread until all section and item updates are committed to the view. This method must be called from the main thread.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)waitUntilAllUpdatesAreCommitted</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/insertSections:" title="insertSections:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/insertSections:">&ndash;&nbsp;insertSections:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Inserts one or more sections.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)insertSections:(NSIndexSet *)<em>sections</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sections</code></th>
+						<td><p>An index set that specifies the sections to insert.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteSections:" title="deleteSections:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteSections:">&ndash;&nbsp;deleteSections:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes one or more sections.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteSections:(NSIndexSet *)<em>sections</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sections</code></th>
+						<td><p>An index set that specifies the sections to delete.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/reloadSections:" title="reloadSections:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/reloadSections:">&ndash;&nbsp;reloadSections:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reloads the specified sections.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)reloadSections:(NSIndexSet *)<em>sections</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sections</code></th>
+						<td><p>An index set that specifies the sections to reload.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/moveSection:toSection:" title="moveSection:toSection:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/moveSection:toSection:">&ndash;&nbsp;moveSection:toSection:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Moves a section to a new location.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)moveSection:(NSInteger)<em>section</em> toSection:(NSInteger)<em>newSection</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>section</code></th>
+						<td><p>The index of the section to move.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newSection</code></th>
+						<td><p>The index that is the destination of the move for the section.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/insertItemsAtIndexPaths:" title="insertItemsAtIndexPaths:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/insertItemsAtIndexPaths:">&ndash;&nbsp;insertItemsAtIndexPaths:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Inserts items at the locations identified by an array of index paths.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)insertItemsAtIndexPaths:(NSArray&lt;NSIndexPath*&gt; *)<em>indexPaths</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPaths</code></th>
+						<td><p>An array of NSIndexPath objects, each representing an item index and section index that together identify an item.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteItemsAtIndexPaths:" title="deleteItemsAtIndexPaths:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteItemsAtIndexPaths:">&ndash;&nbsp;deleteItemsAtIndexPaths:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the items specified by an array of index paths.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteItemsAtIndexPaths:(NSArray&lt;NSIndexPath*&gt; *)<em>indexPaths</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPaths</code></th>
+						<td><p>An array of NSIndexPath objects identifying the items to delete.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/reloadItemsAtIndexPaths:" title="reloadItemsAtIndexPaths:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/reloadItemsAtIndexPaths:">&ndash;&nbsp;reloadItemsAtIndexPaths:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Reloads the specified items.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)reloadItemsAtIndexPaths:(NSArray&lt;NSIndexPath*&gt; *)<em>indexPaths</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPaths</code></th>
+						<td><p>An array of NSIndexPath objects identifying the items to reload.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/moveItemAtIndexPath:toIndexPath:" title="moveItemAtIndexPath:toIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/moveItemAtIndexPath:toIndexPath:">&ndash;&nbsp;moveItemAtIndexPath:toIndexPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Moves the item at a specified location to a destination location.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)moveItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> toIndexPath:(NSIndexPath *)<em>newIndexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path identifying the item to move.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>newIndexPath</code></th>
+						<td><p>The index path that is the destination of the move for the item.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread. The data source must be updated to reflect the changes
+before this method is called.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/reloadDataWithCompletion:" title="reloadDataWithCompletion:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/reloadDataWithCompletion:">&ndash;&nbsp;reloadDataWithCompletion:</a></code>
 </h3>
@@ -752,8 +1667,8 @@ the main thread.</p></td>
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/reloadDataImmediately" title="reloadDataImmediately"></a>
-	<h3 class="method-title"><code><a href="#//api/name/reloadDataImmediately">&ndash;&nbsp;reloadDataImmediately</a></code>
+	<a name="//api/name/relayoutItems" title="relayoutItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/relayoutItems">&ndash;&nbsp;relayoutItems</a></code>
 </h3>
 
 	<div class="method-info">
@@ -763,12 +1678,12 @@ the main thread.</p></td>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Reload everything from scratch entirely on the main thread, destroying the working range and all cached nodes.</p>
+				<p>Triggers a relayout of all nodes.</p>
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)reloadDataImmediately</code></div>
+			<div class="method-subsection method-declaration"><code>- (void)relayoutItems</code></div>
 
 		    
 			
@@ -780,9 +1695,670 @@ the main thread.</p></td>
 			
 			<div class="method-subsection discussion-section">
 				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> This method is substantially more expensive than UICollectionView&rsquo;s version and will block the main thread
-while all the cells load.</p></div>
+				<p>This method invalidates and lays out every cell node in the collection view.</p>
 			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/indexPathsForSelectedItems" title="indexPathsForSelectedItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/indexPathsForSelectedItems">&nbsp;&nbsp;indexPathsForSelectedItems</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The index paths of the selected items, or @c nil if no items are selected.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSArray&lt;NSIndexPath*&gt; *indexPathsForSelectedItems</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/selectItemAtIndexPath:animated:scrollPosition:" title="selectItemAtIndexPath:animated:scrollPosition:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/selectItemAtIndexPath:animated:scrollPosition:">&ndash;&nbsp;selectItemAtIndexPath:animated:scrollPosition:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Selects the item at the specified index path and optionally scrolls it into view.
+If the <code>allowsSelection</code> property is NO, calling this method has no effect. If there is an existing selection with a different index path and the <code>allowsMultipleSelection</code> property is NO, calling this method replaces the previous selection.
+This method does not cause any selection-related delegate methods to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)selectItemAtIndexPath:(nullable NSIndexPath *)<em>indexPath</em> animated:(BOOL)<em>animated</em> scrollPosition:(UICollectionViewScrollPosition)<em>scrollPosition</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the item to select. Specifying nil for this parameter clears the current selection.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>animated</code></th>
+						<td><p>Specify YES to animate the change in the selection or NO to make the change without animating it.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>scrollPosition</code></th>
+						<td><p>An option that specifies where the item should be positioned when scrolling finishes. For a list of possible values, see <code>UICollectionViewScrollPosition</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deselectItemAtIndexPath:animated:" title="deselectItemAtIndexPath:animated:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deselectItemAtIndexPath:animated:">&ndash;&nbsp;deselectItemAtIndexPath:animated:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deselects the item at the specified index.
+If the allowsSelection property is NO, calling this method has no effect.
+This method does not cause any selection-related delegate methods to be called.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deselectItemAtIndexPath:(NSIndexPath *)<em>indexPath</em> animated:(BOOL)<em>animated</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the item to select. Specifying nil for this parameter clears the current selection.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>animated</code></th>
+						<td><p>Specify YES to animate the change in the selection or NO to make the change without animating it.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method must be called from the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/numberOfItemsInSection:" title="numberOfItemsInSection:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/numberOfItemsInSection:">&ndash;&nbsp;numberOfItemsInSection:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the number of items in the given section.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSInteger)numberOfItemsInSection:(NSInteger)<em>section</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>section</code></th>
+						<td><p>The section.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The number of items.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/numberOfSections" title="numberOfSections"></a>
+	<h3 class="method-title"><code><a href="#//api/name/numberOfSections">&nbsp;&nbsp;numberOfSections</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The number of sections.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSInteger numberOfSections</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/visibleNodes" title="visibleNodes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/visibleNodes">&nbsp;&nbsp;visibleNodes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Similar to -visibleCells.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray&lt;__kindofASCellNode*&gt; *visibleNodes</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an array containing the nodes being displayed on screen. This must be called on the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/nodeForItemAtIndexPath:" title="nodeForItemAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/nodeForItemAtIndexPath:">&ndash;&nbsp;nodeForItemAtIndexPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the node for the item at the given index path.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable __kindof ASCellNode *)nodeForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the requested item.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The node for the given item, or @c nil if no item exists at the specified path.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/indexPathForNode:" title="indexPathForNode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/indexPathForNode:">&ndash;&nbsp;indexPathForNode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieve the index path for the item with the given node.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable NSIndexPath *)indexPathForNode:(ASCellNode *)<em>cellNode</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>cellNode</code></th>
+						<td><p>A node for an item in the collection node.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The indexPath for this item.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/indexPathsForVisibleItems" title="indexPathsForVisibleItems"></a>
+	<h3 class="method-title"><code><a href="#//api/name/indexPathsForVisibleItems">&nbsp;&nbsp;indexPathsForVisibleItems</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieve the index paths of all visible items.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSArray&lt;NSIndexPath*&gt; *indexPathsForVisibleItems</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an array containing the index paths of all visible items. This must be called on the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/indexPathForItemAtPoint:" title="indexPathForItemAtPoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/indexPathForItemAtPoint:">&ndash;&nbsp;indexPathForItemAtPoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieve the index path of the item at the given point.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable NSIndexPath *)indexPathForItemAtPoint:(CGPoint)<em>point</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>point</code></th>
+						<td><p>The point of the requested item.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The indexPath for the item at the given point. This must be called on the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cellForItemAtIndexPath:" title="cellForItemAtIndexPath:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cellForItemAtIndexPath:">&ndash;&nbsp;cellForItemAtIndexPath:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieve the cell at the given index path.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable UICollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)<em>indexPath</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>indexPath</code></th>
+						<td><p>The index path of the requested item.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The cell for the given index path. This must be called on the main thread.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ASCollectionNode.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/contextForSection:" title="contextForSection:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/contextForSection:">&ndash;&nbsp;contextForSection:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the context object for the given section, as provided by the data source in
+the @c collectionNode:contextForSection: method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable id&lt;ASSectionContext&gt;)contextForSection:(NSInteger)<em>section</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>section</code></th>
+						<td><p>The section to get the context for.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The context object, or @c nil if no context was provided.</p>
+
+<p>TODO: This method currently accepts @c section in the <em>view</em> index space, but it should
+be in the node index space. To get the context in the view index space (e.g. for subclasses
+of @c UICollectionViewLayout, the user will call the same method on @c ASCollectionView.</p>
+			</div>
+			
+
+			
+
 			
 
 			
@@ -813,7 +2389,7 @@ while all the cells load.</p></div>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 Facebook. All rights reserved. Updated: 2016-10-09</p>
+						<p class="copyright">Copyright &copy; 2016 AsyncDisplayKit. All rights reserved. Updated: 2016-11-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
