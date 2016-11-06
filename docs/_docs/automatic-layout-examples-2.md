@@ -4,7 +4,7 @@ layout: docs
 permalink: /docs/automatic-layout-examples-2.html
 ---
 
-The following code can be found in the [layout examples project]().
+The following code can be found in the layout [example project](https://github.com/facebook/AsyncDisplayKit/tree/master/examples/LayoutSpecExamples).
 
 ## Simple Header with Left and Right Justified Text
 
