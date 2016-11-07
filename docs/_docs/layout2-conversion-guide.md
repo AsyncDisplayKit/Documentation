@@ -4,7 +4,7 @@ layout: docs
 permalink: /docs/layout2-conversion-guide.html
 ---
 
-The most significant change in the **2.0** release is a sweeping upgrade to AsyncDisplayKit's Layout API:
+A list of the changes:
 
 - Introduction of true flex factors
 - `ASStackLayoutSpec` `.alignItems` property default changed to `ASStackLayoutAlignItemsStretch`
@@ -21,7 +21,7 @@ The most significant change in the **2.0** release is a sweeping upgrade to Asyn
  
 In addition to the inline examples comparing **1.x** layout code vs **2.0** layout code, the [example projects](https://github.com/facebook/AsyncDisplayKit/tree/master/examples) and <a href = "layout2-quickstart.html">layout documentation</a> have been updated to use the new API.
 
-All other **2.0** changes not related to the Layout API are documented <a href="upgrading.html">here</a>. 
+All other **2.0** changes not related to the Layout API are documented <a href="adoption-guide-2-0-beta1.html">here</a>. 
 
 ## Introduction of true flex factors
 
