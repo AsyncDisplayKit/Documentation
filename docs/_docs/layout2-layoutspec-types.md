@@ -1,23 +1,27 @@
 ---
-title: Layout Spec Types
+title: Layout Specs
 layout: docs
 permalink: /docs/layout2-layoutspec-types.html
 ---
 
-AsyncDisplayKit offers the following `ASLayoutSpec` subclasses which can be used to compose simple and very complex layouts:
+The following `ASLayoutSpec` subclasses can be used to compose simple or very complex layouts. You may also subclass `ASLayoutSpec` in order to make your own, custom layout specs. 
 
-- `ASInsetLayoutSpec`
-- `ASOverlayLayoutSpec`
-- `ASBackgroundLayoutSpec`
-- `ASCenterLayoutSpec`
-- `ASRatioLayoutSpec`
-- `ASRelativeLayoutSpec` (formerly ASStaticLayoutSpec)
-- `ASStackLayoutSpec`
+<ul>
+<li><a href="layout2-layoutspec-types.html#asinsetlayoutspec"><code>AS<b>Inset</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asoverlaylayoutspec"><code>AS<b>Overlay</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec"><code>AS<b>Background</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#ascenterlayoutspec"><code>AS<b>Center</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asratiolayoutspec"><code>AS<b>Ratio</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec"><code>AS<b>Absolute</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asstacklayoutspec"><code>AS<b>Stack</b>LayoutSpec</code></a></li>
+</ul>
 
-You may also subclass `ASLayoutSpec` in order to make your own, custom layout specs. 
+Check out the layout spec <a href="automatic-layout-examples-2.html">examples</a> to see these specs in action. 
 
 ## ASInsetLayoutSpec
-`ASInsetLayoutSpec` applies an inset margin around its child layoutable. **Note:** the child layoutable must have an instrinsic size or explicitly set its size.
+`ASInsetLayoutSpec` applies an inset margin around its child layoutable. Specifically, it passes it's `constrainedSize.max` size to its child after subtracting its insets. Thus, the inset layout spec is sized based on the size of it's child. **Note:** the child layoutable must have an instrinsic size or explicitly set its size.
+
+If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just use the intrinisic size of the child.
 
 <img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
 
