@@ -2,9 +2,11 @@
 title: Layout Examples
 layout: docs
 permalink: /docs/automatic-layout-examples-2.html
+prevPage: layout2-quickstart.html
+nextPage: layout2-layoutspec-types.html
 ---
 
-The following code can be found in the layout [example project](https://github.com/facebook/AsyncDisplayKit/tree/master/examples/LayoutSpecExamples).
+Check out the layout specs <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/LayoutSpecExamples">example project</a> to play around with the code below. 
 
 ## Simple Header with Left and Right Justified Text
 
@@ -32,8 +34,8 @@ The diagram below shows the composition of the layout elements (nodes + layout s
   // when the username / location text is too long, 
   // shrink the stack to fit onscreen rather than push content to the right, offscreen
   ASStackLayoutSpec *nameLocationStack = [ASStackLayoutSpec verticalStackLayoutSpec];
-  nameLocationStack.style.flexShrink = YES;
-  nameLocationStack.style.flexGrow = YES;
+  nameLocationStack.style.flexShrink = 1.0;
+  nameLocationStack.style.flexGrow = 1.0;
   
   // if fetching post location data from server, 
   // check if it is available yet and include it if so
@@ -84,11 +86,8 @@ To create this layout, we will use a:
   // INIFINITY is used to make the inset unbounded
   UIEdgeInsets insets = UIEdgeInsetsMake(INFINITY, 12, 12, 12);
   ASInsetLayoutSpec *textInsetSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:insets child:_titleNode];
-
-  ASOverlayLayoutSpec *textOverlaySpec = [ASOverlayLayoutSpec overlayLayoutSpecWithChild:_photoNode
-                                                                                 overlay:textInsetSpec];
   
-  return textOverlaySpec;
+  return [ASOverlayLayoutSpec overlayLayoutSpecWithChild:_photoNode overlay:textInsetSpec];
 }
   </pre>
   <pre lang="swift" class = "swiftCode hidden">
@@ -186,11 +185,11 @@ The following code can also be found in the `ASLayoutSpecPlayground` [example pr
   <pre lang="objc" class="objcCode">
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
-  _topSeparator.style.flexGrow = YES;
-  _bottomSeparator.style.flexGrow = YES;
+  _topSeparator.style.flexGrow = 1.0;
+  _bottomSeparator.style.flexGrow = 1.0;
 
-  ASInsetLayoutSpec *insetContentSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(20, 20, 20, 20)
-                                                                               child:_textNode];
+  ASInsetLayoutSpec *insetContentSpec = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(20, 20, 20, 20) child:_textNode];
+
   return [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
                                                  spacing:0
                                           justifyContent:ASStackLayoutJustifyContentCenter

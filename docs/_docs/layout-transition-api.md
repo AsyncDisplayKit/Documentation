@@ -2,7 +2,7 @@
 title: Layout Transition API
 layout: docs
 permalink: /docs/layout-transition-api.html
-prevPage: batch-fetching-api.html
+prevPage: layout2-api-sizing.html
 nextPage: hit-test-slop.html
 ---
 
