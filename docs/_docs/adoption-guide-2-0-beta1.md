@@ -1,11 +1,10 @@
 ---
-title: Upgrading to 2.0 <b><i>(New)</i></b>
+title: "Upgrading to 2.0 <b><i>(New)</i></b>"
 layout: docs
 permalink: /docs/adoption-guide-2-0-beta1.html
 prevPage: adoption-guide-2-0-beta1.html
 ---
 
-<br>
 <ol>
 <li><a href="https://usecanvas.com/htroisi/20-release-notes/1W9sFA8hIzWPco5qqCQFaf">GitHub Release Notes</a></li>
 <li><a href="adoption-guide-2-0-beta1.html#getting-the-2-0-release-candidate">Getting the 2.0 Release Candidate</a></li>
@@ -19,7 +18,7 @@ prevPage: adoption-guide-2-0-beta1.html
 Please read the official release notes on <a href="https://usecanvas.com/htroisi/20-release-notes/1W9sFA8hIzWPco5qqCQFaf">GitHub</a>.
 
 
-## Getting the 2.0 Release Candidate
+## Getting the Release Candidate
 
 Add the following to your podfile
 
@@ -27,8 +26,9 @@ Add the following to your podfile
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-pod 'AsyncDisplayKit', '>= 2.0-beta.1'
+pod 'AsyncDisplayKit', '&gt= 2.0-beta.1'
 </pre>
+</div>
 </div>
 
 then run 
@@ -39,6 +39,7 @@ then run
 pod repo update
 pod update AsyncDisplayKit
 </pre>
+</div>
 </div>
 
 in the terminal.
