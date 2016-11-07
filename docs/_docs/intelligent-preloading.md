@@ -8,7 +8,7 @@ nextPage: containers-overview.html
 
 While a node's ability to be rendered and measured asynchronously and concurrently makes it quite powerful, another crucially important layer to ASDK is the idea of intelligent preloading.
 
-As was pointed out in <a href = "getting-started.html">getting started</a>, it is rarely advantageous to use a node outside of the context of one of the node containers.  This is due to the fact that all nodes have a notion of their current interface state.  
+As was pointed out in <a href = "getting-started.html">Getting Started</a>, it is rarely advantageous to use a node outside of the context of one of the node containers.  This is due to the fact that all nodes have a notion of their current interface state.  
 
 This `interfaceState` property is constantly updated by an `ASRangeController` which all containers create and maintain internally.
 
@@ -57,17 +57,18 @@ As a user scrolls, nodes move through the ranges and react appropriately by load
 
 ### Visible Range 
 ```
--did{Enter,Exit}VisibleState
+`didEnterPreloadState / didExitPreloadState`
 ```
 
 ### Display Range
 ```
--did{Enter,Exit}DisplayState
+`didEnterDisplayState / didExitDisplayState`
 ```
 
 ### Fetch Data Range
 ```
--did{Enter,Exit}PreloadState
+`didEnterVisibleState / didExitVisibleState`
 ```
 
+<br>
 Just remember to call super ok? 😉

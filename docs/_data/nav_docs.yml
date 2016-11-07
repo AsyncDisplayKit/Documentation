@@ -12,31 +12,12 @@
   - subclassing
   - node-lifecycle
   - faq
-- title: Node Containers
-  items:
-  - containers-asviewcontroller
-  - containers-astablenode
-  - containers-ascollectionnode
-  - containers-aspagernode
-- title: Nodes
-  items:
-  - display-node
-  - cell-node
-  - button-node
-  - text-node
-  - image-node
-  - network-image-node
-  - video-node
-  - map-node
-  - control-node
-  - scroll-node
-  - editable-text-node
-  - multiplex-image-node
 - title: Layout
   items:
   - layout2-quickstart
   - automatic-layout-examples-2
   - layout2-layoutspec-types
+  - layout2-layout-element-properties
   - layout2-api-sizing
   - layout-transition-api
 - title: Conveniences
@@ -63,5 +44,26 @@
   - asvisibility
   - asenvironment
   - asrunloopqueue
+- title: Node Containers
+  items:
+  - containers-asviewcontroller
+  - containers-astablenode
+  - containers-ascollectionnode
+  - containers-aspagernode
+- title: Nodes
+  items:
+  - display-node
+  - cell-node
+  - button-node
+  - text-node
+  - image-node
+  - network-image-node
+  - video-node
+  - map-node
+  - control-node
+  - scroll-node
+  - editable-text-node
+  - multiplex-image-node
+
   
   

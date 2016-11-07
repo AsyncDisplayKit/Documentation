@@ -5,11 +5,12 @@ permalink: /docs/adoption-guide-2-0-beta1.html
 prevPage: adoption-guide-2-0-beta1.html
 ---
 
+<br>
 <ol>
 <li><a href="https://usecanvas.com/htroisi/20-release-notes/1W9sFA8hIzWPco5qqCQFaf">GitHub Release Notes</a></li>
 <li><a href="adoption-guide-2-0-beta1.html#getting-the-2-0-release-candidate">Getting the 2.0 Release Candidate</a></li>
 <li><a href="adoption-guide-2-0-beta1.html#testing-2-0">Testing your app with 2.0</a></li>
-<li><a href="adoption-guide-2-0-beta1.html#migration-to-2-0">Migrating to 2.0</a></li>
+<li><a href="adoption-guide-2-0-beta1.html#migrating-to-2-0">Migrating to 2.0</a></li>
 <li><a href="adoption-guide-2-0-beta1.html#layout-api-updates">Migrating to 2.0 (Layout)</a></li>
 </ol>
 
@@ -22,12 +23,23 @@ Please read the official release notes on <a href="https://usecanvas.com/htroisi
 
 Add the following to your podfile
 
-<code>pod 'AsyncDisplayKit', '>= 2.0-beta.1'`</code>
+<div class = "highlight-group">
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+pod 'AsyncDisplayKit', '>= 2.0-beta.1'
+</pre>
+</div>
 
 then run 
 
-<code>pod repo update</code> <br>
-<code>pod update AsyncDisplayKit</code>
+<div class = "highlight-group">
+<div class = "code">
+<pre lang="objc" class="objcCode">
+pod repo update
+pod update AsyncDisplayKit
+</pre>
+</div>
 
 in the terminal.
 
