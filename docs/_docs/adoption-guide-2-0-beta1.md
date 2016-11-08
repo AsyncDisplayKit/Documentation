@@ -25,8 +25,7 @@ Add the following to your podfile
 <div class = "highlight-group">
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-pod 'AsyncDisplayKit', '&gt= 2.0-beta.1'
+pod 'AsyncDisplayKit', '>= 2.0-beta.1'
 </pre>
 </div>
 </div>
