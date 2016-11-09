@@ -12,7 +12,7 @@ permalink: /docs/team.html
     <p>Scott is deeply passionate about building AsyncDisplayKit into a framework that allows effortless development of polished and performant apps that serve all users, regardless of device age, internet connection, or language.</p></td>
   </tr>
   <tr>
-    <td><img src="https://avatars.githubusercontent.com/maicki"></td>
+    <td><img src="https://d3vv6lp55qjaqc.cloudfront.net/items/2d1K0a372b1J3V2f071D/Michael-Avatar.jpg"></td>
     <td><p>Michael Schneider (<a href="https://github.com/maicki">@maicki</a>) is especially passionate about API design and recently led the re-architecture of the layout API for the <a href = "upgrading.html">2.0 release</a>. As our resident layout expert, Michael volunteers much of his own time to help developers on ASDK's public <a href="/slack.html">slack channel</a>. Previous, Michael worked on <a href="https://itunes.apple.com/us/app/pocket-save-articles-videos/id309601447">Pocket</a> for iOS, Mac and Chrome and the <a href="https://itunes.apple.com/us/app/instapaper/id288545208">Instapaper</a> Mac app.</p></td> 
   </tr>
   <tr>
