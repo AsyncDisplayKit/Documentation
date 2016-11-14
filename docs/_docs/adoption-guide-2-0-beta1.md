@@ -131,7 +131,7 @@ Best Practices:
 
 Resources:
 
-- [Video](https://youtu.be/yuDqvE5n_1g) of the ASCollectioNode Behind-the-Scenes talk at Pinterest. The <a href="/static/talks/10_3_2016_ASCollectionNode_Sequence_Diagrams.pdf">diagrams</a> seen in the talk.
+- [Video](https://youtu.be/yuDqvE5n_1g) of the ASCollectionNode Behind-the-Scenes talk at Pinterest. The <a href="/static/talks/10_3_2016_ASCollectionNode_Sequence_Diagrams.pdf">diagrams</a> seen in the talk.
 
 - PR [#2390](https://github.com/facebook/AsyncDisplayKit/pull/2390) and PR [#2381](https://github.com/facebook/AsyncDisplayKit/pull/2381) show how we converted AsyncDisplayKit's [example projects](https://github.com/facebook/AsyncDisplayKit/tree/master/examples) to conform to this new API. 
 
