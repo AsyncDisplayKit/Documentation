@@ -37,7 +37,7 @@ If you need even more control, you can also opt to use the attributed string ver
 [self.buttonNode setAttributedTitle:attributedTitle forState:ASControlStateNormal];
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-buttonNode.setAttributedTitle(attributedTitle forState:ASControlStateNormal)
+buttonNode.setAttributedTitle(attributedTitle, for: [])
 </pre>
 </div>
 </div>
