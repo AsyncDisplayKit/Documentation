@@ -2,7 +2,7 @@
 title: Accessibility
 layout: docs
 permalink: /docs/accessibility.html
-prevPage: image-modification-block.html
+prevPage: placeholder-fade-duration.html
 nextPage: layer-backing.html
 ---
 
