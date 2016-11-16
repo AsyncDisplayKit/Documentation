@@ -4,6 +4,7 @@ name: AsyncDisplayKit
 relative_permalinks: false
 markdown: kramdown
 timezone: America/Los_Angeles
+google_analytics: UA-87502907-1
 
 safe: true
 lsi: false

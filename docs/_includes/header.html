@@ -17,6 +17,9 @@
     <script type="text/javascript">{'try{Typekit.load();}catch(e){}'}</script>
     <script src="/static/toggle.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    {% if jekyll.environment == 'production' %}
+    {% include analytics.html %}
+    {% endif %}
 </head>
 <body>
 
