@@ -26,7 +26,7 @@ Add the following to your podfile
 <div class = "code">
 <pre lang="objc" class="objcCode">
 <!-- pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :tag => '2.0-beta.1' -->
-pod 'AsyncDisplayKit', '>= 2.0-beta.1'
+pod 'AsyncDisplayKit', '>= 2.0-beta.2'
 </pre>
 </div>
 </div>
@@ -48,7 +48,7 @@ in the terminal.
 
 Once you have updated to 2.0, you will see many deprecation warnings. Don't worry! 
 
-These warnings are quiet safe, because we have bridged all of the old APIs for you, so that you can test out the 2.0, before migrating to the new API. 
+These warnings are quite safe, because we have bridged all of the old APIs for you, so that you can test out the 2.0, before migrating to the new API. 
 
 If your app fails to build instead of just showing the warnings, you might have Warnings as Errors enabled for your project. You have a few options:
 
