@@ -4,6 +4,7 @@
     <meta charset='utf-8'>
     <title>AsyncDisplayKit | {{ page.title }}</title>
     <link rel='stylesheet' href='/static/main.css' type='text/css'/>
+    <link rel='stylesheet' href='/static/media.css' type='text/css'/>
     <link rel="stylesheet" href='/static/pygments.css' type='text/css'/>
     <link rel='shortcut icon' href='/static/favicon.png'>
     <meta name='viewport' content='width=480'>
@@ -22,13 +23,18 @@
     {% endif %}
 </head>
 <body>
+<header>
+	<div class="container">
+		<h1 id="logo"><a href="/"><img src="../static/images/ASDKLogo.png" alt="AsyncDisplayKit" width="196" height="39"></a></h1>
+		<nav>
+			<ul>
+				<li><a href="/docs/getting-started.html" {% if (page.layout == 'docs') %} class="active" {% endif %}>docs</a></li>
+				<li><a href="/slack.html" {% if (page.layout == 'slack') %} class="active" {% endif %}>slack</a></li>
+				<li><a href="/appledocs.html" {% if (page.layout == 'appledocs') %} class="active" {% endif %}>api</a></li>
+				<li><a href="http://github.com/facebook/AsyncDisplayKit">github</a></li>
+	    	</ul>
+		</nav>
+		<div style="clear: both;"></div>
+	</div>
+</header>
 
-<header class='topbar site-header'><nav class='width'>
-<a class="site-title" href="/">AsyncDisplayKit</a>
-    <ul>
-      <li><a href="/docs/getting-started.html" {% if (page.layout == 'docs') %} class="active" {% endif %}>docs</a></li>
-      <li><a href="/slack.html" {% if (page.layout == 'slack') %} class="active" {% endif %}>slack</a></li>
-      <li><a href="/appledocs.html" {% if (page.layout == 'appledocs') %} class="active" {% endif %}>api</a></li>
-      <li><a href="http://github.com/facebook/AsyncDisplayKit">github</a></li>
-    </ul>
-</nav></header>
