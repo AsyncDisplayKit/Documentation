@@ -142,6 +142,11 @@ p code, span code, li code {
     background-color: rgba(180, 80, 80, 0.1);
 }
 
+.showcasetable code {
+    padding: 10px 10px 30px 30px;
+    margin: 10;
+}
+
 
 .highlight pre code, .redhighlight pre code {
     width: 100%;
@@ -316,6 +321,10 @@ section.content article img {
     display: block;
     margin: 1em auto;
     max-width: 100%;
+}
+
+.roundrect {
+border-radius: 15px;
 }
 
 section.content article blockquote {
