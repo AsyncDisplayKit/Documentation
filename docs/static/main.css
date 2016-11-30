@@ -149,6 +149,16 @@ header nav ul li a {
 }
 
 
+.container tr > td {
+	padding-bottom: 30px;
+}
+
+.roundrect {
+	border: 1px solid #f4f4f4;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+}
 
 
 footer {
