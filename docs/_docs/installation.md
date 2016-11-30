@@ -6,7 +6,7 @@ prevPage: resources.html
 nextPage: adoption-guide-2-0-beta1.html
 ---
 
-AsyncDisplayKit may be added to your project via CocoaPods or Carthage</. Do not forget to import the framework header:
+AsyncDisplayKit may be added to your project via CocoaPods or Carthage. Do not forget to import the framework header:
 
 <div class = "highlight-group">
 <div class = "code">

@@ -6,7 +6,7 @@ prevPage: debug-tool-ASRangeController.html
 nextPage: asenvironment.html
 ---
 
-`ASNavigationController` and `ASTabBarController` both implement the `ASVisibility` protocol. These classes can be used even without `ASDisplayNodes`, making them suitable base classes for your inheritance hierarchy. For any child view controllers that are `ASViewControllers`, these classes know the exact number of user taps it would take to make the view controller visible (0 if currently visible).
+`ASNavigationController` and `ASTabBarController` both implement the `ASVisibility` protocol. These classes can be used even without `ASDisplayNodes`, making them suitable base classes for your inheritance hierarchy. For any child view controllers that are <a href="containers-asviewcontroller.html"><code>ASViewControllers</code></a>, these classes know the exact number of user taps it would take to make the view controller visible (0 if currently visible).
 
 Knowing a view controller’s visibility depth allows view controllers to automatically take appropriate actions as a user approaches or leaves them. Non-default tabs in an app might preload some of their data; a controller 3 levels deep in a navigation stack might progressively free memory for images, text, and fetched data as it gets deeper. 
 
