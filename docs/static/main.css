@@ -153,6 +153,16 @@ header nav ul li a {
 	padding-bottom: 30px;
 }
 
+.container tr td img {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.container tr td b {
+	padding-bottom: 5px;
+	display: inline-block;
+}
+
 .roundrect {
 	border: 1px solid #f4f4f4;
 	-webkit-border-radius: 20px;
