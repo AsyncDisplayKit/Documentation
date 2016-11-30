@@ -175,7 +175,11 @@ header nav ul li a {
 	margin-left: 20px;
 }
 
-
+.content p img {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+}
 
 
 
