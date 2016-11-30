@@ -26,7 +26,7 @@ Add the following to your podfile
 <div class = "code">
 <pre lang="objc" class="objcCode">
 <!-- pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :tag => '2.0-beta.1' -->
-pod 'AsyncDisplayKit', '>= 2.0-beta.2'
+pod 'AsyncDisplayKit', '>= 2.0-beta.3'
 </pre>
 </div>
 </div>
