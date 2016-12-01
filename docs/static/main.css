@@ -439,6 +439,7 @@ p code, span code, li code {
     margin-top: 10px;
     font-family: 'Inconsolata' !important;
     margin: 0;
+    margin-bottom: 20px;
     border-top: 2px #0484f2 solid;
     background: #f8f7f5;
 }
@@ -455,6 +456,44 @@ pre {
     font-family: 'Inconsolata' !important;
     font-weight: 500;
     color: #333333;
+}
+
+.code pre {
+	padding-top:10px;
+}
+
+.note {
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #EFF7FF;
+    border: 1px solid #CCDDFF;
+    margin-bottom: 20px;
+}
+
+.note p:before {
+    content: "NOTE:";
+    font-weight: bold;
+}
+
+.note p {
+    margin-bottom: 0px;
+}
+
+.note-important {
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #FFCCCC;
+    border: 1px solid #FF8899;
+    margin-bottom: 20px;
+}
+
+.note-important p:before {
+    content: "IMPORTANT:";
+    font-weight: bold;
+}
+
+.note-important p {
+    margin-bottom: 0px;
 }
 
 
