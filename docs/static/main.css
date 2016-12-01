@@ -98,6 +98,7 @@ header h1 {
 
 header nav {
 	margin-top: 10px;
+	font-size: 18px;
 }
 
 header nav ul {
@@ -137,6 +138,7 @@ header nav ul li a {
 }
 
 .container .sidebar {
+    font-size: 14px;
 }
 .container .sidebar ul {
 	list-style: none;
