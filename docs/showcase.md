@@ -30,7 +30,6 @@ permalink: /showcase.html
 <a href="https://engineering.pinterest.com/blog/re-architecting-pinterests-ios-app">Re-architecting Pinterest's iOS app</a>
 </td>
 
-<!-- Asked @ay8s on slack -->
 <td width="200" align="center" valign="center">
 <a href="https://itunes.apple.com/us/app/buffer-schedule-posts-for/id490474324"><img class="roundrect" src="http://is1.mzstatic.com/image/thumb/Purple71/v4/0c/6c/e2/0c6ce288-ae4d-5228-ac79-4f008e626c42/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br>
@@ -43,9 +42,8 @@ permalink: /showcase.html
 
 <tr>
 
-<!-- Asked @gadd on slack -->
 <td align="center" valign="center">
-<a href="https://itunes.apple.com/us/app/auxy-music-creation/id909573739"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple3/v4/3f/68/44/3f684433-8094-42a1-74ae-5becdcc6cd1c/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+<a href="https://itunes.apple.com/us/app/auxy-music-studio/id1034348186"><img class="roundrect" src="http://is1.mzstatic.com/image/thumb/Purple71/v4/ea/09/8a/ea098ab7-832b-aed7-ca9c-4525de930628/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br />
 <b>Auxy</b>
 <br>
@@ -58,7 +56,6 @@ permalink: /showcase.html
 <b>即刻 - 不错过你惦记的每一件小事</b>
 </td>
 
-<!-- Asked Levi to reach out -->
 <td align="center" valign="center">
 <a href="https://itunes.apple.com/us/app/nfl/id389781154"><img class="roundrect" src="http://is5.mzstatic.com/image/thumb/Purple71/v4/2b/47/87/2b478710-6aab-1fee-9097-b68fe5cd7fa9/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br /> 
