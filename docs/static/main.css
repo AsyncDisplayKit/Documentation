@@ -130,8 +130,19 @@ header nav ul li a {
 .hero .btn {
 	background: #fff;
 	color: #0f70dd;
+	border: 2px solid #fff;
+	margin-right: 10px;
 }
 
+
+.hero .btn.btn-outlined {
+	background: none;
+	border: 2px solid #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff;
+}
 
 .container-margin {
 	margin-top: 30px;

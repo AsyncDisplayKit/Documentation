@@ -8,6 +8,7 @@ id: home
 	<div class="container">
 		<div class="hero-title">Keeps the most complex iOS user interfaces smooth and responsive.</div>
 		<a href="/docs/getting-started.html" class="btn">Get Started</a>
+		<a href="https://github.com/facebook/AsyncDisplayKit" class="btn btn-outlined">View on GitHub</a>
 	</div>
 </div>
 
