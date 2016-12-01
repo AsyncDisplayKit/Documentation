@@ -53,9 +53,9 @@ permalink: /showcase.html
 </td>
 
 <td align="center" valign="center">
-<a href="https://itunes.apple.com/us/app/tinder/id547702041"><img class="roundrect" src="http://is3.mzstatic.com/image/thumb/Purple71/v4/64/b4/54/64b45488-4797-e2bf-6e43-53a8796dfae0/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+<a href="https://itunes.apple.com/cn/app/ji-ke-yong-zui-lan-fang-shi/id966129812"><img class="roundrect" src="http://is1.mzstatic.com/image/thumb/Purple71/v4/63/ac/50/63ac5045-4816-0d02-53a2-e41ea9c441e9/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br /> 
-<b>Tinder</b>
+<b>即刻 - 不错过你惦记的每一件小事</b>
 </td>
 
 <!-- Asked Levi to reach out -->
@@ -114,9 +114,9 @@ permalink: /showcase.html
 <tr>
 
 <td align="center" valign="center">
-<a href="https://itunes.apple.com/cn/app/ji-ke-yong-zui-lan-fang-shi/id966129812"><img class="roundrect" src="http://is1.mzstatic.com/image/thumb/Purple71/v4/63/ac/50/63ac5045-4816-0d02-53a2-e41ea9c441e9/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+<a href="https://itunes.apple.com/us/app/yep-meet-genius/id983891256"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple71/v4/f4/df/93/f4df93bc-d500-aa21-567a-fb77056646a2/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br /> 
-<b>即刻 - 不错过你惦记的每一件小事</b>
+<b>GitBucket</b>
 </td>
 
 <td align="center" valign="center">
@@ -139,12 +139,6 @@ permalink: /showcase.html
 <a href="https://itunes.apple.com/us/app/yep-meet-genius/id983891256"><img class="roundrect" src="http://is2.mzstatic.com/image/thumb/Purple20/v4/58/14/b4/5814b496-e92e-5522-b167-7d6d96118f64/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 <br /> 
 <b>Yep</b>
-</td>
-
-<td align="center" valign="center">
-<a href="https://itunes.apple.com/us/app/yep-meet-genius/id983891256"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple71/v4/f4/df/93/f4df93bc-d500-aa21-567a-fb77056646a2/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
-<br /> 
-<b>GitBucket</b>
 </td>
 
 </tr>
