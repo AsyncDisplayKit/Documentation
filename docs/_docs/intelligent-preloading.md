@@ -28,7 +28,7 @@ A node will be in one of following ranges:
     <th>Description</th> 
   </tr>
   <tr>
-    <td><b>Fetch Data</b></td>
+    <td><b>Preload</b></td>
     <td>The furthest range out from being visible. This is where content is gathered from an external source, whether that’s some API or a local disk.</td>
   </tr>
   <tr>
