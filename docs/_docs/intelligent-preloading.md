@@ -57,17 +57,20 @@ As a user scrolls, nodes move through the ranges and react appropriately by load
 
 ### Visible Range 
 ```
-`didEnterPreloadState / didExitPreloadState`
+-didEnterVisibleState
+-didExitVisibleState
 ```
 
 ### Display Range
 ```
-`didEnterDisplayState / didExitDisplayState`
+-didEnterDisplayState
+-didExitDisplayState
 ```
 
-### Fetch Data Range
+### Preload Range
 ```
-`didEnterVisibleState / didExitVisibleState`
+-didEnterPreloadState
+-didExitPreloadState
 ```
 
 <br>
