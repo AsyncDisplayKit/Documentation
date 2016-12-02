@@ -143,6 +143,12 @@ permalink: /showcase.html
 		<b>GitBucket</b>
 		</td>
 		
+		<td align="center" valign="top">
+		<a href="https://itunes.apple.com/us/app/hakkerjobs-hackernews-client/id1028168255"><img class="roundrect" src="http://is5.mzstatic.com/image/thumb/Purple49/v4/16/73/c8/1673c8ee-766b-e6ec-8889-27dcfd0b59f8/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<br /> 
+		<b>HakkerJobs</b>
+		</td>
+		
 		</tr>
 		
 		</table>
