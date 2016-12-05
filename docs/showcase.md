@@ -122,9 +122,9 @@ permalink: /showcase.html
 		</td>
 		
 		<td align="center" valign="top">
-		<a href="https://itunes.apple.com/nz/app/instabuy/id1031047996"><img class="roundrect" src="http://is5.mzstatic.com/image/thumb/Purple71/v4/79/24/e3/7924e397-5240-6dff-3f6e-227b6301d704/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<a href="https://itunes.apple.com/us/app/fyuse-3d-photos/id862863329"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple22/v4/eb/ef/b1/ebefb1b9-af9a-4547-368f-a3b31e88c057/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 		<br /> 
-		<b>InstaBuy</b>
+		<b>Fyuse</b>
 		</td>
 		
 		</tr>
@@ -156,6 +156,12 @@ permalink: /showcase.html
 		<a href="https://itunes.apple.com/dm/app/mishu/id1110273636"><img class="roundrect" src="http://is2.mzstatic.com/image/thumb/Purple71/v4/ac/f6/6a/acf66a83-2cf9-55d6-af21-973ef6861c83/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 		<br /> 
 		<b>Mishu</b>
+		</td>
+		
+		<td align="center" valign="top">
+		<a href="https://itunes.apple.com/nz/app/instabuy/id1031047996"><img class="roundrect" src="http://is5.mzstatic.com/image/thumb/Purple71/v4/79/24/e3/7924e397-5240-6dff-3f6e-227b6301d704/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<br /> 
+		<b>InstaBuy</b>
 		</td>
 		
 		</tr>
