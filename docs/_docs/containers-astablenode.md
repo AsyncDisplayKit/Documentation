@@ -223,7 +223,7 @@ This is different from `UIKit` where normally you would have to call reload row 
 <ul>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram</a></li>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/Kittens">Kittens</a></li>
-  <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/HorizontalwithinVerticalScrolling">HorizontalwithinVerticalScrolling</a></li>
+  <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/HorizontalWithinVerticalScrolling">HorizontalWithinVerticalScrolling</a></li>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/VerticalWithinHorizontalScrolling">VerticalWithinHorizontalScrolling</a></li>
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/SocialAppLayout">SocialAppLayout</a></li>
 </ul>
