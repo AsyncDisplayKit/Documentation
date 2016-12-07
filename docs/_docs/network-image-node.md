@@ -8,8 +8,6 @@ nextPage: multiplex-image-node.html
 
 ASNetworkImageNode can be used any time you need to display an image that is being hosted remotely.  All you have to do is set the .URL property with the appropriate NSURL instance and the image will be asynchonously loaded and concurrently rendered for you.
 
-However, images loaded from a local URL need to have `loader.shouldCacheImage` set to `false`.
-
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 
@@ -116,3 +114,6 @@ It's important to remember that this is using one image that is progressively lo
 
 ASNetworkImageNode now uses <a href = "https://github.com/pinterest/PINCache">PINCache</a> under the hood by default to cache network images automatically.
 
+#### GIF Support
+
+ASNetworkImageNode provides GIF support through PINRemoteImage's beta PINAnimatedImage. Of note! This support will not work for local files unless `shouldCacheImage` is set to NO.
