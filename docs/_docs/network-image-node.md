@@ -8,6 +8,8 @@ nextPage: multiplex-image-node.html
 
 ASNetworkImageNode can be used any time you need to display an image that is being hosted remotely.  All you have to do is set the .URL property with the appropriate NSURL instance and the image will be asynchonously loaded and concurrently rendered for you.
 
+However, images loaded from a local URL need to have `loader.shouldCacheImage` set to `false`.
+
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 
