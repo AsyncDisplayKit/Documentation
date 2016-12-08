@@ -169,7 +169,8 @@ permalink: /showcase.html
 		</table>
 		
 		<br />
-		<p>If you built an app using AsyncDisplayKit, we'd love to have your app in this showcase! If you do not want your app featured on this page, please email AsyncDisplayKit@gmail.com.</p>
+		<p>If you built an app using AsyncDisplayKit, we'd love to have your app in this showcase!</p>
+		<p>If you would like to have your app added or do not want your app featured on this page, please email asyncdisplaykit@gmail.com.</p>
 	
 	</article>
 
