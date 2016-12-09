@@ -25,8 +25,7 @@ Add the following to your podfile
 <div class = "highlight-group">
 <div class = "code">
 <pre lang="objc" class="objcCode">
-<!-- pod 'AsyncDisplayKit', :git => 'https://github.com/facebook/AsyncDisplayKit.git', :tag => '2.0-beta.1' -->
-pod 'AsyncDisplayKit', '>= 2.0-rc.2'
+pod 'AsyncDisplayKit', '>= 2.0'
 </pre>
 </div>
 </div>
