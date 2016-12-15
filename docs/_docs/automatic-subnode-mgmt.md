@@ -33,7 +33,7 @@ By setting .automaticallyManagesSubnodes to YES on the ASCellNode, we _no longer
     _photoModel = photo;
     
     _userAvatarImageNode = [[ASNetworkImageNode alloc] init];
-    _userAvatarImageNodeURL = photo.ownerUserProfile.userPicURL;
+    _userAvatarImageNode.URL = photo.ownerUserProfile.userPicURL;
     <b>[self addSubnode:_userAvatarImageNode];</b>
 
     _photoImageNode = [[ASNetworkImageNode alloc] init];
@@ -69,7 +69,7 @@ By setting .automaticallyManagesSubnodes to YES on the ASCellNode, we _no longer
     _photoModel = photo;
     
     _userAvatarImageNode = [[ASNetworkImageNode alloc] init];
-    _userAvatarImageNodeURL = photo.ownerUserProfile.userPicURL;
+    _userAvatarImageNode.URL = photo.ownerUserProfile.userPicURL;
 
     _photoImageNode = [[ASNetworkImageNode alloc] init];
     _photoImageNode.URL = photo.URL;
