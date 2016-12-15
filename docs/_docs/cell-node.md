@@ -3,7 +3,7 @@ title: ASCellNode
 layout: docs
 permalink: /docs/cell-node.html
 prevPage: display-node.html
-nextPage: control-node.html
+nextPage: button-node.html
 ---
 
 <code>ASCellNode</code>, as you may have guessed, is the cell class of ASDK.  Unlike the various cells in UIKit, <code>ASCellNode</code> can be used with <code>ASTableNodes</code>, <code>ASCollectionNodes</code> and <code>ASPagerNodes</code>, making it incredibly flexible.
