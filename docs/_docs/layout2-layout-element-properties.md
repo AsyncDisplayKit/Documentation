@@ -93,7 +93,7 @@ nextPage: layout2-api-sizing.html
   </tr>
   <tr>
     <td><b><code><a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.width</code></b></td>
-    <td>The width property specifies the height of the content area of an ASLayoutElement. The minWidth and maxWidth properties override width. Defaults to ASDimensionAuto.</td> 
+    <td>The width property specifies the width of the content area of an ASLayoutElement. The minWidth and maxWidth properties override width. Defaults to ASDimensionAuto.</td> 
   </tr>
   <tr>
     <td><b><code><a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.height</code></b></td>
