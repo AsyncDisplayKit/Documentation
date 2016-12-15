@@ -423,13 +423,14 @@ p code, span code, li code {
     
 
 .language-toggle {
+    border-bottom: 2px #0484f2 solid;
+    background: white;
     display: block;
     box-sizing: border-box;
     font-size: 125%
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
     margin-bottom: 1em;
-    margin-top: 10px;
     padding-right: 10px;
 }
 .language-toggle a.active {
@@ -439,7 +440,7 @@ p code, span code, li code {
     cursor: pointer;
     display: block;
     float: right;
-    padding-left: 0.5em;
+    padding-left: 1em;
 
     color: #a3a39e !important;
     text-decoration: none;
@@ -452,11 +453,10 @@ p code, span code, li code {
 }
 
 .highlight-group {
-    margin-top: 10px;
     font-family: 'Inconsolata' !important;
     margin: 0;
+    margin-top: 20px;
     margin-bottom: 20px;
-    border-top: 2px #0484f2 solid;
     background: #f8f7f5;
 }
 
