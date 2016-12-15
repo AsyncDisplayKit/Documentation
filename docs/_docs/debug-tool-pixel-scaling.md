@@ -41,8 +41,8 @@ if scaleFactor != 1.0 {
 <b>This debug feature is useful for quickly determining if you are</b>
 
 <ul>
-  <li><strong>downloading and rendering excessive amounts of image data</li> 
-  <li>upscaling a low quality image</strong></li>
+  <li><b>downloading and rendering excessive amounts of image data</b></li> 
+  <li><b>upscaling a low quality image</b></li>
 </ul>
 
 In the screenshot below of an app with this debug feature enabled, you can see that the avatar image is unnecessarily large (9x too large) for it’s bounds size and that the center picture is more optimized, but not perfectly so. If you control your own endpoint, make sure to return an optimally sized image.
