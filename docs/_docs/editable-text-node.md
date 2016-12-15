@@ -2,8 +2,8 @@
 title: ASEditableTextNode
 layout: docs
 permalink: /docs/editable-text-node.html
-prevPage: text-node.html
-nextPage: image-node.html
+prevPage: scroll-node.html
+nextPage: multiplex-image-node.html
 ---
 
 `ASEditableTextNode` is available to be used anywhere you'd normally use a UITextView or UITextField.  Under the hood, it uses a specialized UITextView as its backing view.  You can access and configure this view directly any time after the node has loaded, as long as you do it on the main thread.  

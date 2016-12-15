@@ -2,7 +2,7 @@
 title: ASImageNode
 layout: docs
 permalink: /docs/image-node.html
-prevPage: editable-text-node.html
+prevPage: text-node.html
 nextPage: network-image-node.html
 ---
 

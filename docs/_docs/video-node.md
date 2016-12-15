@@ -2,8 +2,8 @@
 title: ASVideoNode
 layout: docs
 permalink: /docs/video-node.html
-prevPage: map-node.html
-nextPage: scroll-node.html
+prevPage: network-image-node.html
+nextPage: map-node.html
 ---
 
 `ASVideoNode` provides a convenient and performant way to display videos in your app.  

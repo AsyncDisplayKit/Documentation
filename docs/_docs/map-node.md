@@ -2,8 +2,8 @@
 title: ASMapNode
 layout: docs
 permalink: /docs/map-node.html
-prevPage: multiplex-image-node.html
-nextPage: video-node.html
+prevPage: video-node.html
+nextPage: control-node.html
 ---
 
 `ASMapNode` allows you to easily specify a geographic region to show to your users.  

@@ -2,7 +2,7 @@
 title: ASScrollNode
 layout: docs
 permalink: /docs/scroll-node.html
-prevPage: video-node.html
+prevPage: control-node.html
 nextPage: automatic-layout-containers.html
 ---
 

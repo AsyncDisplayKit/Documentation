@@ -3,7 +3,7 @@ title: ASTextNode
 layout: docs
 permalink: /docs/text-node.html
 prevPage: button-node.html
-nextPage: editable-text-node.html
+nextPage: image-node.html
 ---
 
 `ASTextNode` is AsyncDisplayKit's main text node and can be used any time you would normally use a `UILabel`.  It includes full rich text support and is a subclass of `ASControlNode` meaning it can be used any time you would normally create a UIButton with just its titleLabel set.
