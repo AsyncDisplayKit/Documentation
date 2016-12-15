@@ -3,7 +3,7 @@ title: ASScrollNode
 layout: docs
 permalink: /docs/scroll-node.html
 prevPage: control-node.html
-nextPage: automatic-layout-containers.html
+nextPage: editable-text-node.html
 ---
 
 `ASScrollNode` is literally a wrapped `UIScrollView`.
