@@ -430,7 +430,6 @@ p code, span code, li code {
     font-size: 125%
     -webkit-font-smoothing: antialiased;
     line-height: 1.5;
-    margin-bottom: 1em;
     padding-right: 10px;
 }
 .language-toggle a.active {
@@ -464,18 +463,13 @@ p code, span code, li code {
     display: none;
 }
 .code {
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding: 15px;
     overflow: auto;
 }
 pre {
     font-family: 'Inconsolata' !important;
     font-weight: 500;
     color: #333333;
-}
-
-.code pre {
-	padding-top:10px;
 }
 
 .note {
