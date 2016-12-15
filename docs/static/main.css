@@ -157,6 +157,9 @@ header nav ul li a {
 .container .sidebar ul li {
 	list-style: none;
 }
+.container .sidebar a.active {
+	font-weight: bold;
+}
 
 .container .content {
 }
