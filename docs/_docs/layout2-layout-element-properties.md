@@ -93,27 +93,27 @@ nextPage: layout2-api-sizing.html
   </tr>
   <tr>
     <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.width`</b></td>
-    <td>The width property specifies the width of the content area of an ASLayoutElement. The minWidth and maxWidth properties override width. Defaults to ASDimensionAuto.</td> 
+    <td>The `width` property specifies the width of the content area of an `ASLayoutElement`. The `minWidth` and `maxWidth` properties override `width`. Defaults to `ASDimensionAuto`.</td> 
   </tr>
   <tr>
     <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.height`</b></td>
-    <td>The height property specifies the height of the content area of an ASLayoutElement. The minHeight and maxHeight properties override height. Defaults to ASDimensionAuto.</td> 
-  </tr>
-  <tr>
-    <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.minHeight`</b></td>
-    <td>The maxHeight property is used to set the maximum height of an element. It prevents the used value of the height property from becoming larger than the value specified for maxHeight. The value of maxHeight overrides height, but minHeight overrides maxHeight. Defaults to `ASDimensionAuto`</td> 
-  </tr>
-  <tr>
-    <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.maxHeight`</b></td>
-    <td>If the sum of childrens' stack dimensions is greater than the maximum size, should this object shrink?</td> 
+    <td>The `height` property specifies the height of the content area of an `ASLayoutElement`. The `minHeight` and `maxHeight` properties override `height`. Defaults to `ASDimensionAuto`.</td> 
   </tr>
   <tr>
     <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.minWidth`</b></td>
-    <td>The minWidth property is used to set the minimum width of a given element. It prevents the used value of the width property from becoming smaller than the value specified for minWidth. The value of minWidth overrides both maxWidth and width. Defaults to `ASDimensionAuto`</td> 
+    <td>The `minWidth` property is used to set the minimum width of a given element. It prevents the used value of the `width` property from becoming smaller than the value specified for `minWidth`. The value of `minWidth` overrides both `maxWidth` and `width`. Defaults to `ASDimensionAuto`.</td> 
   </tr>
   <tr>
     <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.maxWidth`</b></td>
-    <td>The maxWidth property is used to set the maximum width of a given element. It prevents the used value of the width property from becoming larger than the value specified for maxWidth. The value of maxWidth overrides width, but minWidth overrides maxWidth. Defaults to `ASDimensionAuto`</td> 
+    <td>The `maxWidth` property is used to set the maximum width of a given element. It prevents the used value of the `width` property from becoming larger than the value specified for `maxWidth`. The value of `maxWidth` overrides `width`, but `minWidth` overrides `maxWidth`. Defaults to `ASDimensionAuto`.</td> 
+  </tr>
+  <tr>
+    <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.minHeight`</b></td>
+    <td>The `minHeight` property is used to set the minimum height of a given element. It prevents the used value of the `height` property from becoming smaller than the value specified for `minHeight`. The value of `minHeight` overrides both `maxHeight` and `height`. Defaults to `ASDimensionAuto`.</td> 
+  </tr>
+  <tr>
+    <td><b>`<a href="layout2-api-sizing.html#values-cgfloat-asdimension">ASDimension</a> .style.maxHeight`</b></td>
+    <td>The `maxHeight` property is used to set the maximum height of a given element. It prevents the used value of the `height` property from becoming larger than the value specified for `maxHeight`. The value of `maxHeight` overrides `height`, but `minHeight` overrides `maxHeight`. Defaults to `ASDimensionAuto`</td> 
   </tr>
   <tr>
     <td><b>`CGSize .style.preferredSize`</b></td>
