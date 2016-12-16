@@ -24,7 +24,7 @@ $ bundle install # Might need sudo.
 Use Jekyll to serve the website locally (by default, at `http://localhost:4000`):
 
 ```sh
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve [--incremental]
 $ open http://localhost:4000/
 ```
 
