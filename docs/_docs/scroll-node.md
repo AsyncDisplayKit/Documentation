@@ -41,5 +41,5 @@ scrollNodeView.contentSize = scrollNodeImage.size
 </div>
 </div>
 
-As you can see, the scrollNode's underlying view is a `UIScrollView`.
+As you can see, the `scrollNode`'s underlying view is a `UIScrollView`.
 

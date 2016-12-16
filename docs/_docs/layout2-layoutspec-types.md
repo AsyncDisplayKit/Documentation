@@ -9,19 +9,19 @@ nextPage: layout2-layout-element-properties.html
 The following `ASLayoutSpec` subclasses can be used to compose simple or very complex layouts. 
 
 <ul>
-<li><a href="layout2-layoutspec-types.html#asinsetlayoutspec"><code>AS<b>Inset</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asoverlaylayoutspec"><code>AS<b>Overlay</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec"><code>AS<b>Background</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#ascenterlayoutspec"><code>AS<b>Center</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asratiolayoutspec"><code>AS<b>Ratio</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asstacklayoutspec-flexbox-container"><code>AS<b>Stack</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec"><code>AS<b>Absolute</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asinsetlayoutspec">`AS<b>Inset</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#asoverlaylayoutspec">`AS<b>Overlay</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec">`AS<b>Background</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#ascenterlayoutspec">`AS<b>Center</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#asratiolayoutspec">`AS<b>Ratio</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#asstacklayoutspec-flexbox-container">`AS<b>Stack</b>LayoutSpec`</a></li>
+<li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec">`AS<b>Absolute</b>LayoutSpec`</a></li>
 </ul>
 
-You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec"><code>ASLayoutSpec</code></a> in order to make your own, custom layout specs. 
+You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLayoutSpec`</a> in order to make your own, custom layout specs. 
 
 ## ASInsetLayoutSpec
-During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` CGSize to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
+During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` `CGSize` to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
 
 <img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
 
@@ -51,7 +51,7 @@ If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just
 The overlay spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the overlay layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode ot the parent node after the child layout element (blue).
+When using Automatic Subnode Management with the `ASOverlayLayoutSpec`, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode ot the parent node after the child layout element (blue).
 </div>
 
 <div class = "highlight-group">
@@ -77,7 +77,7 @@ When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes 
 The background spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the background layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode ot the parent node after the child background element (red).
+When using Automatic Subnode Management with the `ASOverlayLayoutSpec`, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode ot the parent node after the child background element (red).
 </div>
 
 <div class = "highlight-group">

@@ -12,8 +12,8 @@ An ASViewController can be used in place of any `UIViewController` - including w
 
 Benefits of using an `ASViewController`:
 <ol>
-<li><b>Save Memory.</b> An <code>ASViewController</code> that goes off screen will automatically reduce the size of the fetch data and display ranges of any of its children. This is key for memory management in large applications. </li>
-<li><b><a href="asvisibility.html"><code>ASVisibility</code></a>.</b> When used in an <code>ASNavigationController</code> or <code>ASTabBarController</code>, these classes know the exact number of user taps it would take to make the view controller visible.</li>
+<li><b>Save Memory.</b> An `ASViewController` that goes off screen will automatically reduce the size of the fetch data and display ranges of any of its children. This is key for memory management in large applications. </li>
+<li><b><a href="asvisibility.html">`ASVisibility`</a>.</b> When used in an `ASNavigationController` or `ASTabBarController`, these classes know the exact number of user taps it would take to make the view controller visible.</li>
 </ol>
 
 More features will be added over time, so it is a good idea to base your view controllers off of this class. 
@@ -64,6 +64,6 @@ func initWithModel(models: Array&lt;Model&gt;) {
 
 <br>
 <div class = "note">
-<b>Conversion Tip</b>: If your app already has a complex view controller hierarchy, it is perfectly fine to have all of them subclass ASViewController. That is to say, even if you don't use <code>ASViewController</code>'s designated initializer <code>-initiWithNode:</code>, and only use the <code>ASViewController</code> in the manner of a traditional <code>UIVieWController</code>, this will give you the additional node support if you choose to adopt it in different areas your application. 
+<b>Conversion Tip</b>: If your app already has a complex view controller hierarchy, it is perfectly fine to have all of them subclass ASViewController. That is to say, even if you don't use `ASViewController`'s designated initializer `-initiWithNode:`, and only use the `ASViewController` in the manner of a traditional `UIVieWController`, this will give you the additional node support if you choose to adopt it in different areas your application. 
 </div>
 

@@ -9,7 +9,7 @@ nextPage: image-node.html
 `ASTextNode` is AsyncDisplayKit's main text node and can be used any time you would normally use a `UILabel`.  It includes full rich text support and is a subclass of `ASControlNode` meaning it can be used any time you would normally create a UIButton with just its titleLabel set.
 
 ### Basic Usage
-ASTextNode's interface should be familiar to anyone who's used a UILabel.   The first difference you may notice, is that text node's only use attributed strings instead of having the option of using a plain string.
+`ASTextNode`'s interface should be familiar to anyone who's used a `UILabel`.   The first difference you may notice, is that text node's only use attributed strings instead of having the option of using a plain string.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -68,7 +68,7 @@ By default, the truncation string will be "…" so you don't need to set it if t
 
 ### Link Attributes
 
-In order to designate chunks of your text as a link, you first need to set the <code>linkAttributes</code> array to an array of strings which will be used as keys of links in your attributed string.  Then, when setting up the attributes of your string, you can use these keys to point to appropriate NSURLs.
+In order to designate chunks of your text as a link, you first need to set the `linkAttributes` array to an array of strings which will be used as keys of links in your attributed string.  Then, when setting up the attributes of your string, you can use these keys to point to appropriate `NSURL`s.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -112,7 +112,7 @@ As you can see, it's relatively convenient to apply various styles to each link 
 
 ### ASTextNodeDelegate
 
-Conforming to ASTextNodeDelegate allows your class to react to various events associated with a text node.  For example, if you want to react to one of your links being tapped:
+Conforming to `ASTextNodeDelegate` allows your class to react to various events associated with a text node.  For example, if you want to react to one of your links being tapped:
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -136,12 +136,12 @@ func textNode(textNode: ASTextNode, tappedLinkAttribute attribute: String, value
 </div>
 </div>
 
-In a similar way, you can react to long presses and highlighting with the following methods.
+In a similar way, you can react to long presses and highlighting with the following methods:
 
-<code>– textNode:longPressedLinkAttribute:value:atPoint:textRange:</code>
+`– textNode:longPressedLinkAttribute:value:atPoint:textRange:`
 
-<code>– textNode:shouldHighlightLinkAttribute:value:atPoint:</code>
+`– textNode:shouldHighlightLinkAttribute:value:atPoint:`
 
-<code>– textNode:shouldLongPressLinkAttribute:value:atPoint:</code>
+`– textNode:shouldLongPressLinkAttribute:value:atPoint:`
 
 

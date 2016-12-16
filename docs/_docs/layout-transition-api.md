@@ -53,7 +53,7 @@ The internal layout spec of the `SignupNode` container would look something like
 </div>
 </div>
 
-To trigger a transition from the `nameField` to the `ageField` in this example, we'll update the SignupNode's .fieldState property and begin the transition with `transitionLayoutWithAnimation:`. 
+To trigger a transition from the `nameField` to the `ageField` in this example, we'll update the SignupNode's `.fieldState` property and begin the transition with `transitionLayoutWithAnimation:`. 
 
 This method will invalidate the current calculated layout and recompute a new layout with the `ageField` now in the stack.
 
@@ -121,7 +121,7 @@ This method is called after the new layout has been calculated via `transitionLa
 </div>
 
 
-The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASContextTransitioning.h"><code>ASContextTransitioning</code></a> context object in this method contains relevant information to help you determine the state of the nodes before and after the transition. It includes getters into old and new constrained sizes, inserted and removed nodes, and even the raw old and new `ASLayout` objects. In the `SignupNode` example, we're using it to determine the frame for each of the fields and animate them in an out of place.
+The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASContextTransitioning.h">`ASContextTransitioning`</a> context object in this method contains relevant information to help you determine the state of the nodes before and after the transition. It includes getters into old and new constrained sizes, inserted and removed nodes, and even the raw old and new `ASLayout` objects. In the `SignupNode` example, we're using it to determine the frame for each of the fields and animate them in an out of place.
 
 It is imperative to call `completeTransition:` on the context object once your animation has finished, as it will perform the necessary internal steps for the newly calculated layout to become the current `calculatedLayout`.
 

@@ -53,7 +53,7 @@ If your app fails to build instead of just showing the warnings, you might have 
 
 1. Disable deprecation warnings in the Xcode project settings
 2. Disable warnings as errors in the project's build settings.
-3. Disable deprecation warnings in ASDK. To do this,  change `line 74` in `ASBaseDefines.h` to <code># define ASDISPLAYNODE_WARN_DEPRECATED 0</code>
+3. Disable deprecation warnings in ASDK. To do this,  change `line 74` in `ASBaseDefines.h` to `# define ASDISPLAYNODE_WARN_DEPRECATED 0`
 
 Once your app builds and runs, test it to make sure everything is working normally. If you find any problems, try adopting the new API in that area and re-test. 
 

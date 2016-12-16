@@ -50,10 +50,10 @@ The region value is actually just one piece of a property called `options` of ty
 A map node's main components can be defined directly through its `options` property.  The snapshot options object contains the following:
 
 <ul>
-	<li>An <strong>MKMapCamera</strong>: used to configure altitude and pitch of the camera</li>
-	<li>An <strong>MKMapRect</strong>: basically a CGRect</li>
-	<li>An <strong>MKMapRegion</strong>: Controls the coordinate of focus, and the size around that focus to show</li>
-	<li>An <strong>MKMapType</strong>: Can be set to Standard, Satellite, etc.</li>
+	<li>An `MKMapCamera`: used to configure altitude and pitch of the camera</li>
+	<li>An `MKMapRect`: basically a CGRect</li>
+	<li>An `MKMapRegion`: Controls the coordinate of focus, and the size around that focus to show</li>
+	<li>An `MKMapType`: Can be set to Standard, Satellite, etc.</li>
 </ul>
 
 To do something like changing your map to a satellite map, you just need to create an options object and set its properties accordingly.
@@ -87,7 +87,7 @@ One thing to note is that setting the options value will overwrite a previously 
 
 ### Annotations
 
-To set annotations, all you need to do is assign an array of annotations to your mapNode.
+To set annotations, all you need to do is assign an array of annotations to your `mapNode`.
 
 Say you want to show a pin directly in the middle of your map of San Francisco.
 
@@ -135,7 +135,7 @@ This enables "live map mode" in which the node will use an <a href = "https://de
 
 <img width = "300" src = "/static/images/liveMap.gif"/>
 
-As with UIKit views, the MKMapView used in live map mode is not thread-safe.
+As with UIKit views, the `MKMapView` used in live map mode is not thread-safe.
 
 ### MKMapView Delegate
 

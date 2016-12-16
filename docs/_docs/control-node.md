@@ -6,13 +6,13 @@ prevPage: map-node.html
 nextPage: scroll-node.html
 ---
 
-<code>ASControlNode</code> is the ASDK equivalent to <code>UIControl</code>.  You don't create instances of <code>ASControlNode</code> directly.  Instead, you can use it as a subclassing point when creating controls of your own.  In fact, <a href = "/docs/text-node.html">ASTextNode</a>, <a href = "/docs/image-node.html">ASImageNode</a>, <a href = "/docs/video-node.html">ASVideoNode</a> and <a href = "/docs/map-node.html">ASMapNode</a> are all subclasses of <code>ASControlNode</code>.
+`ASControlNode` is the ASDK equivalent to `UIControl`.  You don't create instances of `ASControlNode` directly.  Instead, you can use it as a subclassing point when creating controls of your own.  In fact, <a href = "/docs/text-node.html">ASTextNode</a>, <a href = "/docs/image-node.html">ASImageNode</a>, <a href = "/docs/video-node.html">ASVideoNode</a> and <a href = "/docs/map-node.html">ASMapNode</a> are all subclasses of `ASControlNode`.
 
-This fact is especially useful when it comes to image and text nodes.  Having the ability to add target-action pairs means that you can use any text or image node as a button without having to rely on creating gesture recognizers, as you would with text in UIKit, or creating extraneous views as you might when using <code>UIButton</code>.
+This fact is especially useful when it comes to image and text nodes.  Having the ability to add target-action pairs means that you can use any text or image node as a button without having to rely on creating gesture recognizers, as you would with text in UIKit, or creating extraneous views as you might when using `UIButton`.
 
 ### Control State
 
-Like <code>UIControl</code>, <code>ASControlNode</code> has a state which defines its appearance and ability to support user interactions.  Its state can be one of any state defined by <code>ASControlState</code>.
+Like `UIControl`, `ASControlNode` has a state which defines its appearance and ability to support user interactions.  Its state can be one of any state defined by `ASControlState`.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -31,7 +31,7 @@ typedef NS_OPTIONS(NSUInteger, ASControlState) {
 
 ### Target-Action Mechanism
 
-Also similarly to <code>UIControl</code>, <code>ASControlNode</code>'s have a set of events defined which you can react to by assigning a target-action pair.  
+Also similarly to `UIControl`, `ASControlNode`'s have a set of events defined which you can react to by assigning a target-action pair.  
 
 The available actions are: 
 <div class = "highlight-group">
@@ -61,11 +61,11 @@ typedef NS_OPTIONS(NSUInteger, ASControlNodeEvent)
 </div>
 </div>
 
-Assigning a target and action for these events is done with the same methods as a <code>UIControl</code>, namely using <code>–addTarget:action:forControlEvents:</code>.
+Assigning a target and action for these events is done with the same methods as a `UIControl`, namely using `–addTarget:action:forControlEvents:`.
 
 ### Hit Test Slop
 
-While all node's have a <code>hitTestSlop</code> property, this is usually most useful when dealing with controls.  Instead of needing to make your control bigger, or needing to override <code>-hitTest:withEvent:</code> you can just assign a <code>UIEdgeInsets</code> to your control and its boundaries will be expanded accordingly.
+While all node's have a `hitTestSlop` property, this is usually most useful when dealing with controls.  Instead of needing to make your control bigger, or needing to override `-hitTest:withEvent:` you can just assign a `UIEdgeInsets` to your control and its boundaries will be expanded accordingly.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -89,4 +89,4 @@ Remember that, since the property is an inset, you'll need to use negative value
 
 ### Hit Test Visualization
 
-The <a href = "/docs/debug-tool-hit-test-visualization.html">hit test visualization tool</a> is an option to enable highlighting of the tappable areas of your nodes.  To enable it, include <code>[ASControlNode setEnableHitTestDebug:YES]</code> in your app delegate in <code>-application:didFinishLaunchingWithOptions:</code>.
+The <a href = "/docs/debug-tool-hit-test-visualization.html">hit test visualization tool</a> is an option to enable highlighting of the tappable areas of your nodes.  To enable it, include `[ASControlNode setEnableHitTestDebug:YES]` in your app delegate in `-application:didFinishLaunchingWithOptions:`.

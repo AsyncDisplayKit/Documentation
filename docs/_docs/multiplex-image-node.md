@@ -5,11 +5,11 @@ permalink: /docs/multiplex-image-node.html
 prevPage: editable-text-node.html
 ---
 
-Let's say your API is out of your control and the images in your app can't be progressive jpegs but you can retrieve a few different sizes of the image asset you want to display. This is where you would use an ASMultiplexImageNode instead of an <a href = "/docs/network-image-node.html">ASNetworkImageNode</a>.
+Let's say your API is out of your control and the images in your app can't be progressive jpegs but you can retrieve a few different sizes of the image asset you want to display. This is where you would use an `ASMultiplexImageNode` instead of an <a href = "/docs/network-image-node.html">ASNetworkImageNode</a>.
 
-In the following example, you're using a multiplex image node in an ASCellNode subclass.  After initialization, you typically need to do two things.  First, make sure to set <code>downloadsIntermediateImages</code> to <code>YES</code> so that the lesser quality images will be downloaded.  
+In the following example, you're using a multiplex image node in an `ASCellNode` subclass.  After initialization, you typically need to do two things.  First, make sure to set `downloadsIntermediateImages` to `YES` so that the lesser quality images will be downloaded.  
 
-Then, assign an array of keys to the property <code>imageIdentifiers</code>.  This list should be in descending order of image quality and will be used by the node to determine what URL to call for each image it will try to load.
+Then, assign an array of keys to the property `imageIdentifiers`.  This list should be in descending order of image quality and will be used by the node to determine what URL to call for each image it will try to load.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -64,13 +64,13 @@ Then, if you've set up a simple dictionary that holds the keys you provided earl
 {
     return _imageURLs[imageIdentifier];
 }
-    </pre>
+</pre>
 
     <pre lang="swift" class = "swiftCode hidden">
 func multiplexImageNode(imageNode: ASMultiplexImageNode, URLForImageIdentifier imageIdentifier: ASImageIdentifier) -> NSURL? {
     return imageURLs[imageIdentifier]
 }
-    </pre>
+</pre>
 </div>
 </div>
 
@@ -93,7 +93,7 @@ For example, in the case that you want to react to the fact that a new image arr
 {    
         // this is optional, in case you want to react to the fact that a new image came in
 }
-    </pre>
+</pre>
 
     <pre lang="swift" class = "swiftCode hidden">
 func multiplexImageNode(imageNode: ASMultiplexImageNode, 
@@ -103,7 +103,7 @@ func multiplexImageNode(imageNode: ASMultiplexImageNode,
              withIdentifier previousImageIdentifier: ASImageIdentifier?) {
     // this is optional, in case you want to react to the fact that a new image came in   
 }
-    </pre>
+</pre>
 </div>
 </div>
 

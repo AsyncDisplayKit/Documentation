@@ -168,9 +168,9 @@ func tableNode(tableNode: UITableNode!, nodeBlockForRowAtIndexPath indexPath: NS
 If you've used previous versions of ASDK, you'll notice that `ASTableView` has been removed in favor of `ASTableNode`.
 
 <div class = "note">
-<code>ASTableView</code>, an actual <code>UITableView</code> subclass, is still used internally by <code>ASTableNode</code>. While it should not be created directly, it can still be used directly by accessing the <code>.view</code> property of an <code>ASTableNode</code>.
+`ASTableView`, an actual `UITableView` subclass, is still used internally by `ASTableNode`. While it should not be created directly, it can still be used directly by accessing the `.view` property of an `ASTableNode`.
 
-Don't forget that a node's <code>view</code> or <code>layer</code> property should only be accessed after <code>-viewDidLoad</code> or <code>-didLoad</code>, respectively, have been called.
+Don't forget that a node's `view` or `layer` property should only be accessed after `-viewDidLoad` or `-didLoad`, respectively, have been called.
 </div>
 
 For example, you may want to set a table's separator style property. This can be done by accessing the table node's view in the `-viewDidLoad:` method as seen in the example below. 
@@ -210,9 +210,9 @@ This is because nodes are responsible for determining their own height based on 
 A node defines its height by way of the layoutSpec returned in the `-layoutSpecThatFits:` method. All nodes given a constrained size are able to calculate their desired size.
 
 <div class = "note">
-By default, a <code>ASTableNode</code> provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is <code>0</code>.  The maximim width is also the <code>tableNode</code>'s width but the maximum height is <code>FLT_MAX</code>.
+By default, a `ASTableNode` provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is `0`.  The maximim width is also the `tableNode`'s width but the maximum height is `FLT_MAX`.
 <br><br>
-This is all to say, a <code>tableNode</code>'s cells will always fill the full width of the <code>tableNode</code>, but their height is flexible making self-sizing cells something that happens automatically. 
+This is all to say, a `tableNode`'s cells will always fill the full width of the `tableNode`, but their height is flexible making self-sizing cells something that happens automatically. 
 </div>
 
 If you call `-setNeedsLayout` on an `ASCellNode`, it will automatically perform another layout pass and if its overall desired size has changed, the table will be informed and will update itself. 
