@@ -200,6 +200,12 @@ To recreate the layout of a <i>single cell</i> as is used in Pinterest's search 
 }
   </pre>
   <pre lang="swift" class = "swiftCode hidden">
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+    let insets = UIEdgeInsets(top: 0, left: 12, bottom: 4, right: 4)
+    let inset = ASInsetLayoutSpec(insets: insets, child: _titleNode)
+        
+    return ASCenterLayoutSpec(centeringOptions: .Y, sizingOptions: .minimumX, child: inset)
+}
   </pre>
 </div>
 </div>
