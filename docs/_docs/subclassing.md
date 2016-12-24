@@ -89,7 +89,6 @@ For consistency, it is best practice to put all layout code in this method. Beca
 
 ### `-viewWillAppear:` / `-viewDidDisappear:`
 
-These methods are called just before the ASViewController's node appears on screen and just after it is onscreen. These methods provide a good opportunity to start or stop animations related to the presentation or dismissal of your controller. This is also a good place to make a log of a user action. 
+These methods are called just before the ASViewController's node appears on screen (the earliest time that it is visible) and just after it is removed from the view hierarchy (the earliest time that it is no longer visible). These methods provide a good opportunity to start or stop animations related to the presentation or dismissal of your controller. This is also a good place to make a log of a user action.
 
 Although these methods may be called multiple times and geometry information is available, they are not called for all geometry changes and so should not be used for core layout code (beyond setup required for specific animations). 
-
