@@ -77,7 +77,7 @@ When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes 
 The background spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the background layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode ot the parent node after the child background element (red).
+When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode to the parent node after the child background element (red).
 </div>
 
 <div class = "highlight-group">
