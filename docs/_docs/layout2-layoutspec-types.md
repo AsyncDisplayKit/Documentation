@@ -151,7 +151,7 @@ It is very common to use a ratio spec to provide an intrinsic size for `ASNetwor
 ## ASRelativeLayoutSpec
 Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.
 
-This is a very powerful class, but too complex to cover in this overview. For more information, look into ASRelativeLayoutSpec`s `-calculateLayoutThatFits:` method + properties.
+This is a very powerful class, but too complex to cover in this overview. For more information, look into ASRelativeLayoutSpec's `-calculateLayoutThatFits:` method + properties.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
