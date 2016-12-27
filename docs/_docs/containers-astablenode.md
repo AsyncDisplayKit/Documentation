@@ -210,7 +210,7 @@ This is because nodes are responsible for determining their own height based on 
 A node defines its height by way of the layoutSpec returned in the `-layoutSpecThatFits:` method. All nodes given a constrained size are able to calculate their desired size.
 
 <div class = "note">
-By default, a <code>ASTableNode</code> provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is <code>0</code>.  The maximim width is also the <code>tableNode</code>'s width but the maximum height is <code>FLT_MAX</code>.
+By default, a <code>ASTableNode</code> provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is <code>0</code>.  The maximum width is also the <code>tableNode</code>'s width but the maximum height is <code>FLT_MAX</code>.
 <br><br>
 This is all to say, a <code>tableNode</code>'s cells will always fill the full width of the <code>tableNode</code>, but their height is flexible making self-sizing cells something that happens automatically. 
 </div>
