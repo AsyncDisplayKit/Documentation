@@ -14,6 +14,7 @@ The following `ASLayoutSpec` subclasses can be used to compose simple or very co
 <li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec"><code>AS<b>Background</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#ascenterlayoutspec"><code>AS<b>Center</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asratiolayoutspec"><code>AS<b>Ratio</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asrelativelayoutspec"><code>AS<b>Relative</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asstacklayoutspec-flexbox-container"><code>AS<b>Stack</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec"><code>AS<b>Absolute</b>LayoutSpec</code></a></li>
 </ul>
