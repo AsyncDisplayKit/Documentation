@@ -45,14 +45,14 @@ If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just
 </div>
 
 ## ASOverlayLayoutSpec
-`ASOverlayLayoutSpec` lays out its child (red), stretching another component on top of it as an overlay (blue). 
+`ASOverlayLayoutSpec` lays out its child (blue), stretching another component on top of it as an overlay (red). 
 
 <img src="/static/images/layoutSpec-types/ASOverlayLayouSpec-diagram.png" width="65%">
 
 The overlay spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the overlay layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode ot the parent node after the child layout element (blue).
+When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode to the parent node after the child layout element (blue).
 </div>
 
 <div class = "highlight-group">
@@ -71,7 +71,7 @@ When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes 
 </div>
 
 ## ASBackgroundLayoutSpec
-`ASBackgroundLayoutSpec` lays out a component (red), stretching another component behind it as a backdrop (blue). 
+`ASBackgroundLayoutSpec` lays out a component (blue), stretching another component behind it as a backdrop (red). 
 
 <img src="/static/images/layoutSpec-types/ASBackgroundLayoutSpec-diagram.png" width="65%">
 
