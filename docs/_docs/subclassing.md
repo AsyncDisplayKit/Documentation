@@ -55,7 +55,12 @@ This method is called once, at the very begining of an ASViewController's lifecy
 
 ASViewController's designated initializer is `initWithNode:`. A typical initializer will look something like the code below. Note how the ASViewController's node is created _before_ calling super. An ASViewController manages a node similarly to how a UIViewController manages a view, but the initialization is slightly different. 
 
-``` 
+
+<div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
 - (instancetype)init
 {
   _pagerNode = [[ASPagerNode alloc] init];
@@ -69,7 +74,18 @@ ASViewController's designated initializer is `initWithNode:`. A typical initiali
   
   return self;
 }
-```
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+init() {
+  let pagerNode = ASPagerNode()
+  super.init(node: pagerNode)
+
+  pagerNode.setDataSource(self)
+  pagerNode.setDelegate(self)
+}
+</pre>
+</div>
+</div>
        
 ### `-loadView`
 
