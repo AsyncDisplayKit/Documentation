@@ -84,9 +84,13 @@ In order to respond to events associated with an editable text node, you can use
 --  Indicates to the delegate that the text node began editing.
 
 <div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (void)editableTextNodeDidBeginEditing:(ASEditableTextNode *)editableTextNode;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+optional public func editableTextNodeDidBeginEditing(_ editableTextNode: ASEditableTextNode)
 </pre>
 </div>
 </div>
@@ -94,9 +98,13 @@ In order to respond to events associated with an editable text node, you can use
 --  Asks the delegate whether the specified text should be replaced in the editable text node.
 
 <div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (BOOL)editableTextNode:(ASEditableTextNode *)editableTextNode shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+optional public func editableTextNode(_ editableTextNode: ASEditableTextNode, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool
 </pre>
 </div>
 </div>
@@ -104,9 +112,13 @@ In order to respond to events associated with an editable text node, you can use
 --  Indicates to the delegate that the text node's selection has changed.
 
 <div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (void)editableTextNodeDidChangeSelection:(ASEditableTextNode *)editableTextNode fromSelectedRange:(NSRange)fromSelectedRange toSelectedRange:(NSRange)toSelectedRange dueToEditing:(BOOL)dueToEditing;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+optional public func editableTextNodeDidChangeSelection(_ editableTextNode: ASEditableTextNode, fromSelectedRange: NSRange, toSelectedRange: NSRange, dueToEditing: Bool)
 </pre>
 </div>
 </div>
@@ -114,9 +126,13 @@ In order to respond to events associated with an editable text node, you can use
 --  Indicates to the delegate that the text node's text was updated.
 
 <div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (void)editableTextNodeDidUpdateText:(ASEditableTextNode *)editableTextNode;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+optional public func editableTextNodeDidUpdateText(_ editableTextNode: ASEditableTextNode)
 </pre>
 </div>
 </div>
@@ -124,9 +140,13 @@ In order to respond to events associated with an editable text node, you can use
 --  Indicates to the delegate that teh text node has finished editing.
 
 <div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (void)editableTextNodeDidFinishEditing:(ASEditableTextNode *)editableTextNode;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+optional public func editableTextNodeDidFinishEditing(_ editableTextNode: ASEditableTextNode)
 </pre>
 </div>
 </div>
