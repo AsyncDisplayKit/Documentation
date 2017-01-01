@@ -30,6 +30,7 @@ The internal layout spec of the `SignupNode` container would look something like
 
 <div class = "highlight-group">
 <span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
   <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
 </span>
 <div class = "code">
@@ -50,6 +51,23 @@ The internal layout spec of the `SignupNode` container would look something like
   return [ASInsetLayoutSpec insetLayoutSpecWithInsets:insets child:stack];
 }
 </pre>
+<pre lang="swift" class = "swiftCode hidden">
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+  let fieldNode: FieldNode
+  
+  if self.fieldState == .signupNodeName {
+      fieldNode = self.nameField
+  } else {
+      fieldNode = self.ageField
+  }
+  
+  let stack = ASStackLayoutSpec()
+  stack.children = [fieldNode, buttonNode]
+  
+  let insets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+  return ASInsetLayoutSpec(insets: insets, child: stack)
+}
+</pre>
 </div>
 </div>
 
@@ -59,6 +77,7 @@ This method will invalidate the current calculated layout and recompute a new la
 
 <div class = "highlight-group">
 <span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
   <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
 </span>
 <div class = "code">
@@ -66,6 +85,10 @@ This method will invalidate the current calculated layout and recompute a new la
 self.signupNode.fieldState = SignupNodeAge;
 
 [self.signupNode transitionLayoutWithAnimation:YES];
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+self.signupNode.fieldState = .signupNodeName
+self.signupNode.transitionLayout(withAnimation: true, shouldMeasureAsync: true)
 </pre>
 </div>
 </div>
@@ -78,6 +101,7 @@ This method is called after the new layout has been calculated via `transitionLa
 
 <div class = "highlight-group">
 <span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
   <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
 </span>
 <div class = "code">
@@ -89,12 +113,12 @@ This method is called after the new layout has been calculated via `transitionLa
     initialNameFrame.origin.x += initialNameFrame.size.width;
     self.nameField.frame = initialNameFrame;
     self.nameField.alpha = 0.0;
-    CGRect finalEmailFrame = [context finalFrameForNode:self.nameField];
-    finalEmailFrame.origin.x -= finalEmailFrame.size.width;
+    CGRect finalAgeFrame = [context finalFrameForNode:self.nameField];
+    finalAgeFrame.origin.x -= finalAgeFrame.size.width;
     [UIView animateWithDuration:0.4 animations:^{
       self.nameField.frame = [context finalFrameForNode:self.nameField];
       self.nameField.alpha = 1.0;
-      self.ageField.frame = finalEmailFrame;
+      self.ageField.frame = finalAgeFrame;
       self.ageField.alpha = 0.0;
     } completion:^(BOOL finished) {
       [context completeTransition:finished];
@@ -117,9 +141,48 @@ This method is called after the new layout has been calculated via `transitionLa
   }
 }
 </pre>
+<pre lang="swift" class = "swiftCode hidden">
+override func animateLayoutTransition(_ context: ASContextTransitioning) {
+  if fieldState == .signupNodeName {
+    let initialNameFrame = context.initialFrame(for: ageField)
+    
+    nameField.frame = initialNameFrame
+    nameField.alpha = 0
+    
+    var finalAgeFrame = context.finalFrame(for: nameField)
+    finalAgeFrame.origin.x -= finalAgeFrame.size.width
+    
+    UIView.animate(withDuration: 0.4, animations: { 
+        self.nameField.frame = context.finalFrame(for: self.nameField)
+        self.nameField.alpha = 1
+        self.ageField.frame = finalAgeFrame
+        self.ageField.alpha = 0
+    }, completion: { finished in
+        context.completeTransition(finished)
+    })
+  } else {
+    var initialAgeFrame = context.initialFrame(for: nameField)
+    initialAgeFrame.origin.x += initialAgeFrame.size.width
+    
+    ageField.frame = initialAgeFrame
+    ageField.alpha = 0
+    
+    var finalNameFrame = context.finalFrame(for: ageField)
+    finalNameFrame.origin.x -= finalNameFrame.size.width
+    
+    UIView.animate(withDuration: 0.4, animations: { 
+        self.ageField.frame = context.finalFrame(for: self.ageField)
+        self.ageField.alpha = 1
+        self.nameField.frame = finalNameFrame
+        self.nameField.alpha = 0
+    }, completion: { finished in
+        context.completeTransition(finished)
+    })
+  }
+}
+</pre>
 </div>
 </div>
-
 
 The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASContextTransitioning.h"><code>ASContextTransitioning</code></a> context object in this method contains relevant information to help you determine the state of the nodes before and after the transition. It includes getters into old and new constrained sizes, inserted and removed nodes, and even the raw old and new `ASLayout` objects. In the `SignupNode` example, we're using it to determine the frame for each of the fields and animate them in an out of place.
 
@@ -133,6 +196,7 @@ Passing NO to `transitionLayoutWithAnimation:` will still run through your `anim
 
 <div class = "highlight-group">
 <span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
   <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
 </span>
 <div class = "code">
@@ -143,6 +207,15 @@ Passing NO to `transitionLayoutWithAnimation:` will still run through your `anim
     // perform animation
   } else {
     [super animateLayoutTransition:context];
+  }
+}
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+override func animateLayoutTransition(_ context: ASContextTransitioning) {
+  if context.isAnimated() {
+      
+  } else {
+      super.animateLayoutTransition(contet)
   }
 }
 </pre>
@@ -157,6 +230,7 @@ This method is similar to `transitionLayoutWithAnimation:`, but will not trigger
 
 <div class = "highlight-group">
 <span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
   <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
 </span>
 <div class = "code">
@@ -167,6 +241,14 @@ This method is similar to `transitionLayoutWithAnimation:`, but will not trigger
   [coordinator animateAlongsideTransition:^(id&lt;UIViewControllerTransitionCoordinatorContext&gt;  _Nonnull context) {
     [self.node transitionLayoutWithSizeRange:ASSizeRangeMake(size, size) animated:YES];
   } completion:nil];
+}
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+  super.viewWillTransition(to: size, with: coordinator)
+  coordinator.animate(alongsideTransition: { context in
+      self.node.transitionLayout(with: ASSizeRange(min: size, max: size), animated: true, shouldMeasureAsync: true)
+  })
 }
 </pre>
 </div>
