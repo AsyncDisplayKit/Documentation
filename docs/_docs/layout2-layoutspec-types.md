@@ -170,7 +170,7 @@ This is a very powerful class, but too complex to cover in this overview. For mo
                                                                                                  sizingOption:ASRelativeLayoutSpecSizingOptionDefault
                                                                                                         child:foregroundNode]
 
-  ASBackgroundLayoutSpec *backgroundSpec = [ASBackgroundLayoutSpecbackgroundLayoutSpecWithChild:relativeSpec background:backgroundNode];
+  ASBackgroundLayoutSpec *backgroundSpec = [ASBackgroundLayoutSpec backgroundLayoutSpecWithChild:relativeSpec background:backgroundNode];
   ...
 }
 </pre>
