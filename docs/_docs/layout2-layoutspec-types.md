@@ -209,8 +209,8 @@ they will be resolved again, causing justifyContent and alignItems to be updated
                                                                         children:@[_iconNode, _countNode]];
 
   // Set some constrained size to the stack
-  mainStack.minWidth = ASDimensionMakeWithPoints(60.0);
-  mainStack.maxHeight = ASDimensionMakeWithPoints(40.0);
+  mainStack.style.minWidth = ASDimensionMakeWithPoints(60.0);
+  mainStack.style.maxHeight = ASDimensionMakeWithPoints(40.0);
 
   return mainStack;
 }
