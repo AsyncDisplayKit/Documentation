@@ -22,7 +22,7 @@ Say you have a giant image, but you only want to take up 200x200 pts on the scre
 UIImage *scrollNodeImage = [UIImage imageNamed:@"image"];
 ASScrollNode *scrollNode = [[ASScrollNode alloc] init];
 
-scrollNode.style.prefferedSize = CGSizeMake(200.0, 200.0);
+scrollNode.style.preferredSize = CGSizeMake(200.0, 200.0);
 
 UIScrollView *scrollNodeView = scrollNode.view;
 [scrollNodeView addSubview:[[UIImageView alloc] initWithImage:scrollNodeImage]];
@@ -32,7 +32,7 @@ scrollNodeView.contentSize = scrollNodeImage.size;
 let scrollNodeImage = UIImage(named: "image")
 let scrollNode = ASScrollNode()
 
-scrollNode.style.prefferedSize = CGSize(width: 200.0, height: 200.0)
+scrollNode.style.preferredSize = CGSize(width: 200.0, height: 200.0)
 
 let scrollNodeView = scrollNode.view
 scrollNodeView.addSubview(UIImageView(image: scrollNodeImage))
