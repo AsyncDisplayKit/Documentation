@@ -121,6 +121,15 @@ Here's an example of a simple nodeBlock:
 }
   </pre>
   <pre lang="swift" class = "swiftCode hidden">
+  func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock 
+ {
+    // data model is accessed outside of the node block
+    var board = self.boards[indexPath.item]
+    return {() -> Void in
+        var node = BoardScrubberCellNode(board)
+        return node
+    }
+ }
   </pre>
 </div>
 </div>
