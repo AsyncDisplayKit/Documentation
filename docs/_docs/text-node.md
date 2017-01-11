@@ -24,7 +24,7 @@ _node.attributedString = string;
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-let attrs = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: "12.0")] 
+let attrs = [NSFontAttributeName: UIFont(name: "HelveticaNeue", size: 12.0)] 
 let string = NSAttributedString(string: "Hey, here's some text.", attributes: attrs)
 
 node = ASTextNode()
