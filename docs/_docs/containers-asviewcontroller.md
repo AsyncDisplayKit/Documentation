@@ -64,6 +64,6 @@ func initWithModel(models: Array&lt;Model&gt;) {
 
 <br>
 <div class = "note">
-<b>Conversion Tip</b>: If your app already has a complex view controller hierarchy, it is perfectly fine to have all of them subclass ASViewController. That is to say, even if you don't use <code>ASViewController</code>'s designated initializer <code>-initiWithNode:</code>, and only use the <code>ASViewController</code> in the manner of a traditional <code>UIVieWController</code>, this will give you the additional node support if you choose to adopt it in different areas your application. 
+<b>Conversion Tip</b>: If your app already has a complex view controller hierarchy, it is perfectly fine to have all of them subclass ASViewController. That is to say, even if you don't use <code>ASViewController</code>'s designated initializer <code>-initiWithNode:</code>, and only use the <code>ASViewController</code> in the manner of a traditional <code>UIViewController</code>, this will give you the additional node support if you choose to adopt it in different areas your application. 
 </div>
 
