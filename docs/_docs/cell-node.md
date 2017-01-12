@@ -140,3 +140,11 @@ With this property set to <code>YES</code>, the main thread will be blocked unti
 <div class = "note">
 Using this option does not eliminate all of the performance advantages of AsyncDisplayKit. Normally, a cell has been preloading and is almost done when it reaches the screen, so the blocking time is very short.  Even if the <code>rangeTuningParameters</code> are set to 0 this option outperforms UIKit.  While the main thread is waiting, subnode display executes concurrently.
 </div>
+
+### UITableViewCell specific propertys
+
+<code>UITableViewCell<code> has properties like <code>selectionStyle<code>, <code>accessoryType<code> and <code>seperatorInset<code> that many of us use sometimes to give the Cell more detail. For this case <code>ASCellNode<code> has the same (passthrough) properties that can be used. 
+
+<div class = "note">
+UIKits <code>UITableViewCell<code> contains <code>ASCellNode<code> as a subview. Depending how your <code>ASLayoutSpec<code> is defined it may occure that your Layout overlays the <code>UITableViewCell.accessoryView<code> and therefore not visible. Make sure that your Layout doesn't overlays any <code>UITableViewCell<code>'s specific properties.
+</div>
