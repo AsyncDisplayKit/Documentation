@@ -8,12 +8,11 @@ nextPage: layout-api-debugging.html
 
 AsyncDisplayKit includes a library of `layoutSpec` components that can be composed to declaratively specify a layout. 
 
-The **child(ren) of a layoutSpec may be a node, a layoutSpec or a combination of the two types.**  In the below image, an ASStackLayoutSpec (vertical) containing a text node and an image node, is wrapped in another ASStackLayoutSpec (horizontal) with another text node. 
+The **child(ren) of a layoutSpec may be a node, a layoutSpec or a combination of the two types.**  In the below image, an `ASStackLayoutSpec` (vertical) containing a text node and an image node, is wrapped in another `ASStackLayoutSpec` (horizontal) with another text node. 
 
 <img src="/static/images/layoutable-types.png">
 
-Both nodes and layoutSpecs conform to the `<ASLayoutable>` protocol.  Any `ASLayoutable` object may be the child of a layoutSpec. <a href = "automatic-layout-containers.html#aslayoutable-properties">ASLayoutable properties</a> may be applied to ASLayoutable objects to create complex UI designs. 
-
+Both nodes and layoutSpecs conform to the `<ASLayoutable>` protocol.  Any `ASLayoutable` object may be the child of a layoutSpec. <a href = "automatic-layout-containers.html#aslayoutable-properties">ASLayoutable properties</a> may be applied to `ASLayoutable` objects to create complex UI designs. 
 
 ### Single Child layoutSpecs
 
@@ -24,9 +23,9 @@ Both nodes and layoutSpecs conform to the `<ASLayoutable>` protocol.  Any `ASLay
   </tr>
   <tr>
     <td><b><code>ASInsetLayoutSpec</code></b></td>
-    <td><p>Applies an inset margin around a component.</p> <p><i>The object that is being inset must have an intrinsic size.</i></p></td> 
+    <td><p>Applies an inset margin around a component.</p> <p><i>The object that is being inset must have an intrinsic size.</i></p></td>
   </tr>
-    <tr>
+  <tr>
     <td><b><code>ASOverlayLayoutSpec</code></b></td>
     <td><p>Lays out a component, stretching another component on top of it as an overlay.</p> <p><i>The underlay object must have an intrinsic size. Additionally, the order in which subnodes are added matters for this layoutSpec; the overlay object must be added as a subnode to the parent node after the underlay object.</i></p></td> 
   </tr>
@@ -40,7 +39,7 @@ Both nodes and layoutSpecs conform to the `<ASLayoutable>` protocol.  Any `ASLay
   </tr>
   <tr>
     <td><b><code>ASRatioLayoutSpec</code></b></td>
-    <td><p>Lays out a component at a fixed aspect ratio (which can be scaled).</p> <p><i>This spec is great for objects that do not have an intrinisic size, such as ASNetworkImageNodes and ASVideoNodes.</p> </td> 
+    <td><p>Lays out a component at a fixed aspect ratio (which can be scaled).</p> <p><i>This spec is great for objects that do not have an intrinisic size, such as ASNetworkImageNodes and ASVideoNodes.</i></p> </td> 
   </tr>
   <tr>
     <td><b><code>ASRelativeLayoutSpec</code></b></td>
@@ -110,7 +109,7 @@ The following properties may be set on any node or layoutSpecs, but will only ap
   </tr>
   <tr>
     <td><b><code>CGFloat .ascender</code></b></td>
-    <td>Used for baseline alignment. The distance from the top of the object to its baseline./td> 
+    <td>Used for baseline alignment. The distance from the top of the object to its baseline.</td> 
   </tr>
   <tr>
     <td><b><code>CGFloat .descender</code></b></td>
@@ -144,37 +143,36 @@ AsyncDisplayKit's layout is recursive, starting at the layoutSpec returned from 
 Some leaf nodes provide their own intrinsic size, such as ASTextNode or ASImageNode. An attributed string or an image have their own sizes. Other leaf nodes require an intrinsic size to be set.
 
 **Nodes that require the developer to provide an intrinsic size:**
-<ul>
-  <li>`ASDisplayNode` custom subclasses may provide their intrinisc size by implementing `calculateSizeThatFits:`.</li>
-  <li>`ASNetworkImageNode` or `ASMultiplexImageNode` have no intrinsic size until the image is downloaded.</li>
-  <li>`ASVideoNode` or `ASVideoNodePlayer` have no intrinsic size until the video is downloaded.</li>
-</ul>
+
+ - `ASDisplayNode` custom subclasses may provide their intrinisc size by implementing `calculateSizeThatFits:`.
+ - `ASNetworkImageNode` or `ASMultiplexImageNode` have no intrinsic size until the image is downloaded.
+ - `ASVideoNode` or `ASVideoNodePlayer` have no intrinsic size until the video is downloaded.
+
 
 To provide an intrinisc size for these nodes, you can set one of the following:
-<ol>
-  <li>implement `calculateSizeThatFits:` for **custom ASDisplayNode subclasses** only.</li>
-  <li>set `.preferredFrameSize`</li>
-  <li>set `.sizeRange` for children of **static** nodes only.</li>
-</ol>
+
+  1. implement `calculateSizeThatFits:` for **custom ASDisplayNode subclasses** only.
+  2. set `.preferredFrameSize`
+  3. set `.sizeRange` for children of **static** nodes only.
+
 
 Note that `.preferredFrameSize` is not considered by `ASTextNodes`. Also, setting .sizeRange on a node will override the node's intrinisic size provided by `calculateSizeThatFits:`. 
 
 ### Common Confusions
 
 There are two main confusions that developers have when using layoutSpecs
-<ol>
-  <li>Certain ASLayoutable properties only apply to children of stack nodes, while other properties only apply to children of static nodes. All ASLayoutable properties can be applied to any node or layoutSpec, however certain properties will only take effect depending on the type of the parent layoutSpec they are wrapped in. These differences are highlighted above in the ASStackLayoutable Properties and ASStaticLayoutable Properties sections. </li>
-  <li>Have I set an intrinsic size for all of my leaf nodes?</li>
-</ol>
+
+  1. Certain ASLayoutable properties only apply to children of stack nodes, while other properties only apply to children of static nodes. All ASLayoutable properties can be applied to any node or layoutSpec, however certain properties will only take effect depending on the type of the parent layoutSpec they are wrapped in. These differences are highlighted above in the ASStackLayoutable Properties and ASStaticLayoutable Properties sections.
+  2. Have I set an intrinsic size for all of my leaf nodes?
+
 
 #### I set `.flexGrow` on my node, but it doesn't grow?
 
 Upward propogation of ASLayoutable properties is currently disabled. Thus, in certain situations, the `.flexGrow` property must be manually applied to the containers. Two common examples of this that we see include:
 
-<ul>
-  <li>a node (with flexGrow enabled) is wrapped in a static layoutSpec, wrapped in a stack layoutSpec. <b>solution</b>: enable flexGrow on the static layotuSpec as well.</li>
-  <li>a node (with flexGrow enabled) is wrapped in an inset spec. <b>solution</b>: enable flexGrow on the inset spec as well.</li>
-</ul>
+- a node (with `flexGrow` enabled) is wrapped in a static layoutSpec, wrapped in a stack layoutSpec. **solution**: enable `flexGrow` on the static layoutSpec as well.
+- a node (with `flexGrow` enabled) is wrapped in an inset spec. **solution**: enable `flexGrow` on the inset spec as well.
+
 
 #### I want to provide a size for my image, but I don't want to hard code the size.
 
@@ -189,9 +187,6 @@ An inset spec requires its object to have an intrinsic size. It adds the inset p
 <img src="/static/images/overlay-vs-inset-spec.png">
 
 ### Best Practices
-<ul>
-  <li>AsyncDisplayKit layout is called on a background thread. Do not access the device screen bounds, or any other UIKit methods in `layoutSpecThatFits:`.</li>
-  <li>don't wrap everything in a staticLayoutSpec?</li>
-  <li>avoid using preferred frame size for everything - won't respond nicely to device rotation or device sizing differences?</li>
-</ul>
-
+  - AsyncDisplayKit layout is called on a background thread. Do not access the device screen bounds, or any other UIKit methods in `layoutSpecThatFits:`.
+  - don't wrap everything in a staticLayoutSpec?
+  - avoid using preferred frame size for everything - won't respond nicely to device rotation or device sizing differences?
