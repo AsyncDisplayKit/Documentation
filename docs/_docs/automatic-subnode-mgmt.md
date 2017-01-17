@@ -106,9 +106,8 @@ An `ASLayoutSpec` completely describes the UI of a view in your app by specifyin
 Consider the abreviated `layoutSpecThatFits:` method for the ASCellNode subclass above.
 
 <div class = "highlight-group">
-<span class="language-toggle">
-  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
-</span>
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
@@ -152,6 +151,10 @@ Consider the abreviated `layoutSpecThatFits:` method for the ASCellNode subclass
 
   return verticalStack;
 }
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+
 </pre>
 </div>
 </div>
