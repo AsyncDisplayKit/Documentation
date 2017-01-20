@@ -78,7 +78,7 @@ buttonNode.contentHorizontalAlignment = .Middle
 </div>
 </div>
 
-<div class = "note"><strong>Note:</strong> At the moment, this property will not work if you aren't using <em>`-layoutSpecThatFits:`</em>.
+<div class = "note"><strong>Note:</strong> At the moment, this property will not work if you aren't using <em><code>-layoutSpecThatFits:</code></em>.
 </div>
 
 ### Gotchas

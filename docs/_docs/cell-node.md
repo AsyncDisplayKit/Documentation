@@ -17,20 +17,12 @@ There are three ways in which you can implement the cells you'll use in your ASD
 Subclassing an `ASCellNode` is pretty much the same as <a href = "/docs/subclassing.html">subclassing</a> a regular `ASDisplayNode`.  
 
 Most likely, you'll write a few of the following:
-<ul>
-<li>
-	`-init` -- Thread safe initialization
-</li>
-<li>
-	`-layoutSpecThatFits:` -- Return a layout spec that defines the layout of your cell.
-</li>
-<li>
-	`-didLoad` -- Called on the main thread.  Good place to add gesture recognizers, etc.
-</li>
-<li>
-	`-layout` -- Also called on the main thread.  Layout is complete after the call to super which means you can do any extra tweaking you need to do.
-</li>
-</ul>
+
+- `-init` -- Thread safe initialization.
+- `-layoutSpecThatFits:` -- Return a layout spec that defines the layout of your cell.
+- `-didLoad` -- Called on the main thread.  Good place to add gesture recognizers, etc.
+- `-layout` -- Also called on the main thread.  Layout is complete after the call to super which means you can do any extra tweaking you need to do.
+
 
 #### Initializing with an `ASViewController`
 
