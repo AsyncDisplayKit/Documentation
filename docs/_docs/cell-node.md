@@ -32,7 +32,7 @@ Most likely, you'll write a few of the following:
 </li>
 </ul>
 
-#### Initializing with an ASViewController
+#### Initializing with an `ASViewController`
 
 Say you already have some type of view controller written to display a view in your app.  If you want to take that view controller and drop its view in as a cell in one of the scrolling nodes or a pager node its no problem.
 
@@ -74,11 +74,11 @@ func pagerNode(pagerNode: ASPagerNode!, nodeAtIndex index: Int) -> ASCellNode! {
 And this works for any combo of scrolling container node and `UIViewController` subclass.  You want to embed random view controllers in your collection node? Go for it.
 
 <div class = "note">
-	Notice that you need to set the `preferredFrameSize` of a node created this way.  Normally your nodes will implement `-layoutSpecThatFits:` but since these don't you'll need give the cell a size.
+Notice that you need to set the <code>.style.preferredSize</code> of a node created this way.  Normally your nodes will implement <code>-layoutSpecThatFits:</code> but since these don't you'll need give the cell a size.
 </div>
 
 
-#### Initializing with a UIView or CALayer
+#### Initializing with a `UIView` or `CALayer`
 
 Alternatively, if you already have a `UIView` or `CALayer` subclass that you'd like to drop in as cell you can do that instead.
 
@@ -138,5 +138,13 @@ node.neverShowPlaceholders = true
 With this property set to `YES`, the main thread will be blocked until display has completed for the cell.  This is more similar to UIKit, and in fact makes AsyncDisplayKit scrolling visually indistinguishable from UIKit's, except being faster.
 
 <div class = "note">
-Using this option does not eliminate all of the performance advantages of AsyncDisplayKit. Normally, a cell has been preloading and is almost done when it reaches the screen, so the blocking time is very short.  Even if the `rangeTuningParameters` are set to 0 this option outperforms UIKit.  While the main thread is waiting, subnode display executes concurrently.
+Using this option does not eliminate all of the performance advantages of AsyncDisplayKit. Normally, a cell has been preloading and is almost done when it reaches the screen, so the blocking time is very short.  Even if the <code>rangeTuningParameters</code> are set to 0 this option outperforms UIKit.  While the main thread is waiting, subnode display executes concurrently.
+</div>
+
+### `UITableViewCell` specific propertys
+
+<code>UITableViewCell</code> has properties like <code>selectionStyle</code>, <code>accessoryType</code> and <code>seperatorInset</code> that many of us use sometimes to give the Cell more detail. For this case <code>ASCellNode</code> has the same (passthrough) properties that can be used. 
+
+<div class = "note">
+UIKits <code>UITableViewCell</code> contains <code>ASCellNode</code> as a subview. Depending how your <code>ASLayoutSpec</code> is defined it may occure that your Layout overlays the <code>UITableViewCell.accessoryView</code> and therefore not visible. Make sure that your Layout doesn't overlays any <code>UITableViewCell</code>'s specific properties.
 </div>

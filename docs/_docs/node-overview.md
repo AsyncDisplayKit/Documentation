@@ -16,49 +16,49 @@ A key advantage of using nodes over UIKit components is that **all nodes preform
     <th>UIKit Equivalent</th> 
   </tr>
   <tr>
-    <td><a href = "display-node.html">`ASDisplayNode`</a></td>
-    <td>in place of UIKit's `UIView`<br> 
+    <td><a href = "display-node.html"><code>ASDisplayNode</code></a></td>
+    <td>in place of UIKit's <code>UIView</code><br> 
         <i>The root AsyncDisplayKit node, from which all other nodes inherit.</i></td> 
   </tr>
   <tr>
-    <td><a href = "cell-node.html">`ASCellNode`</a></td>
-    <td>in place of UIKit's `UITableViewCell` & `UICollectionViewCell`<br>
-        <i>`ASCellNode`s are used in `ASTableNode`, `ASCollectionNode` and `ASPagerNode`.</i></td> 
+    <td><a href = "cell-node.html"><code>ASCellNode</code></a></td>
+    <td>in place of UIKit's <code>UITableViewCell</code> & <code>UICollectionViewCell</code><br>
+        <i><code>ASCellNode</code>s are used in <code>ASTableNode</code>, <code>ASCollectionNode</code> and <code>ASPagerNode</code>.</i></td> 
   </tr>
   <tr>
-    <td><a href = "scroll-node.html">`ASScrollNode`</a></td>
-    <td>in place of UIKit's `UIScrollView`
+    <td><a href = "scroll-node.html"><code>ASScrollNode</code></a></td>
+    <td>in place of UIKit's <code>UIScrollView</code>
         <p><i>This node is useful for creating a customized scrollable region that contains other nodes.</i></p></td> 
   </tr>
   <tr>
-    <td><a href = "editable-text-node.html">`ASEditableTextNode`</a><br>
-        <a href = "text-node.html">`ASTextNode`</a></td>
-    <td>in place of UIKit's `UITextView`<br>
-        in place of UIKit's `UILabel`</td> 
+    <td><a href = "editable-text-node.html"><code>ASEditableTextNode</code></a><br>
+        <a href = "text-node.html"><code>ASTextNode</code></a></td>
+    <td>in place of UIKit's <code>UITextView</code><br>
+        in place of UIKit's <code>UILabel</code></td> 
   </tr>
   <tr>
-    <td><a href = "image-node.html">`ASImageNode`</a><br>
-        <a href = "network-image-node.html">`ASNetworkImageNode`</a><br>
+    <td><a href = "image-node.html"><code>ASImageNode</code></a><br>
+        <a href = "network-image-node.html"><code>ASNetworkImageNode</code></a><br>
         <a href = "multiplex-image-node.html">`ASMultiplexImageNode`</a></td>
-    <td>in place of UIKit's `UIImage`</td> 
+    <td>in place of UIKit's <code>UIImage</code></td> 
   </tr>
   <tr>
-    <td><a href = "video-node.html">`ASVideoNode`</a><br>
-        `ASVideoPlayerNode`</td>
-    <td>in place of UIKit's `AVPlayerLayer`<br>
-        in place of UIKit's `UIMoviePlayer`</td> 
+    <td><a href = "video-node.html"><code>ASVideoNode</code></a><br>
+        <code>ASVideoPlayerNode</code></td>
+    <td>in place of UIKit's <code>AVPlayerLayer</code><br>
+        in place of UIKit's <code>UIMoviePlayer</code></td> 
   </tr>
   <tr>
-    <td><a href = "control-node.html">`ASControlNode`</a></td>
-    <td>in place of UIKit's `UIControl`</td>
+    <td><a href = "control-node.html"><code>ASControlNode</code></a></td>
+    <td>in place of UIKit's <code>UIControl</code></td>
   </tr>
   <tr>
-    <td><a href = "button-node.html">`ASButtonNode`</a></td>
-    <td>in place of UIKit's `UIButton`</td>
+    <td><a href = "button-node.html"><code>ASButtonNode</code></a></td>
+    <td>in place of UIKit's <code>UIButton</code></td>
   </tr>
   <tr>
-    <td><a href = "map-node.html">`ASMapNode`</a></td>
-    <td>in place of UIKit's `MKMapView`</td>
+    <td><a href = "map-node.html"><code>ASMapNode</code></a></td>
+    <td>in place of UIKit's <code>MKMapView</code></td>
   </tr>
 </table>
 

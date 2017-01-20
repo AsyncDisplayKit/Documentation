@@ -15,9 +15,9 @@ This fact is especially useful when it comes to image and text nodes.  Having th
 Like `UIControl`, `ASControlNode` has a state which defines its appearance and ability to support user interactions.  Its state can be one of any state defined by `ASControlState`.
 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
-  <pre lang="objc" class="objcCode">
+<pre lang="objc" class="objcCode">
 typedef NS_OPTIONS(NSUInteger, ASControlState) {
     ASControlStateNormal       = 0,
     ASControlStateHighlighted  = 1 << 0,  // used when isHighlighted is set
@@ -25,7 +25,15 @@ typedef NS_OPTIONS(NSUInteger, ASControlState) {
     ASControlStateSelected     = 1 << 2,  // used when isSelected is set
     ...
 };
-  </pre>
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+public struct ASControlState : OptionSet {
+    public static var highlighted: ASControlState { get } // used when ASControlNode isHighlighted is set
+    public static var disabled: ASControlState { get }
+    public static var selected: ASControlState { get } // used when ASControlNode isSelected is set
+    public static var reserved: ASControlState { get } // flags reserved for internal framework use
+}
+</pre>
 </div>
 </div>
 
@@ -35,7 +43,7 @@ Also similarly to `UIControl`, `ASControlNode`'s have a set of events defined wh
 
 The available actions are: 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
   <pre lang="objc" class="objcCode">
 typedef NS_OPTIONS(NSUInteger, ASControlNodeEvent)
@@ -58,6 +66,28 @@ typedef NS_OPTIONS(NSUInteger, ASControlNodeEvent)
   ASControlNodeEventAllEvents         = 0xFFFFFFFF
 };
 </pre>
+<pre lang="swift" class = "swiftCode hidden">
+public struct ASControlNodeEvent : OptionSet {
+    /** A touch-down event in the control node. */
+    public static var touchDown: ASControlNodeEvent { get }
+    /** A repeated touch-down event in the control node; for this event the value of the UITouch tapCount method is greater than one. */
+    public static var touchDownRepeat: ASControlNodeEvent { get }
+    /** An event where a finger is dragged inside the bounds of the control node. */
+    public static var touchDragInside: ASControlNodeEvent { get }
+    /** An event where a finger is dragged just outside the bounds of the control. */
+    public static var touchDragOutside: ASControlNodeEvent { get }
+    /** A touch-up event in the control node where the finger is inside the bounds of the node. */
+    public static var touchUpInside: ASControlNodeEvent { get }
+    /** A touch-up event in the control node where the finger is outside the bounds of the node. */
+    public static var touchUpOutside: ASControlNodeEvent { get }
+    /** A system event canceling the current touches for the control node. */
+    public static var touchCancel: ASControlNodeEvent { get }
+    /** A system event when the Play/Pause button on the Apple TV remote is pressed. */
+    public static var primaryActionTriggered: ASControlNodeEvent { get }
+    /** All events, including system events. */
+    public static var allEvents: ASControlNodeEvent { get }
+}
+</pre>
 </div>
 </div>
 
@@ -76,12 +106,12 @@ CGFloat verticalDiff = (bounds.size.height - _playButton.bounds.size.height)/2;
 
 _playButton.hitTestSlop = UIEdgeInsetsMake(-verticalDiff, -horizontalDiff, -verticalDiff, -horizontalDiff);
 </pre>
-<!-- <pre lang="swift" class = "swiftCode hidden">
-let horizontalDiff: CGFloat = (bounds.size.width - playButton.bounds.size.width)/2.0
-let verticalDiff: CGfloat   = (bounds.size.height - playButton.bounds.size.height)/2.0
+<pre lang="swift" class = "swiftCode hidden">
+let horizontalDiff = (bounds.size.width - playButton.bounds.size.width) / 2
+let verticalDiff = (bounds.size.height - playButton.bounds.size.height) / 2
 
 playButton.hitTestSlop = UIEdgeInsets(top: -verticalDiff, left: -horizontalDiff, bottom: -verticalDiff, right: -horizontalDiff)
-</pre> -->
+</pre>
 </div>
 </div>
 

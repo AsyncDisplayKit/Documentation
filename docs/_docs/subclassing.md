@@ -55,7 +55,12 @@ This method is called once, at the very begining of an ASViewController's lifecy
 
 ASViewController's designated initializer is `initWithNode:`. A typical initializer will look something like the code below. Note how the ASViewController's node is created _before_ calling super. An ASViewController manages a node similarly to how a UIViewController manages a view, but the initialization is slightly different. 
 
-``` 
+
+<div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
 - (instancetype)init
 {
   _pagerNode = [[ASPagerNode alloc] init];
@@ -69,7 +74,18 @@ ASViewController's designated initializer is `initWithNode:`. A typical initiali
   
   return self;
 }
-```
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+init() {
+  let pagerNode = ASPagerNode()
+  super.init(node: pagerNode)
+
+  pagerNode.setDataSource(self)
+  pagerNode.setDelegate(self)
+}
+</pre>
+</div>
+</div>
        
 ### `-loadView`
 
@@ -89,7 +105,6 @@ For consistency, it is best practice to put all layout code in this method. Beca
 
 ### `-viewWillAppear:` / `-viewDidDisappear:`
 
-These methods are called just before the ASViewController's node appears on screen and just after it is onscreen. These methods provide a good opportunity to start or stop animations related to the presentation or dismissal of your controller. This is also a good place to make a log of a user action. 
+These methods are called just before the ASViewController's node appears on screen (the earliest time that it is visible) and just after it is removed from the view hierarchy (the earliest time that it is no longer visible). These methods provide a good opportunity to start or stop animations related to the presentation or dismissal of your controller. This is also a good place to make a log of a user action.
 
 Although these methods may be called multiple times and geometry information is available, they are not called for all geometry changes and so should not be used for core layout code (beyond setup required for specific animations). 
-

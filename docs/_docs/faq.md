@@ -106,7 +106,7 @@ retain cycles
 </div>
 
 <br>
-This retain cycle is intentionally created because the node is in a "live" view hierarchy (it is inside the a UIWindow that is onscreen).
+This retain cycle is intentionally created because the node is in a "live" view hierarchy (it is inside the UIWindow that is onscreen).
 
 To see why this is necessary, consider that Apple also creates this retain cycle between UIView and CALayer. If you create a UIView and add its layer to a super layer, and then release the UIView, it will stay alive even though the CALayer delegate pointing to it is weak.
 

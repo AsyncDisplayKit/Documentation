@@ -28,9 +28,9 @@ imageNode.URL = NSURL(string: "https://someurl.com/image_uri")
 
 Since an `ASNetworkImageNode` has no intrinsic content size when it is created, it is necessary for you to explicitly specify how they should be laid out.
 
-<h4><i>Option 1: .preferredFrameSize</i></h4>
+<h4><i>Option 1: .style.preferredSize</i></h4>
 
-If you have a standard size you want the image node's frame size to be you can use the `preferredFrameSize` property.
+If you have a standard size you want the image node's frame size to be you can use the `.style.preferredSize` property.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -86,7 +86,7 @@ override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
 ### Under the Hood
 
-<div class = "note">If you choose not to include the `PINRemoteImage` and `PINCache` dependencies you will lose progressive jpeg support and be required to include your own custom cache that conforms to `ASImageCacheProtocol`.</div>
+<div class = "note">If you choose not to include the <code>PINRemoteImage</code> and <code>PINCache</code> dependencies you will lose progressive jpeg support and be required to include your own custom cache that conforms to <code>ASImageCacheProtocol</code>.</div>
 
 #### Progressive JPEG Support
 
