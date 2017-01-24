@@ -19,10 +19,10 @@ The following `ASLayoutSpec` subclasses can be used to compose simple or very co
 <li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec"><code>AS<b>Absolute</b>LayoutSpec</code></a></li>
 </ul>
 
-You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec"><code>ASLayoutSpec</code></a> in order to make your own, custom layout specs. 
+You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLayoutSpec`</a> in order to make your own, custom layout specs. 
 
 ## ASInsetLayoutSpec
-During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` CGSize to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
+During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` `CGSize` to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
 
 <img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
 
@@ -52,7 +52,7 @@ If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just
 The overlay spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the overlay layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode to the parent node after the child layout element (blue).
+When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode to the parent node after the child layout element (blue).
 </div>
 
 <div class = "highlight-group">
@@ -78,7 +78,7 @@ When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes 
 The background spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the background layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
 
 <div class = "note">
-When using Automatic Subnode Management with the ASOverlayLayoutSpec, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode to the parent node after the child background element (red).
+When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode to the parent node after the child background element (red).
 </div>
 
 <div class = "highlight-group">
@@ -152,7 +152,7 @@ It is very common to use a ratio spec to provide an intrinsic size for `ASNetwor
 ## ASRelativeLayoutSpec
 Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.
 
-This is a very powerful class, but too complex to cover in this overview. For more information, look into ASRelativeLayoutSpec's `-calculateLayoutThatFits:` method + properties.
+This is a very powerful class, but too complex to cover in this overview. For more information, look into `ASRelativeLayoutSpec`'s `-calculateLayoutThatFits:` method + properties.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -193,7 +193,7 @@ they will be resolved again, causing justifyContent and alignItems to be updated
  Thus, it is preferred to those properties.
 - `justifyContent`. The amount of space between each child.
 - `alignItems`. Orientation of children along cross axis.
-- `baselineRelativeArrangement`. If YES the vertical spacing between two views is measured from the last baseline of the top view to the top of the bottom view.
+- `baselineRelativeArrangement`. If `YES` the vertical spacing between two views is measured from the last baseline of the top view to the top of the bottom view.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>

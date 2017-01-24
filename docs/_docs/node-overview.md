@@ -39,7 +39,7 @@ A key advantage of using nodes over UIKit components is that **all nodes preform
   <tr>
     <td><a href = "image-node.html"><code>ASImageNode</code></a><br>
         <a href = "network-image-node.html"><code>ASNetworkImageNode</code></a><br>
-        <a href = "multiplex-image-node.html"><code>ASMultiplexImageNode</code></a></td>
+        <a href = "multiplex-image-node.html">`ASMultiplexImageNode`</a></td>
     <td>in place of UIKit's <code>UIImage</code></td> 
   </tr>
   <tr>
@@ -63,7 +63,7 @@ A key advantage of using nodes over UIKit components is that **all nodes preform
 </table>
 
 <br>
-Despite having rough equivalencies to UIKit components, in general, AsyncDisplayKit nodes offer more advanced features and conveniences. For example, an ASNetworkImageNode does automatic loading and cache management, and even supports progressive jpeg and animated gifs. 
+Despite having rough equivalencies to UIKit components, in general, AsyncDisplayKit nodes offer more advanced features and conveniences. For example, an `ASNetworkImageNode` does automatic loading and cache management, and even supports progressive jpeg and animated gifs. 
 
 The <a href = "https://github.com/facebook/AsyncDisplayKit/tree/master/examples/AsyncDisplayKitOverview">`AsyncDisplayKitOverview`</a> example app gives basic implementations of each of the nodes listed above. 
  
@@ -74,7 +74,7 @@ All AsyncDisplayKit nodes inherit from `ASDisplayNode`.
 
 <img src="/static/images/node-hierarchy.png" alt="node inheritance flowchart">
 
-The nodes highlighted in blue are synchronous wrappers of UIKit elements.  For example, ASScrollNode wraps a UIScrollView, and ASCollectionNode wraps a UICollectionView.  An ASMapNode in liveMapMode is a synchronous wrapper of UIMapView.
+The nodes highlighted in blue are synchronous wrappers of UIKit elements.  For example, `ASScrollNode` wraps a `UIScrollView`, and `ASCollectionNode` wraps a `UICollectionView`.  An `ASMapNode` in `liveMapMode` is a synchronous wrapper of `UIMapView`.
 
 
  

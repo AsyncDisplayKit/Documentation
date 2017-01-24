@@ -71,7 +71,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 </div>
 </div>
 
-To trigger a transition from the `nameField` to the `ageField` in this example, we'll update the SignupNode's .fieldState property and begin the transition with `transitionLayoutWithAnimation:`. 
+To trigger a transition from the `nameField` to the `ageField` in this example, we'll update the SignupNode's `.fieldState` property and begin the transition with `transitionLayoutWithAnimation:`. 
 
 This method will invalidate the current calculated layout and recompute a new layout with the `ageField` now in the stack.
 
@@ -184,7 +184,7 @@ override func animateLayoutTransition(_ context: ASContextTransitioning) {
 </div>
 </div>
 
-The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASContextTransitioning.h"><code>ASContextTransitioning</code></a> context object in this method contains relevant information to help you determine the state of the nodes before and after the transition. It includes getters into old and new constrained sizes, inserted and removed nodes, and even the raw old and new `ASLayout` objects. In the `SignupNode` example, we're using it to determine the frame for each of the fields and animate them in an out of place.
+The passed <a href="https://github.com/facebook/AsyncDisplayKit/blob/master/AsyncDisplayKit/ASContextTransitioning.h">`ASContextTransitioning`</a> context object in this method contains relevant information to help you determine the state of the nodes before and after the transition. It includes getters into old and new constrained sizes, inserted and removed nodes, and even the raw old and new `ASLayout` objects. In the `SignupNode` example, we're using it to determine the frame for each of the fields and animate them in an out of place.
 
 It is imperative to call `completeTransition:` on the context object once your animation has finished, as it will perform the necessary internal steps for the newly calculated layout to become the current `calculatedLayout`.
 
@@ -192,7 +192,7 @@ Note that there hasn't been a use of `addSubnode:` or `removeFromSupernode` duri
 
 Nodes are inserted before your implementation of `animateLayoutTransition:` is called and this is a good place to manually manage the hierarchy before you begin the animation. Removals are preformed in `didCompleteLayoutTransition:` after you call `completeTransition:` on the context object. If you need to manually perform deletions, override `didCompleteLayoutTransition:` and perform your custom operations. Note that this will override the default behavior and it is recommended to either call `super` or walk through the `removedSubnodes` getter in the context object to perform the cleanup.
 
-Passing NO to `transitionLayoutWithAnimation:` will still run through your `animateLayoutTransition:` and `didCompleteLayoutTransition:` implementations with the `[context isAnimated]` property set to NO. It is your choice on how to handle this case — if at all. An easy way to provide a default implementation this is to call super:
+Passing `NO` to `transitionLayoutWithAnimation:` will still run through your `animateLayoutTransition:` and `didCompleteLayoutTransition:` implementations with the `[context isAnimated]` property set to `NO`. It is your choice on how to handle this case — if at all. An easy way to provide a default implementation this is to call super:
 
 <div class = "highlight-group">
 <span class="language-toggle">

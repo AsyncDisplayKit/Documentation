@@ -35,19 +35,19 @@ Both nodes and layoutSpecs conform to the `<ASLayoutable>` protocol.  Any `ASLay
   </tr>
   <tr>
     <td><b><code>ASCenterLayoutSpec</code></b></td>
-    <td><p>Centers a component in the available space.</p> <p><i>The ASCenterLayoutSpec must have an intrinisic size.</i></p></td> 
+    <td><p>Centers a component in the available space.</p> <p><i>The <code>ASCenterLayoutSpec</code> must have an intrinisic size.</i></p></td> 
   </tr>
   <tr>
     <td><b><code>ASRatioLayoutSpec</code></b></td>
-    <td><p>Lays out a component at a fixed aspect ratio (which can be scaled).</p> <p><i>This spec is great for objects that do not have an intrinisic size, such as ASNetworkImageNodes and ASVideoNodes.</i></p> </td> 
+    <td><p>Lays out a component at a fixed aspect ratio (which can be scaled).</p> <p><i>This spec is great for objects that do not have an intrinisic size, such as ASNetworkImageNodes and <code>ASVideoNodes</code>.</i></p> </td> 
   </tr>
   <tr>
-    <td><b><code>ASRelativeLayoutSpec</code></b></td>
+    <td><b><code>ASRelativeLayoutSpec<code></b></td>
     <td><p>Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.</p> </td> 
   </tr>
   <tr>
     <td><b><code>ASLayoutSpec</code></b></td>
-    <td><p>Can be used as a spacer in a stack spec with other children, when .flexGrow and/or .flexShrink is applied.</p> <p><i>This class can also be subclassed to create custom layout specs - advanced ASDK only!</i></p></td> 
+    <td><p>Can be used as a spacer in a stack spec with other children, when <code>.flexGrow</code> and/or <code>.flexShrink</code> is applied.</p> <p><i>This class can also be subclassed to create custom layout specs - advanced ASDK only!</i></p></td> 
   </tr>
 </table> 
 
@@ -62,21 +62,21 @@ The following layoutSpecs may contain one or more children.
   </tr>
   <tr>
     <td><b><code>ASStackLayoutSpec</code></b></td>
-    <td><p>Allows you to stack components vertically or horizontally and specify how they should be flexed and aligned to fit in the available space.</p> <p><b><i>This is the most common layoutSpec</i></b>.</p></td> 
+    <td><p>Allows you to stack components vertically or horizontally and specify how they should be flexed and aligned to fit in the available space.</p> <p><b><i>This is the most common <code>layoutSpec</code></i></b>.</p></td> 
   </tr>
   <tr>
     <td><b><code>ASStaticLayoutSpec</code></b></td>
-    <td>Allows positioning children at fixed offsets using the <code>.sizeRange</code> and <code>.layoutPosition</code> ASLayoutable properties. </td> 
+    <td>Allows positioning children at fixed offsets using the <code>.sizeRange</code> and <code>.layoutPosition</code> <code>ASLayoutable</code> properties. </td> 
   </tr>
 </table>
 
 # ASLayoutable Properties
 
-The following properties can be applied to both nodes _and_ layoutSpecs; both conform to the <ASLayoutable> protocol. 
+The following properties can be applied to both nodes _and_ `layoutSpec`s; both conform to the `ASLayoutable` protocol. 
 
 ### ASStackLayoutable Properties
 
-The following properties may be set on any node or layoutSpecs, but will only apply to those who are a **child of a stack** layoutSpec.
+The following properties may be set on any node or `layoutSpec`s, but will only apply to those who are a **child of a stack** `layoutSpec`.
 
 <table style="width:100%"  class = "paddingBetweenCols">
   <tr>
@@ -101,11 +101,11 @@ The following properties may be set on any node or layoutSpecs, but will only ap
   </tr>
   <tr>
     <td><b><code>ASRelativeDimension .flexBasis</code></b></td>
-    <td>Specifies the initial size for this object, in the stack dimension (horizontal or vertical), before the flexGrow or flexShrink properties are applied and the remaining space is distributed.</td> 
+    <td>Specifies the initial size for this object, in the stack dimension (horizontal or vertical), before the <code>flexGrow</code> or <code>flexShrink</code> properties are applied and the remaining space is distributed.</td> 
   </tr>
   <tr>
     <td><b><code>ASStackLayoutAlignSelf alignSelf</code></b></td>
-    <td>Orientation of the object along cross axis, overriding alignItems. Used when attached to a stack layout.</td> 
+    <td>Orientation of the object along cross axis, overriding <code>alignItems</code>. Used when attached to a stack layout.</td> 
   </tr>
   <tr>
     <td><b><code>CGFloat .ascender</code></b></td>
@@ -119,7 +119,7 @@ The following properties may be set on any node or layoutSpecs, but will only ap
 
 ### ASStaticLayoutable Properties
 
-The following properties may be set on any node or layoutSpecs, but will only apply to those who are a **child of a static** layoutSpec.
+The following properties may be set on any node or `layoutSpec`s, but will only apply to those who are a **child of a static** `layoutSpec`.
 
 <table style="width:100%"  class = "paddingBetweenCols">
   <tr>
@@ -128,19 +128,19 @@ The following properties may be set on any node or layoutSpecs, but will only ap
   </tr>
   <tr>
     <td><b><code>.sizeRange</code></b></td>
-    <td>If specified, the child's size is restricted according to this `ASRelativeSizeRange`. Percentages are resolved relative to the static layout spec.</td> 
+    <td>If specified, the child's size is restricted according to this <code>ASRelativeSizeRange</code>. Percentages are resolved relative to the static layout spec.</td> 
   </tr>
   <tr>
     <td><b><code>.layoutPosition</code></b></td>
-    <td>The `CGPoint` position of this object within its parent spec.</td> 
+    <td>The <code>CGPoint</code> position of this object within its parent spec.</td> 
   </tr>
 </table>
 
 ### Providing Intrinsic Sizes for Leaf Nodes
 
-AsyncDisplayKit's layout is recursive, starting at the layoutSpec returned from `layoutSpecThatFits:` and proceeding down until it reaches the leaf nodes included in any nested layoutSpecs. 
+AsyncDisplayKit's layout is recursive, starting at the layoutSpec returned from `layoutSpecThatFits:` and proceeding down until it reaches the leaf nodes included in any nested `layoutSpec`s. 
 
-Some leaf nodes provide their own intrinsic size, such as ASTextNode or ASImageNode. An attributed string or an image have their own sizes. Other leaf nodes require an intrinsic size to be set.
+Some leaf nodes provide their own intrinsic size, such as `ASTextNode` or `ASImageNode`. An attributed string or an image have their own sizes. Other leaf nodes require an intrinsic size to be set.
 
 **Nodes that require the developer to provide an intrinsic size:**
 
@@ -168,7 +168,7 @@ There are two main confusions that developers have when using layoutSpecs
 
 #### I set `.flexGrow` on my node, but it doesn't grow?
 
-Upward propogation of ASLayoutable properties is currently disabled. Thus, in certain situations, the `.flexGrow` property must be manually applied to the containers. Two common examples of this that we see include:
+Upward propogation of `ASLayoutable` properties is currently disabled. Thus, in certain situations, the `.flexGrow` property must be manually applied to the containers. Two common examples of this that we see include:
 
 - a node (with `flexGrow` enabled) is wrapped in a static layoutSpec, wrapped in a stack layoutSpec. **solution**: enable `flexGrow` on the static layoutSpec as well.
 - a node (with `flexGrow` enabled) is wrapped in an inset spec. **solution**: enable `flexGrow` on the inset spec as well.

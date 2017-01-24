@@ -8,11 +8,11 @@ nextPage: map-node.html
 
 `ASVideoNode` provides a convenient and performant way to display videos in your app.  
 
-<div class = "note"><strong>Note:</strong> If you use ASVideoNode in your application, you must link AVFoundation since it uses AVPlayerLayer and other AVFoundation classes under the hood.</div>
+<div class = "note"><strong>Note:</strong> If you use `ASVideoNode` in your application, you must link `AVFoundation` since it uses `AVPlayerLayer` and other `AVFoundation` classes under the hood.</div>
 
 ### Basic Usage
 
-The easiest way to use ASVideoNode is to assign it an AVAsset.
+The easiest way to use `ASVideoNode` is to assign it an `AVAsset`.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -36,9 +36,9 @@ videoNode.asset = asset
 
 ### Autoplay, Autorepeat, and Muting
 
-You can configure the way your video node reacts to various events with a few simple BOOLs.
+You can configure the way your video node reacts to various events with a few simple `BOOL`s.
 
-If you'd like your video to automaticaly play when it enters the visible range, set the shouldAutoplay property to YES.  Setting shouldAutoRepeat to YES will cause the video to loop indefinitely, and, of course, setting muted to YES will turn the video's sound off.
+If you'd like your video to automaticaly play when it enters the visible range, set the `shouldAutoplay` property to `YES`.  Setting `shouldAutoRepeat` to `YES` will cause the video to loop indefinitely, and, of course, setting `muted` to `YES` will turn the video's sound off.
 
 To set up a node that automatically plays once silently, you would just do the following.
 
@@ -61,7 +61,7 @@ videoNode.muted = true
 
 ### Placeholder Image
 
-Since video nodes inherit from ASNetworkImageNode, you can use the URL property to assign a placeholder image.  If you decide not to, the first frame of your video will automatically decoded and used as the placeholder instead.
+Since video nodes inherit from `ASNetworkImageNode`, you can use the `URL` property to assign a placeholder image.  If you decide not to, the first frame of your video will automatically decoded and used as the placeholder instead.
 
 <img width = "300" src = "/static/images/video.gif"/>
 

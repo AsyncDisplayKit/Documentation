@@ -5,7 +5,7 @@ permalink: /docs/getting-started.html
 nextPage: resources.html
 ---
 
-AsyncDisplayKit's basic unit is the `node`.  ASDisplayNode is an abstraction
+AsyncDisplayKit's basic unit is the `node`.  `ASDisplayNode` is an abstraction
 over `UIView`, which in turn is an abstraction over `CALayer`.  Unlike views, which
 can only be used on the main thread, nodes are thread-safe:  you can
 instantiate and configure entire hierarchies of them in parallel on background
@@ -24,9 +24,9 @@ sleeve too... but we'll get to that later.
 
 <h2><a href = "node-overview.html">Nodes</a></h2>
 
-If you're used to working with views, you already know how to use nodes.  Most methods have a node equivalent and most `UIView` and `CALayer` properties are available as well.  In any case where there is a naming discrepancy (such as .clipsToBounds vs .masksToBounds), nodes will default to the UIView name.  The only exception is that nodes use position instead of center.
+If you're used to working with views, you already know how to use nodes.  Most methods have a node equivalent and most `UIView` and `CALayer` properties are available as well.  In any case where there is a naming discrepancy (such as `.clipsToBounds` vs `.masksToBounds`), nodes will default to the `UIView` name.  The only exception is that nodes use position instead of center.
 
-Of course, you can always access the underlying view or layer directly via <code>node.view</code> or <code>node.layer</code>, just make sure to do it on the main thread!
+Of course, you can always access the underlying view or layer directly via `node.view` or `node.layer`, just make sure to do it on the main thread!
 
 AsyncDisplayKit offers a <a href = "node-overview.html">variety of nodes</a> to replace the majority of the UIKit components that you are used to. Large scale apps have been able to completely write their UI using just AsyncDisplayKit nodes. 
 
@@ -38,7 +38,7 @@ Instead, you should add nodes as subnodes of one of the many <a href = "containe
 
 <h2><a href = "/docs/layout-engine.html">Layout Engine</a></h2>
 
-AsyncDisplayKit's layout engine is both one of its most powerful and one of its most unique features.  Based on the CSS FlexBox model, it provides a declarative way of specifying a custom node's size and layout of its subnodes.  While all nodes are concurrently rendered by default, asynchronous measurement and layout are performed by providing an ASLayoutSpec for each node.
+AsyncDisplayKit's layout engine is both one of its most powerful and one of its most unique features.  Based on the CSS FlexBox model, it provides a declarative way of specifying a custom node's size and layout of its subnodes.  While all nodes are concurrently rendered by default, asynchronous measurement and layout are performed by providing an `ASLayoutSpec` for each node.
 
 <h2><a href = "/docs/layout-engine.html">Advanced Developer Features</a></h2>
 

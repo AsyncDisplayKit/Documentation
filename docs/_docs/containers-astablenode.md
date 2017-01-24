@@ -6,9 +6,9 @@ prevPage: containers-asviewcontroller.html
 nextPage: containers-ascollectionnode.html
 ---
 
-ASTableNode is equivalent to UIKit's UITableView and can be used in place of any UITableView. 
+`ASTableNode` is equivalent to UIKit's `UITableView` and can be used in place of any `UITableView`. 
 
-ASTableNode replaces UITableView's required method
+`ASTableNode` replaces `UITableView`'s required method
 
 <div class = "highlight-group">
 <span class="language-toggle">
@@ -70,15 +70,15 @@ override func tableNode(tableNode: ASTableNode, nodeBlockForRowAtIndexPath index
 It is recommended that you use the node block version of these methods so that your collection node will be able to prepare and display all of its cells concurrently. This means that all subnode initialization methods can be run in the background.  Make sure to keep 'em thread safe.
 </div>
 
-These two methods, need to return either an <a href = "cell-node.html">ASCellNode</a> or an `ASCellNodeBlock`. An ASCellNodeBlock is a block that creates a ASCellNode which can be run on a background thread. Note that ASCellNodes are used by ASTableNode, ASCollectionNode and ASPagerNode. 
+These two methods, need to return either an <a href = "cell-node.html">`ASCellNode`</a> or an `ASCellNodeBlock`. An `ASCellNodeBlock` is a block that creates a `ASCellNode` which can be run on a background thread. Note that `ASCellNodes` are used by `ASTableNode`, `ASCollectionNode` and `ASPagerNode`. 
 
 Note that neither of these methods require a reuse mechanism.
 
 ### Replacing UITableViewController with ASViewController
 
-AsyncDisplayKit does not offer an equivalent to UITableViewController. Instead, use an ASViewController initialized with an ASTableNode. 
+AsyncDisplayKit does not offer an equivalent to `UITableViewController`. Instead, use an `ASViewController` initialized with an `ASTableNode`. 
 
-Consider, again, the ASViewController subclass - PhotoFeedNodeController - from the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a> that uses a table node as its managed node.
+Consider, again, the `ASViewController` subclass - PhotoFeedNodeController - from the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">`ASDKgram sample app`</a> that uses a table node as its managed node.
 
 An `ASTableNode` is assigned to be managed by an `ASViewController` in its `-initWithNode:` designated initializer method. 
 
@@ -212,7 +212,7 @@ A node defines its height by way of the layoutSpec returned in the `-layoutSpecT
 <div class = "note">
 By default, a <code>ASTableNode</code> provides its cells with a size range constraint where the minimum width is the tableNode's width and a minimum height is <code>0</code>.  The maximum width is also the <code>tableNode</code>'s width but the maximum height is <code>FLT_MAX</code>.
 <br><br>
-This is all to say, a <code>tableNode</code>'s cells will always fill the full width of the <code>tableNode</code>, but their height is flexible making self-sizing cells something that happens automatically. 
+This is all to say, a `tableNode`'s cells will always fill the full width of the `tableNode`, but their height is flexible making self-sizing cells something that happens automatically. 
 </div>
 
 If you call `-setNeedsLayout` on an `ASCellNode`, it will automatically perform another layout pass and if its overall desired size has changed, the table will be informed and will update itself. 

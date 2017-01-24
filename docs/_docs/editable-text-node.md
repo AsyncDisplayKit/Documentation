@@ -6,7 +6,7 @@ prevPage: scroll-node.html
 nextPage: multiplex-image-node.html
 ---
 
-`ASEditableTextNode` is available to be used anywhere you'd normally use a UITextView or UITextField.  Under the hood, it uses a specialized UITextView as its backing view.  You can access and configure this view directly any time after the node has loaded, as long as you do it on the main thread.  
+`ASEditableTextNode` is available to be used anywhere you'd normally use a `UITextView` or `UITextField`.  Under the hood, it uses a specialized `UITextView` as its backing view.  You can access and configure this view directly any time after the node has loaded, as long as you do it on the main thread.  
 
 It's also important to note that this node does not support <a href = "/docs/layer-backing.html">layer backing</a> due to the fact that it supports user interaction.
 
@@ -36,7 +36,7 @@ editableTextNode.textContainerInset = UIEdgeInsets(top: 8, left: 8, bottom: 8, r
 
 ### Placeholder Text
 
-If you want to display a text box with a placeholder that disappears after a user starts typing, just assign an attributed string to the 'attributedPlaceholderText' property.
+If you want to display a text box with a placeholder that disappears after a user starts typing, just assign an attributed string to the `attributedPlaceholderText` property.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -52,11 +52,11 @@ editableTextNode.attributedPlaceholderText = NSAttributedString(string: "Type so
 </div>
 </div>
 
-The property `isDisplayingPlaceholder` will initially return YES, but will toggle to NO any time the `attributedText` property is set to a non-empty string.
+The property `isDisplayingPlaceholder` will initially return `YES`, but will toggle to `NO` any time the `attributedText` property is set to a non-empty string.
 
 ### Typing Attributes
 
-To set up the style of the text your user will type into this text field, you can set the 'typingAttributes'.
+To set up the style of the text your user will type into this text field, you can set the `typingAttributes`.
 
 
 <div class = "highlight-group">

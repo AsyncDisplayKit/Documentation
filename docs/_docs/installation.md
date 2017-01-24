@@ -61,7 +61,7 @@ Don't forget to use the workspace `.xcworkspace` file, _not_ the project `.xcode
 ## Carthage (standard build)
 
 <div class = "note">
-The standard way to use Carthage is to have a Cartfile list the dependencies, and then run <code>carthage update</code> to download the dependenices into the <code>Cathage/Checkouts</code> folder and build each of those into frameworks located in the <code>Carthage/Build</code> folder, and finally the developer has to manually integrate in the project.
+The standard way to use Carthage is to have a Cartfile list the dependencies, and then run `carthage update` to download the dependenices into the `Cathage/Checkouts` folder and build each of those into frameworks located in the `Carthage/Build` folder, and finally the developer has to manually integrate in the project.
 </div>
 
 AsyncDisplayKit is also available through <a href="https://github.com/Carthage/Carthage">Carthage</a>. 
@@ -109,6 +109,6 @@ In Xcode, on your application targets’ **“General”** settings tab, in the 
 
 ## Carthage (light)
 
-AsyncDisplayKit does not yet support the lighter way of using Carthage, in which you manually add the project files. This is because one of its dependencies, PINCache (a nested dependency of PINRemoteImage) does not yet have a project file. 
+AsyncDisplayKit does not yet support the lighter way of using Carthage, in which you manually add the project files. This is because one of its dependencies, `PINCache` (a nested dependency of `PINRemoteImage`) does not yet have a project file. 
 
-Without including PINRemoteImage and PINCache, you will not get AsyncDisplayKit's full image feature set. 
+Without including `PINRemoteImage` and `PINCache`, you will not get AsyncDisplayKit's full image feature set. 

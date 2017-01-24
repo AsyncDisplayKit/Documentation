@@ -117,9 +117,9 @@ This works just as well with any node including as an ASTableNode, ASPagerNode, 
 If you've used previous versions of ASDK, you'll notice that `ASCollectionView` has been removed in favor of `ASCollectionNode`.
 
 <div class = "note">
-<code>ASCollectionView</code>, an actual <code>UICollectionView</code> subclass, is still used internally by <code>ASCollectionNode</code>. While it should not be created directly, it can still be used directly by accessing the <code>.view</code> property of an <code>ASCollectionNode</code>.
+`ASCollectionView`, an actual `UICollectionView` subclass, is still used internally by `ASCollectionNode`. While it should not be created directly, it can still be used directly by accessing the `.view` property of an `ASCollectionNode`.
 <br><br>
-Don't forget that a node's <code>view</code> or <code>layer</code> property should only be accessed after viewDidLoad or didLoad, respectively, have been called.
+Don't forget that a node's `view` or `layer` property should only be accessed after viewDidLoad or didLoad, respectively, have been called.
 </div>
 
 The `LocationCollectionNodeController` above accesses the `ASCollectionView` directly in `-viewDidLoad`.

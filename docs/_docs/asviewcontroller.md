@@ -6,11 +6,11 @@ prevPage:
 nextPage: aspagernode.html
 ---
 
-ASViewController is a direct subclass of UIViewController.  For the most part, it can be used in place of any UIViewController relatively easily.  
+`ASViewController` is a direct subclass of `UIViewController`.  For the most part, it can be used in place of any `UIViewController` relatively easily.  
 
-The main difference is that you construct and return the node you'd like managed as opposed to the way UIViewController provides a view of its own.
+The main difference is that you construct and return the node you'd like managed as opposed to the way `UIViewController` provides a view of its own.
 
-Consider the following ASViewController subclass that would like to use a custom table node as its managed node.
+Consider the following `ASViewController` subclass that would like to use a custom table node as its managed node.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
@@ -29,7 +29,7 @@ Consider the following ASViewController subclass that would like to use a custom
     
     return self;
 }
-  </pre>
+</pre>
 
   <pre lang="swift" class = "swiftCode hidden">
 func initWithModel(models: Array<Model>) {
@@ -50,6 +50,6 @@ func initWithModel(models: Array<Model>) {
 
 The most important line is:
 
-<code>if (!(self = [super initWithNode:tableNode])) { return nil; }</code>
+`if (!(self = [super initWithNode:tableNode])) { return nil; }`
 
-As you can see, ASViewController's are initialized with a node of your choosing.   
+As you can see, `ASViewController`'s are initialized with a node of your choosing.   
