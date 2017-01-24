@@ -2,7 +2,7 @@
 title: Image Modification Blocks
 layout: docs
 permalink: /docs/image-modification-block.html
-prevPage: implicit-hierarchy-mgmt.html
+prevPage: inversion.html
 nextPage: placeholder-fade-duration.html
 ---
 

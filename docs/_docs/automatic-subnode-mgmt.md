@@ -3,7 +3,7 @@ title: Automatic Subnode Management
 layout: docs
 permalink: /docs/automatic-subnode-mgmt.html
 prevPage: batch-fetching-api.html
-nextPage: image-modification-block.html
+nextPage: inversion.html
 ---
 
 Enabling Automatic Subnode Management (ASM) is required to use the <a href="layout-transition-api.html">Layout Transition API</a>. However, apps that don't require animations can still benefit from the reduction in code size that this feature enables.
