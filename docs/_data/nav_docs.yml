@@ -25,6 +25,7 @@
   - hit-test-slop
   - batch-fetching-api
   - automatic-subnode-mgmt
+  - inversion
   - image-modification-block
   - placeholder-fade-duration
   - accessibility
