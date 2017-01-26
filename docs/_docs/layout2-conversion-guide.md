@@ -254,15 +254,27 @@ If you previously wrapped a `ASLayoutElement` within a `ASStaticLayoutSpec` just
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
-// 1.x:
+// 1.x - ASStaticLayoutSpec used as a "wrapper" to return subnode from layoutSpecThatFits: 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
-  ASDisplayNode *subnode = ...;
-  subnode.style.preferredSize = CGSizeMake(constrainedSize.max.width, constrainedSize.max.height / 2.0);
+  return [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[subnode]];
+}
+
+// 2.0
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
   return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
 }
 
-// 2.0:
+// 1.x - ASStaticLayoutSpec used to set size (but not position) of subnode
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ASDisplayNode *subnode = ...;
+  subnode.preferredSize = ...;
+  return [ASStaticLayoutSpec staticLayoutSpecWithChildren:@[subnode]];
+}
+
+// 2.0
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
   ASDisplayNode *subnode = ...;
