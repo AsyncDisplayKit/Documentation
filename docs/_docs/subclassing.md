@@ -103,7 +103,7 @@ This method is called at the exact same time as a node's `-layout` method and it
 
 For consistency, it is best practice to put all layout code in this method. Because it is not called very frequently, even code that does not directly depend on the size belongs here.  
 
-### `-viewWillAppear:` / `-viewDidDisappear:`
+### `-viewWillAppear:` / `-viewDidAppear:`
 
 These methods are called just before the ASViewController's node appears on screen (the earliest time that it is visible) and just after it is removed from the view hierarchy (the earliest time that it is no longer visible). These methods provide a good opportunity to start or stop animations related to the presentation or dismissal of your controller. This is also a good place to make a log of a user action.
 
