@@ -48,16 +48,16 @@ Say you have a giant image, but you only want to take up 200x200 pts on the scre
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
+// NOTE: If you are using a horizontal stack, set scrollNode.scrollableDirections.
 ASScrollNode *scrollNode = [[ASScrollNode alloc] init];
 scrollNode.automaticallyManagesSubnodes = YES;
 scrollNode.automaticallyManagesContentSize = YES;
-// NOTE: If you are using a horizontal stack, set scrollNode.scrollableDirections.
 
 scrollNode.layoutSpecBlock = ^(ASDisplayNode *node, ASSizeRange constrainedSize){
-	ASStackLayoutSpec *stack = [ASStackLayoutSpec verticalStackLayoutSpec];
-	// Add children to the stack.
-    return stack;
-  };
+  ASStackLayoutSpec *stack = [ASStackLayoutSpec verticalStackLayoutSpec];
+  // Add children to the stack.
+  return stack;
+};
 
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
