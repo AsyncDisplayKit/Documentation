@@ -10,20 +10,17 @@ nextPage: editable-text-node.html
 
 ### automaticallyManagesContentSize
 
-When enabled, the size calculated by the `ASScrolNode`'s layout spec is used as the `.contentSize` of the scroll view, instead of the bounds size.  The bounds is instead allowed to match the parent's size (whenever it is finite - otherwise, the bounds size also grows to the full `contentSize`).  
+When enabled, the size calculated by the `ASScrolNode`'s layout spec defines the `.contentSize` of the scroll view. This is in contrast to most nodes, where the `layoutSpec` size is applied to the bounds (and in turn, frame). In this mode, the bounds of the scroll view always fills the parent's size. 
 
-`automaticallyManagesContentSize` works well either for a blank `ASScrollNode` with `.layoutSpecBlock` set on it, or a subclass of `ASScrollNode` with a more
-traditional `layoutSpecThatFits:` implementation.  
+`automaticallyManagesContentSize` is useful both for subclasses of `ASScrollNode` implementing `layoutSpecThatFits:` or may also be used as the base class with `.layoutSpecBlock` set. In both cases, it is common use `.automaticallyManagesSubnodes` so that the nodes in the layout spec are added to the scrollable area automatically. 
 
-With this approach there is no need to capture the layout size, use an absolute layout spec as a wrapper, or set `contentSize` anywhere in the code and it will update as the layout changes!
-
-There is currently no automatic management of `contentInset`, but it would make sense to add this with keyboard listeners in the future.
+With this approach there is no need to capture the layout size, use an absolute layout spec as a wrapper, or set `contentSize` anywhere in the code and it will update as the layout changes! Instead, it is very common and useful to simply return an `ASStackLayoutSpec` and the scrollable area will allow you to see all of it. 
 
 ### scrollableDirections 
 
-When using `automaticallyManagesContentSize`, you will want to set the `ASScrollNode`'s <code><b>scrollableDirections</b></code> as well. This property controls how the `constrainedSize` is interpreted when sizing the content. If you are using `automaticallyManagesContentSize`, it can be crucial to ensure that the sizing is done how you expect. 
+This option is useful when using `automaticallyManagesContentSize`, <b>especially if you want horizontal content (because the default is vertical)</b>.
 
-Options include:
+This property controls how the `constrainedSize` is interpreted when sizing the content. Options include:
 
 <table style="width:100%" class = "paddingBetweenCols">
   <tr>
@@ -40,7 +37,7 @@ Options include:
   </tr>
 </table>
 
-### Basic Usage
+### Example
 
 In case you're not familiar with scroll views, they are basically windows into content that would take up more space than can fit in that area.
 
@@ -51,24 +48,19 @@ Say you have a giant image, but you only want to take up 200x200 pts on the scre
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
-UIImage *scrollNodeImage = [UIImage imageNamed:@"image"];
 ASScrollNode *scrollNode = [[ASScrollNode alloc] init];
+scrollNode.automaticallyManagesSubnodes = YES;
+scrollNode.automaticallyManagesContentSize = YES;
+// NOTE: If you are using a horizontal stack, set scrollNode.scrollableDirections.
 
-scrollNode.style.preferredSize = CGSizeMake(200.0, 200.0);
+scrollNode.layoutSpecBlock = ^(ASDisplayNode *node, ASSizeRange constrainedSize){
+	ASStackLayoutSpec *stack = [ASStackLayoutSpec verticalStackLayoutSpec];
+	// Add children to the stack.
+    return stack;
+  };
 
-UIScrollView *scrollNodeView = scrollNode.view;
-[scrollNodeView addSubview:[[UIImageView alloc] initWithImage:scrollNodeImage]];
-scrollNodeView.contentSize = scrollNodeImage.size;
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-let scrollNodeImage = UIImage(named: "image")
-let scrollNode = ASScrollNode()
-
-scrollNode.style.preferredSize = CGSize(width: 200.0, height: 200.0)
-
-let scrollNodeView = scrollNode.view
-scrollNodeView.addSubview(UIImageView(image: scrollNodeImage))
-scrollNodeView.contentSize = scrollNodeImage.size
 </pre>
 </div>
 </div>
