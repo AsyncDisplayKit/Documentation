@@ -61,6 +61,18 @@ scrollNode.layoutSpecBlock = ^(ASDisplayNode *node, ASSizeRange constrainedSize)
 
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
+// NOTE: If you are using a horizontal stack, set scrollNode.scrollableDirections.
+
+let scrollNode = ASScrollNode()
+scrollNode.automaticallyManagesSubnodes = true
+scrollNode.automaticallyManagesContentSize = true
+
+scrollNode.layoutSpecBlock = { node, constrainedSize in
+  let stack = ASStackLayoutSpec.vertical()
+  // Add children to the stack.
+  return stack
+}
+
 </pre>
 </div>
 </div>
