@@ -218,6 +218,16 @@ p code, span code, li code {
     background-color: rgba(135, 215, 255, 0.2);
 }
 
+.paddingBetweenCols th {
+    text-align: left;
+    padding: 15px 15px 15px 15px;
+}
+
+.paddingBetweenCols td {
+    padding: 15px 15px 15px 15px;
+/*    border: 1 px solid black;*/
+}
+
 .highlight pre, .redhighlight pre {
     font-size: 13px;
     line-height: 20px;
