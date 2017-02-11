@@ -3,7 +3,7 @@ title: ASViewController
 layout: docs
 permalink: /docs/containers-asviewcontroller.html
 prevPage: faq.html
-nextPage: containers-astablenode.html
+nextPage: containers-asnodecontroller.html
 ---
 
 `ASViewController` is a subclass of `UIViewController` that adds several useful features for hosting `ASDisplayNode` hierarchies.

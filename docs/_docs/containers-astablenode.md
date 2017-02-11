@@ -2,7 +2,7 @@
 title: ASTableNode
 layout: docs
 permalink: /docs/containers-astablenode.html
-prevPage: containers-asviewcontroller.html
+prevPage: containers-asnodecontroller.html
 nextPage: containers-ascollectionnode.html
 ---
 
