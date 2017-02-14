@@ -11,7 +11,7 @@ nextPage: batch-fetching-api.html
 ASDisplayNode is the base class for all nodes, so this property is available on any of AsyncDisplayKit's nodes. 
 
 <div class = "note">
-<strong>Note:</strong> This affects the default implementation of -hitTest and -pointInside, so subclasses should call super if you override it and want hitTestSlop applied.
+<strong>Note:</strong> This affects the default implementation of <code>-hitTest</code> and <code>-pointInside</code>, so subclasses should call super if you override it and want hitTestSlop applied.
 </div>
 
 A node's ability to capture touch events is restricted by its parent's bounds + parent hitTestSlop UIEdgeInsets. Should you want to extend the hitTestSlop of a child outside its parent's bounds, simply extend the parent node's hitTestSlop to include the child's hitTestSlop needs.
