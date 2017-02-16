@@ -8,7 +8,7 @@ nextPage: installation.html
 
 ### Slack
 
-Join 450+ AsyncDisplayKit developers and the AsyncDisplayKit <a href="team.html">core team</a> on Slack for real-time debugging, the latest updates, and asynchronous banter. Signup <a href="/slack.html">here</a>.
+Join 700+ AsyncDisplayKit developers and the AsyncDisplayKit <a href="team.html">core team</a> on Slack for real-time debugging, the latest updates, and asynchronous banter. Signup <a href="/slack.html">here</a>.
 
 ### Examples
 Browse through our many <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples">example projects</a>. 
