@@ -48,6 +48,7 @@
 - title: Node Containers
   items:
   - containers-asviewcontroller
+  - containers-asnodecontroller
   - containers-astablenode
   - containers-ascollectionnode
   - containers-aspagernode
