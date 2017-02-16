@@ -55,23 +55,41 @@ Intelligent preloading also works in multiple dimensions.
 
 As a user scrolls, nodes move through the ranges and react appropriately by loading data, rendering, etc.  Your own <a href = "subclassing.html">node subclasses</a> can easily tap into this mechanism by implementing the corresponding callback methods.
 
-### Visible Range 
-```
+#### Visible Range 
+
+<div class = "highlight-group">
+<span class="language-toggle"></span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
 -didEnterVisibleState
 -didExitVisibleState
-```
+</pre>
+</div>
+</div>
 
-### Display Range
-```
+#### Display Range
+
+<div class = "highlight-group">
+<span class="language-toggle"></span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
 -didEnterDisplayState
 -didExitDisplayState
-```
+</pre>
+</div>
+</div>
 
-### Preload Range
-```
+#### Preload Range
+
+<div class = "highlight-group">
+<span class="language-toggle"></span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
 -didEnterPreloadState
 -didExitPreloadState
-```
+</pre>
+</div>
+</div>
 
 <br>
 Just remember to call super ok? 😉
