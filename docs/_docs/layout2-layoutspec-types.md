@@ -9,6 +9,7 @@ nextPage: layout2-layout-element-properties.html
 The following `ASLayoutSpec` subclasses can be used to compose simple or very complex layouts. 
 
 <ul>
+<li><a href="layout2-layoutspec-types.html#aswrapperlayoutspec"><code>AS<b>Wrapper</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asinsetlayoutspec"><code>AS<b>Inset</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asoverlaylayoutspec"><code>AS<b>Overlay</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec"><code>AS<b>Background</b>LayoutSpec</code></a></li>
@@ -20,6 +21,34 @@ The following `ASLayoutSpec` subclasses can be used to compose simple or very co
 </ul>
 
 You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLayoutSpec`</a> in order to make your own, custom layout specs. 
+
+## ASWrapperLayoutSpec
+
+`ASWrapperLayoutSpec` is a simple `ASLayoutSpec` subclass that can wrap a `ASLayoutElement` and calculate the layout of the child based on the size set on the layout element. 
+
+`ASWrapperLayoutSpec` is ideal for easily returning a single subnode from `-layoutSpecThatFits:`. Optionally, this subnode can have sizing information set on it (but not position. Use `ASAbsoluteLayoutSpec` if position is needed as well).
+
+<div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+// return a single subnode from layoutSpecThatFits: 
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
+}
+
+// set a size (but not position)
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ASDisplayNode *subnode = ...;
+  subnode.style.preferredSize = CGSizeMake(constrainedSize.max.width, constrainedSize.max.height / 2.0);
+  return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
+}
+</pre>
+</div>
+</div>
 
 ## ASInsetLayoutSpec
 During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` `CGSize` to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
