@@ -114,9 +114,24 @@ and replaces them with a single method*:
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
 <pre lang="objc" class="objcCode">
-- (ASCellNodeBlock *)nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (ASCellNode *)collectionNode:(ASCollectionNode *)collectionNode nodeForItemAtIndexPath:(NSIndexPath *)indexPath;
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
+func collectionNode(collectionNode: ASCollectionNode, nodeForItemAtIndexPath indexPath: NSIndexPath) -> ASCellNode
+</pre>
+</div>
+</div>
+
+or with the asynchronous versions
+
+<div class = "highlight-group">
+<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASCellNodeBlock)collectionNode:(ASCollectionNode *)collectionNode nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath;
+</pre>
+<pre lang="swift" class = "swiftCode hidden">
+func collectionNode(collectionNode: ASCollectionNode, nodeBlockForItemAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock
 </pre>
 </div>
 </div>
