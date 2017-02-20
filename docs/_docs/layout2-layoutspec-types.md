@@ -10,13 +10,13 @@ The following `ASLayoutSpec` subclasses can be used to compose simple or very co
 
 <ul>
 <li><a href="layout2-layoutspec-types.html#aswrapperlayoutspec"><code>AS<b>Wrapper</b>LayoutSpec</code></a></li>
+<li><a href="layout2-layoutspec-types.html#asstacklayoutspec-flexbox-container"><code>AS<b>Stack</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asinsetlayoutspec"><code>AS<b>Inset</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asoverlaylayoutspec"><code>AS<b>Overlay</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asbackgroundlayoutspec"><code>AS<b>Background</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#ascenterlayoutspec"><code>AS<b>Center</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asratiolayoutspec"><code>AS<b>Ratio</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asrelativelayoutspec"><code>AS<b>Relative</b>LayoutSpec</code></a></li>
-<li><a href="layout2-layoutspec-types.html#asstacklayoutspec-flexbox-container"><code>AS<b>Stack</b>LayoutSpec</code></a></li>
 <li><a href="layout2-layoutspec-types.html#asabsolutelayoutspec"><code>AS<b>Absolute</b>LayoutSpec</code></a></li>
 </ul>
 
@@ -29,7 +29,10 @@ You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLa
 `ASWrapperLayoutSpec` is ideal for easily returning a single subnode from `-layoutSpecThatFits:`. Optionally, this subnode can have sizing information set on it. However, if you need to set a position in addition to a size, use `ASAbsoluteLayoutSpec` instead.
 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
@@ -47,161 +50,10 @@ You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLa
   return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
 }
 </pre>
-</div>
-</div>
 
-## ASInsetLayoutSpec
-During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` `CGSize` to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
-
-<img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
-
-If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just use the intrinisic size of the child. See an <a href="automatic-layout-examples-2.html#photo-with-inset-text-overlay">example</a> of this.
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  ...
-  UIEdgeInsets *insets = UIEdgeInsetsMake(10, 10, 10, 10);
-  ASInsetLayoutSpec *headerWithInset = insetLayoutSpecWithInsets:insets child:textNode];
-  ...
-}
-</pre>
-</div>
-</div>
-
-## ASOverlayLayoutSpec
-`ASOverlayLayoutSpec` lays out its child (blue), stretching another component on top of it as an overlay (red). 
-
-<img src="/static/images/layoutSpec-types/ASOverlayLayouSpec-diagram.png" width="65%">
-
-The overlay spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the overlay layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
-
-<div class = "note">
-When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode to the parent node after the child layout element (blue).
-</div>
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor blueColor]);
-  ASDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
-  return [ASOverlayLayoutSpec overlayLayoutSpecWithChild:backgroundNode overlay:foregroundNode];
-}
-</pre>
-</div>
-</div>
-
-## ASBackgroundLayoutSpec
-`ASBackgroundLayoutSpec` lays out a component (blue), stretching another component behind it as a backdrop (red). 
-
-<img src="/static/images/layoutSpec-types/ASBackgroundLayoutSpec-diagram.png" width="65%">
-
-The background spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the background layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
-
-<div class = "note">
-When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode to the parent node after the child background element (red).
-</div>
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
-  ASDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor blueColor]);
-
-  return [ASBackgroundLayoutSpec backgroundLayoutSpecWithChild:foregroundNode background:backgroundNode];
-}
-</pre>
-</div>
-</div>
-
-Note: The order in which subnodes are added matters for this layout spec; the background object must be added as a subnode to the parent node before the foreground object. Using ASM does not currently guarantee this order!
-
-## ASCenterLayoutSpec
-`ASCenterLayoutSpec` centers its child within its max `constrainedSize`. 
-
-<img src="/static/images/layoutSpec-types/ASCenterLayoutSpec-diagram.png" width="65%">
-
-If the center spec's width or height is unconstrained, it shrinks to the size of the child.
-
-`ASCenterLayoutSpec` has two properties:
-
-- `centeringOptions`. Determines how the child is centered within the center spec. Options include: None, X, Y, XY.
-- `sizingOptions`. Determines how much space the center spec will take up. Options include: Default, minimum X, minimum Y, minimum XY.
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  ASStaticSizeDisplayNode *subnode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(70, 100));
-  return [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringXY
-                                                    sizingOptions:ASRelativeLayoutSpecSizingOptionDefault
-                                                            child:subnode]
-}
-</pre>
-</div>
-</div>
-
-## ASRatioLayoutSpec
-`ASRatioLayoutSpec` lays out a component at a fixed aspect ratio which can scale. This spec **must** have a width or a height passed to it as a constrainedSize as it uses this value to scale itself. 
-
-<img src="/static/images/layoutSpec-types/ASRatioLayoutSpec-diagram.png" width="65%">
-
-It is very common to use a ratio spec to provide an intrinsic size for `ASNetworkImageNode` or `ASVideoNode`, as both do not have an intrinsic size until the content returns from the server. 
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  // Half Ratio
-  ASStaticSizeDisplayNode *subnode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(100, 100));
-  return [ASRatioLayoutSpec ratioLayoutSpecWithRatio:0.5 child:subnode];
-}
-</pre>
-</div>
-</div>
-
-## ASRelativeLayoutSpec
-Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.
-
-This is a very powerful class, but too complex to cover in this overview. For more information, look into `ASRelativeLayoutSpec`'s `-calculateLayoutThatFits:` method + properties.
-
-<div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
-
-<div class = "code">
-<pre lang="objc" class="objcCode">
-- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
-{
-  ...
-  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
-  ASStaticSizeDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(70, 100));
-
-  ASRelativeLayoutSpec *relativeSpec = [ASRelativeLayoutSpec relativePositionLayoutSpecWithHorizontalPosition:ASRelativeLayoutSpecPositionStart
-                                                                                             verticalPosition:ASRelativeLayoutSpecPositionStart
-                                                                                                 sizingOption:ASRelativeLayoutSpecSizingOptionDefault
-                                                                                                        child:foregroundNode]
-
-  ASBackgroundLayoutSpec *backgroundSpec = [ASBackgroundLayoutSpec backgroundLayoutSpecWithChild:relativeSpec background:backgroundNode];
-  ...
-}
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
 </pre>
 </div>
 </div>
@@ -225,17 +77,20 @@ they will be resolved again, causing justifyContent and alignItems to be updated
 - `baselineRelativeArrangement`. If `YES` the vertical spacing between two views is measured from the last baseline of the top view to the top of the bottom view.
 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
   ASStackLayoutSpec *mainStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
-                                                                         spacing:6.0
-                                                                  justifyContent:ASStackLayoutJustifyContentStart
-                                                                      alignItems:ASStackLayoutAlignItemsCenter
-                                                                        children:@[_iconNode, _countNode]];
+                       spacing:6.0
+                justifyContent:ASStackLayoutJustifyContentStart
+                    alignItems:ASStackLayoutAlignItemsCenter
+                      children:@[_iconNode, _countNode]];
 
   // Set some constrained size to the stack
   mainStack.style.minWidth = ASDimensionMakeWithPoints(60.0);
@@ -244,11 +99,221 @@ they will be resolved again, causing justifyContent and alignItems to be updated
   return mainStack;
 }
 </pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
 </div>
 </div>
 
-<br>
 Flexbox works the same way in AsyncDisplayKit as it does in CSS on the web, with a few exceptions. The defaults are different, there is no `flex` parameter and `flexGrow` and `flexShrink` only supports a boolean value.
+
+<br>
+
+## ASInsetLayoutSpec
+During the layout pass, the `ASInsetLayoutSpec` passes its `constrainedSize.max` `CGSize` to its child, after subtracting its insets. Once the child determines it's final size, the inset spec passes its final size up as the size of its child plus its inset margin. Since the inset layout spec is sized based on the size of it's child, the child **must** have an instrinsic size or explicitly set its size. 
+
+<img src="/static/images/layoutSpec-types/ASInsetLayoutSpec-diagram.png" width="75%">
+
+If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just use the intrinisic size of the child. See an <a href="automatic-layout-examples-2.html#photo-with-inset-text-overlay">example</a> of this.
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ...
+  UIEdgeInsets *insets = UIEdgeInsetsMake(10, 10, 10, 10);
+  ASInsetLayoutSpec *headerWithInset = insetLayoutSpecWithInsets:insets child:textNode];
+  ...
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
+
+## ASOverlayLayoutSpec
+`ASOverlayLayoutSpec` lays out its child (blue), stretching another component on top of it as an overlay (red). 
+
+<img src="/static/images/layoutSpec-types/ASOverlayLayouSpec-diagram.png" width="65%">
+
+The overlay spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the overlay layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
+
+<div class = "note">
+When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the overlay layout element (red) must added as a subnode to the parent node after the child layout element (blue).
+</div>
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor blueColor]);
+  ASDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
+  return [ASOverlayLayoutSpec overlayLayoutSpecWithChild:backgroundNode overlay:foregroundNode];
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
+
+## ASBackgroundLayoutSpec
+`ASBackgroundLayoutSpec` lays out a component (blue), stretching another component behind it as a backdrop (red). 
+
+<img src="/static/images/layoutSpec-types/ASBackgroundLayoutSpec-diagram.png" width="65%">
+
+The background spec's size is calculated from the child's size. In the diagram below, the child is the blue layer. The child's size is then passed as the `constrainedSize` to the background layout element (red layer). Thus, it is important that the child (blue layer) **must** have an intrinsic size or a size set on it. 
+
+<div class = "note">
+When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code>, the nodes may sometimes appear in the wrong order. This is a known issue that will be fixed soon. The current workaround is to add the nodes manually, with the child layout element (blue) must added as a subnode to the parent node after the child background element (red).
+</div>
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
+  ASDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor blueColor]);
+
+  return [ASBackgroundLayoutSpec backgroundLayoutSpecWithChild:foregroundNode background:backgroundNode];
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
+
+Note: The order in which subnodes are added matters for this layout spec; the background object must be added as a subnode to the parent node before the foreground object. Using ASM does not currently guarantee this order!
+
+## ASCenterLayoutSpec
+`ASCenterLayoutSpec` centers its child within its max `constrainedSize`. 
+
+<img src="/static/images/layoutSpec-types/ASCenterLayoutSpec-diagram.png" width="65%">
+
+If the center spec's width or height is unconstrained, it shrinks to the size of the child.
+
+`ASCenterLayoutSpec` has two properties:
+
+- `centeringOptions`. Determines how the child is centered within the center spec. Options include: None, X, Y, XY.
+- `sizingOptions`. Determines how much space the center spec will take up. Options include: Default, minimum X, minimum Y, minimum XY.
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ASStaticSizeDisplayNode *subnode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(70, 100));
+  return [ASCenterLayoutSpec centerLayoutSpecWithCenteringOptions:ASCenterLayoutSpecCenteringXY
+                                                    sizingOptions:ASRelativeLayoutSpecSizingOptionDefault
+                                                            child:subnode]
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
+
+## ASRatioLayoutSpec
+`ASRatioLayoutSpec` lays out a component at a fixed aspect ratio which can scale. This spec **must** have a width or a height passed to it as a constrainedSize as it uses this value to scale itself. 
+
+<img src="/static/images/layoutSpec-types/ASRatioLayoutSpec-diagram.png" width="65%">
+
+It is very common to use a ratio spec to provide an intrinsic size for `ASNetworkImageNode` or `ASVideoNode`, as both do not have an intrinsic size until the content returns from the server. 
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  // Half Ratio
+  ASStaticSizeDisplayNode *subnode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(100, 100));
+  return [ASRatioLayoutSpec ratioLayoutSpecWithRatio:0.5 child:subnode];
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
+
+## ASRelativeLayoutSpec
+Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center.
+
+This is a very powerful class, but too complex to cover in this overview. For more information, look into `ASRelativeLayoutSpec`'s `-calculateLayoutThatFits:` method + properties.
+
+<div class = "highlight-group">
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
+
+<div class = "code">
+<pre lang="objc" class="objcCode">
+- (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
+{
+  ...
+  ASDisplayNode *backgroundNode = ASDisplayNodeWithBackgroundColor([UIColor redColor]);
+  ASStaticSizeDisplayNode *foregroundNode = ASDisplayNodeWithBackgroundColor([UIColor greenColor], CGSizeMake(70, 100));
+
+  ASRelativeLayoutSpec *relativeSpec = [ASRelativeLayoutSpec relativePositionLayoutSpecWithHorizontalPosition:ASRelativeLayoutSpecPositionStart
+                                  verticalPosition:ASRelativeLayoutSpecPositionStart
+                                      sizingOption:ASRelativeLayoutSpecSizingOptionDefault
+                                             child:foregroundNode]
+
+  ASBackgroundLayoutSpec *backgroundSpec = [ASBackgroundLayoutSpec backgroundLayoutSpecWithChild:relativeSpec background:backgroundNode];
+  ...
+}
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
+</div>
+</div>
 
 ## ASAbsoluteLayoutSpec
 Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) of its children by setting their `layoutPosition` property. Absolute layouts are less flexible and harder to maintain than other types of layouts.
@@ -258,7 +323,10 @@ Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) 
 - `sizing`. Determines how much space the absolute spec will take up. Options include: Default, and Size to Fit. *Note* that the Size to Fit option will replicate the behavior of the old `ASStaticLayoutSpec`.
 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
@@ -282,6 +350,11 @@ Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) 
   return [ASAbsoluteLayoutSpec absoluteLayoutSpecWithChildren:@[guitarVideoNode, nicCageVideoNode, simonVideoNode, hlsVideoNode]];
 }
 </pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
+</pre>
 </div>
 </div>
 
@@ -291,7 +364,10 @@ Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) 
 Another use of `ASLayoutSpec` is to be used as a spacer in a `ASStackLayoutSpec` with other children, when `.flexGrow` and/or `.flexShrink` is applied.
 
 <div class = "highlight-group">
-<span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
+<span class="language-toggle">
+  <a data-lang="swift" class="swiftButton">Swift</a>
+  <a data-lang="objective-c" class = "active objcButton">Objective-C</a>
+</span>
 
 <div class = "code">
 <pre lang="objc" class="objcCode">
@@ -305,6 +381,11 @@ Another use of `ASLayoutSpec` is to be used as a spacer in a `ASStackLayoutSpec`
   stack.children = [imageNode, spacer, textNode]
   ...
 }
+</pre>
+
+<pre lang="swift" class = "swiftCode hidden">
+// Click the "Edit on GitHub" button at the bottom of this page 
+// to contribute the swift code for this section.
 </pre>
 </div>
 </div>
