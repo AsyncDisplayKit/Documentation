@@ -26,7 +26,7 @@ You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLa
 
 `ASWrapperLayoutSpec` is a simple `ASLayoutSpec` subclass that can wrap a `ASLayoutElement` and calculate the layout of the child based on the size set on the layout element. 
 
-`ASWrapperLayoutSpec` is ideal for easily returning a single subnode from `-layoutSpecThatFits:`. Optionally, this subnode can have sizing information set on it (but not position. Use `ASAbsoluteLayoutSpec` if position is needed as well).
+`ASWrapperLayoutSpec` is ideal for easily returning a single subnode from `-layoutSpecThatFits:`. Optionally, this subnode can have sizing information set on it. However, if you need to set a position in addition to a size, use `ASAbsoluteLayoutSpec` instead.
 
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
