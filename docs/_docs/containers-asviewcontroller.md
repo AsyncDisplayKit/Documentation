@@ -8,12 +8,12 @@ nextPage: containers-asnodecontroller.html
 
 `ASViewController` is a subclass of `UIViewController` that adds several useful features for hosting `ASDisplayNode` hierarchies.
 
-An ASViewController can be used in place of any `UIViewController` - including within a `UINavigationController`, `UITabBarController` and `UISplitViewController` or as a modal view controller. 
+An `ASViewController` can be used in place of any `UIViewController` - including within a `UINavigationController`, `UITabBarController` and `UISplitViewController` or as a modal view controller. 
 
 Benefits of using an `ASViewController`:
 <ol>
-<li><b>Save Memory.</b> An `ASViewController` that goes off screen will automatically reduce the size of the fetch data and display ranges of any of its children. This is key for memory management in large applications. </li>
-<li><b><a href="asvisibility.html">`ASVisibility`</a>.</b> When used in an `ASNavigationController` or `ASTabBarController`, these classes know the exact number of user taps it would take to make the view controller visible.</li>
+<li><b>Save Memory</b>. An <code>ASViewController</code> that goes off screen will automatically reduce the size of the <a href="intelligent-preloading.html">fetch data</a> and <a href="intelligent-preloading.html">display ranges</a> of any of its children. This is key for memory management in large applications. </li>
+<li><b><a href="asvisibility.html"><code>ASVisibility</code></a> Feature</b>. When used in an <code>ASNavigationController</code> or <code>ASTabBarController</code>, these classes know the exact number of user taps it would take to make the view controller visible.</li>
 </ol>
 
 More features will be added over time, so it is a good idea to base your view controllers off of this class. 
