@@ -36,14 +36,14 @@ You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLa
 // return a single subnode from layoutSpecThatFits: 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
-  return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
+  return [ASWrapperLayoutSpec wrapperWithLayoutElement:_subnode];
 }
 
 // set a size (but not position)
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize
 {
-  ASDisplayNode *subnode = ...;
-  subnode.style.preferredSize = CGSizeMake(constrainedSize.max.width, constrainedSize.max.height / 2.0);
+  _subnode.style.preferredSize = CGSizeMake(constrainedSize.max.width,
+                                            constrainedSize.max.height / 2.0);
   return [ASWrapperLayoutSpec wrapperWithLayoutElement:subnode];
 }
 </pre>
