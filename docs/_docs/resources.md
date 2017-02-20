@@ -30,6 +30,16 @@ If you are new to AsyncDisplayKit, we recommend that you start with the <a href=
   <li><a href = "https://www.youtube.com/watch?v=h4QDbgB7RLo">Asynchronous UI</a> <b>[NSLondon 2014]</b></li>
 </ul> 
 
+### Tutorials / Articles
+<ul>  
+<li><a href = "http://www.appcoda.com/introduction-asyncdisplaykit-2-0/">Using AsyncDisplayKit to Develop Responsive UIs in iOS</a> <b>[Ziad Tamim, 12.29.2016]</b></li>
+<li><a href = "https://www.raywenderlich.com/124696/asyncdisplaykit-2-0-tutorial-automatic-layout">AsyncDisplayKit 2.0 Tutorial: Automatic Layout</a> <b>[Luke Parham, 12.19.2016]</b></li>
+<li><a href = "https://www.raywenderlich.com/124311/asyncdisplaykit-2-0-tutorial-getting-started">AsyncDisplayKit 2.0 Tutorial: Getting Started</a> <b>[Luke Parham, 12.5.2016]</b></li>
+<li><a href = "https://overflow.buffer.com/2016/10/04/implementing-asyncdisplaykit-within-buffer-ios/">iOS
+Smooth Scrolling in Buffer for iOS: How (and Why) We Implemented AsyncDisplayKit</a> <b>[Andy Yates, 11.4.2016]</b></li>
+</ul> 
+
+
 ### Layout Resources
 AsyncDisplayKit's powerful layout system is based on the CSS FlexBox model. These sites are useful for learning the basics of this system. 
 <ul>
