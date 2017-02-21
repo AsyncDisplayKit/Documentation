@@ -110,7 +110,7 @@ While previous versions of the framework required the developer to be aware of t
 
 Other updates include:
 
-- Deprecate `ASTableView`'s -init method. Please use `ASTableNode` instead of `ASTableView`. While this makes adopting the framework marginally more difficult to, the benefits of using ASTableNode / ASCollectionNode over their ASTableView / ASCollectionView counterparts are signficant. W
+- Deprecate `ASTableView`'s -init method. Please use `ASTableNode` instead of `ASTableView`. While this makes adopting the framework marginally more difficult to, the benefits of using ASTableNode / ASCollectionNode over their ASTableView / ASCollectionView counterparts are signficant. 
 
 - Deprecate `-beginUpdates` and `-endUpdatesAnimated:`. Please use the `-performBatchUpdates:` methods instead.
 
@@ -119,6 +119,8 @@ Other updates include:
 - Moved range tuning to the `tableNode` / `collectionNode` (from the `tableView` / `collectionView`)
 
 - `constrainedSizeForNodeAtIndexPath:` moved from the `.dataSource` to the `.delegate` to be consistent with UIKit definitions of the roles. **Note:** Make sure that you provide a delegate for any `ASTableNode`, `ASCollectionNode` or `ASPagerNodes` that use this method. Your code will silently not call your delegate method, if you do not have a delegate assigned. 
+
+- `ASPagerNode`'s `pagerNode:constrainedSizeForNodeAtIndexPath:` changed to `pagerNode:constrainedSizeForNodeAtIndex:`
 
 - collection view update validation assertions are now enabled. If you see something like `"Invalid number of items in section 2. The number of items after the update (7) must be equal to the number of items before the update (4) plus or minus the number of items inserted or removed from the section (4 inserted, 0 removed)”`, please check the data source logic. If you have any questions, reach out to us on GitHub. 
 
