@@ -38,3 +38,7 @@ textNode.hitTestSlop = UIEdgeInsetsMake(-padding, 0, -padding, 0)
 </pre>
 </div>
 </div>
+
+<div class = "note">
+To visualize <code>hitTestSlop</code>, check out the <a href="debug-tool-hit-test-visualization">debug tool</a>.
+</div>
