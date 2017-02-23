@@ -52,8 +52,19 @@ You may also subclass <a href="layout2-layoutspec-types.html#aslayoutspec">`ASLa
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+// return a single subnode from layoutSpecThatFits:
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec 
+{
+  return ASWrapperLayoutSpec(layoutElement: _subnode)
+}
+
+// set a size (but not position)
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec 
+{
+  _subnode.style.preferredSize = CGSize(width: constrainedSize.max.width,
+                                        height: constrainedSize.max.height / 2.0)
+  return ASWrapperLayoutSpec(layoutElement: _subnode)
+}
 </pre>
 </div>
 </div>
@@ -101,8 +112,20 @@ they will be resolved again, causing justifyContent and alignItems to be updated
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec 
+{
+  let mainStack = ASStackLayoutSpec(direction: .horizontal,
+                                    spacing: 6.0,
+                                    justifyContent: .start,
+                                    alignItems: .center,
+                                    children: [titleNode, subtitleNode])
+
+  // Set some constrained size to the stack
+  mainStack.style.minWidth = ASDimensionMakeWithPoints(60.0)
+  mainStack.style.maxHeight = ASDimensionMakeWithPoints(40.0)
+
+  return mainStack
+}
 </pre>
 </div>
 </div>
@@ -136,8 +159,13 @@ If you set `INFINITY` as a value in the `UIEdgeInsets`, the inset spec will just
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  ...
+  let insets = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+  let headerWithInset = ASInsetLayoutSpec(insets: insets, child: textNode)
+  ...
+}
 </pre>
 </div>
 </div>
@@ -170,8 +198,12 @@ When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  let backgroundNode = ASDisplayNodeWithBackgroundColor(UIColor.blue)
+  let foregroundNode = ASDisplayNodeWithBackgroundColor(UIColor.red)
+  return ASOverlayLayoutSpec(child: backgroundNode, overlay: foregroundNode)
+}
 </pre>
 </div>
 </div>
@@ -205,8 +237,13 @@ When using Automatic Subnode Management with the <code>ASOverlayLayoutSpec</code
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  let backgroundNode = ASDisplayNodeWithBackgroundColor(UIColor.blue)
+  let foregroundNode = ASDisplayNodeWithBackgroundColor(UIColor.red)
+
+  return ASBackgroundLayoutSpec(child: backgroundNode, background: backgroundNode)
+}
 </pre>
 </div>
 </div>
@@ -243,8 +280,12 @@ If the center spec's width or height is unconstrained, it shrinks to the size of
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  let subnode = ASDisplayNodeWithBackgroundColor(UIColor.green, CGSize(width: 60.0, height: 100.0))
+  let centerSpec = ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: subnode)
+  return centerSpec
+}
 </pre>
 </div>
 </div>
@@ -273,8 +314,13 @@ It is very common to use a ratio spec to provide an intrinsic size for `ASNetwor
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  // Half Ratio
+  let subnode = ASDisplayNodeWithBackgroundColor(UIColor.green, CGSize(width: 100, height: 100.0))
+  let ratioSpec = ASRatioLayoutSpec(ratio: 0.5, child: subnode)
+  return ratioSpec
+}
 </pre>
 </div>
 </div>
@@ -309,8 +355,20 @@ This is a very powerful class, but too complex to cover in this overview. For mo
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  ...
+  let backgroundNode = ASDisplayNodeWithBackgroundColor(UIColor.blue)
+  let foregroundNode = ASDisplayNodeWithBackgroundColor(UIColor.red, CGSize(width: 70.0, height: 100.0))
+
+  let relativeSpec = ASRelativeLayoutSpec(horizontalPosition: .start,
+                                          verticalPosition: .start,
+                                          sizingOption: [],
+                                          child: foregroundNode)
+
+  let backgroundSpec = ASBackgroundLayoutSpec(child: relativeSpec, background: backgroundNode)
+  ...
+}
 </pre>
 </div>
 </div>
@@ -352,8 +410,25 @@ Within `ASAbsoluteLayoutSpec` you can specify exact locations (x/y coordinates) 
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  let maxConstrainedSize = constrainedSize.max
+
+  // Layout all nodes absolute in a static layout spec
+  guitarVideoNode.style.layoutPosition = CGPoint.zero
+  guitarVideoNode.style.preferredSize = CGSize(width: maxConstrainedSize.width, height: maxConstrainedSize.height / 3.0)
+
+  nicCageVideoNode.style.layoutPosition = CGPoint(x: maxConstrainedSize.width / 2.0, y: maxConstrainedSize.height / 3.0)
+  nicCageVideoNode.style.preferredSize = CGSize(width: maxConstrainedSize.width / 2.0, height: maxConstrainedSize.height / 3.0)
+
+  simonVideoNode.style.layoutPosition = CGPoint(x: 0.0, y: maxConstrainedSize.height - (maxConstrainedSize.height / 3.0))
+  simonVideoNode.style.preferredSize = CGSize(width: maxConstrainedSize.width / 2.0, height: maxConstrainedSize.height / 3.0)
+
+  hlsVideoNode.style.layoutPosition = CGPoint(x: 0.0, y: maxConstrainedSize.height / 3.0)
+  hlsVideoNode.style.preferredSize = CGSize(width: maxConstrainedSize.width / 2.0, height: maxConstrainedSize.height / 3.0)
+
+  return ASAbsoluteLayoutSpec(children: [guitarVideoNode, nicCageVideoNode, simonVideoNode, hlsVideoNode])
+}
 </pre>
 </div>
 </div>
@@ -384,8 +459,15 @@ Another use of `ASLayoutSpec` is to be used as a spacer in a `ASStackLayoutSpec`
 </pre>
 
 <pre lang="swift" class = "swiftCode hidden">
-// Click the "Edit on GitHub" button at the bottom of this page 
-// to contribute the swift code for this section.
+override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
+{
+  ...
+  let spacer = ASLayoutSpec()
+  spacer.style.flexGrow = 1.0
+
+  stack.children = [imageNode, spacer, textNode]
+  ...
+}
 </pre>
 </div>
 </div>
