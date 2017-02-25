@@ -29,6 +29,7 @@
   - image-modification-block
   - placeholder-fade-duration
   - accessibility
+  - uicollectionviewinterop
 - title: Optimizations
   items:
   - layer-backing

@@ -172,3 +172,11 @@ The most detailed example of laying out the cells of an `ASCollectionNode` is th
   <li><a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASCollectionView">ASCollectionView</a></li>
   <li><a href = "https://github.com/facebook/AsyncDisplayKit/tree/master/examples/CustomCollectionView">CustomCollectionView</a></li>
 </ul>
+
+### Interoperability with UICollectionViewCells
+
+`ASCollectionNode` supports using <code>UICollectionViewCells</code> alongside native <code>ASCellNodes</code>. 
+
+Note that these UIKit cells will **not** have the performance benefits of `ASCellNodes` (like preloading, async layout, and async drawing), even when mixed within the same `ASCollectionNode`. 
+
+However, this interoperability allows developers the flexibility to test out the framework without needing to convert all of their cells at once. Read more <a href="uicollectionviewinterop.html">here</a>.

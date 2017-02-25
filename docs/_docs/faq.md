@@ -9,25 +9,26 @@ nextPage: containers-asviewcontroller.html
 ### Common Developer Mistakes
 
 <ul>
-<li><a href = "faq.html#accessing-the-node-s-view-before-it-is-loaded">Do not access a node's view in `-init:`.</a></li>
-<li><a href = "faq.html#make-sure-you-access-your-data-source-outside-the-node-block">Make sure you access your data source outside of a node block.</a></li>
-<li><a href = "faq.html#take-steps-to-avoid-a-retain-cycle-in-viewblocks">Take steps to avoid a retain cycle in viewBlocks.</a></li>
+<li><a href = "faq.html#accessing-the-node-s-view-before-it-is-loaded">Do not access a node's view in <code>-init:</code>.</a></li>
+<li><a href = "faq.html#make-sure-you-access-your-data-source-outside-the-node-block">Make sure you access your data source outside of a <code>nodeBlock</code>.</a></li>
+<li><a href = "faq.html#take-steps-to-avoid-a-retain-cycle-in-viewblocks">Take steps to avoid a retain cycle in <code>viewBlocks</code>.</a></li>
 </ul>
 
 ### Common Conceptual Misunderstandings
 
 <ul>
-<li><a href = "faq.html#ascellnode-reusability">ASCellNodes are not reusable.</a></li>
-<li><a href = "faq.html#layoutspecs-are-regenerated">LayoutSpecs are regenerated each time layout is called.</a></li>
+<li><a href = "faq.html#ascellnode-reusability"><code>ASCellNodes</code> are not reusable.</a></li>
+<li><a href = "faq.html#layoutspecs-are-regenerated">Layout Specs are regenerated each time layout is called.</a></li>
 <li><a href = "faq.html#layout-api-sizing">The difference between all of the sizes used in our powerful Layout API.</a></li>
 
 </ul>
 
-### Common Performance Questions
+### Common Questions
 <ul>
-<li><a href = "faq.html#calayer-s-cornerradius-property-kills-performance">If you care about performance, do not use CALayer's .cornerRadius property (or .shadowPath, border or mask).</a></li>
+<li><a href = "faq.html#calayer-s-cornerradius-property-kills-performance">If you care about performance, do not use <code>CALayer</code>'s <code>.cornerRadius</code> property (or shadowPath, border or mask).</a></li>
 <li><a href = "faq.html#asyncdisplaykit-does-not-support-uikit-auto-layout-or-interfacebuilder">ASDK does not support UIKit Auto Layout.</a></li>
-<li><a href = "faq.html#asdisplaynode-keep-alive-reference">ASDisplayNode keep alive reference.</a></li>
+<li><a href = "faq.html#uicollectionviewcell-compatibility">Can I use my <code>UICollectionViewCells</code> with ASDK?.</a></li>
+<li><a href = "faq.html#asdisplaynode-keep-alive-reference"><code>ASDisplayNode</code> keep alive reference.</a></li>
 </ul>
 
 
@@ -114,3 +115,11 @@ For the same reason, if the node's view is a descendant of a window, but there i
 
 Good application design should not rely on this behavior, because a strong reference to the node should be maintained by the subnodes array or by an instance variable. However, this condition occasionally occurs, for example when using a UIView animation API. This cycle should never create a leak or even extend the lifecycle of a node any longer than it is absolutely necessary.
 <br>
+
+### UICollectionViewCell Compatibility
+
+ASDK supports using <code>UICollectionViewCells</code> alongside native <code>ASCellNodes</code>. 
+
+Note that these UIKit cells will **not** have the performance benefits of `ASCellNodes` (like preloading, async layout, and async drawing), even when mixed within the same `ASCollectionNode`. 
+
+However, this interoperability allows developers the flexibility to test out the framework without needing to convert all of their cells at once. Read more <a href="uicollectionviewinterop.html">here</a>.
