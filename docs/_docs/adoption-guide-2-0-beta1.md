@@ -1,5 +1,5 @@
 ---
-title: "Upgrading to 2.0 <b><i>(New)</i></b>"
+title: "Upgrading to 2.0"
 layout: docs
 permalink: /docs/adoption-guide-2-0-beta1.html
 prevPage: adoption-guide-2-0-beta1.html
