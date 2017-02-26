@@ -50,9 +50,9 @@ permalink: /showcase.html
 		</td>
 		
 		<td align="center" valign="top">
-		<a href="https://itunes.apple.com/us/app/tinder/id547702041"><img class="roundrect" src="http://is3.mzstatic.com/image/thumb/Purple71/v4/64/b4/54/64b45488-4797-e2bf-6e43-53a8796dfae0/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<a href="https://itunes.apple.com/us/app/nytimes-breaking-local-national/id284862083"><img class="roundrect" src="http://is3.mzstatic.com/image/thumb/Purple71/v4/3b/be/3c/3bbe3c0b-98a9-3f18-db29-83c0b41e34b8/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 		<br /> 
-		<b>Tinder</b>
+		<b>NYT</b>
 		</td>
 		
 		<td align="center" valign="top">
@@ -72,9 +72,9 @@ permalink: /showcase.html
 		</td>
 		
 		<td align="center" valign="top">
-		<a href="https://itunes.apple.com/us/app/nytimes-breaking-local-national/id284862083"><img class="roundrect" src="http://is3.mzstatic.com/image/thumb/Purple71/v4/3b/be/3c/3bbe3c0b-98a9-3f18-db29-83c0b41e34b8/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<a href="https://itunes.apple.com/us/app/kwaver-app-create-original/id951431920?mt=8"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple111/v4/22/b9/0b/22b90b90-c699-20c6-d9a4-735dd7d3921a/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 		<br /> 
-		<b>NYT</b>
+		<b>Kwaver Music</b>
 		</td>
 		
 		<td align="center" valign="top">
