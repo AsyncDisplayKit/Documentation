@@ -48,6 +48,6 @@ AsyncDisplayKit offers a variety of advanced developer features that cannot be f
 
 <h2><a href = "/docs/layout-engine.html">Adding AsyncDisplayKit to your App</a></h2>
 
-If you are new to AsyncDisplayKit, we reccomend that you check out our ASDKgram example app. We've created a handy guide (coming soon!) with step-by-step directions and a follow along example on how to add AsyncDisplayKit to an app. 
+If you are new to AsyncDisplayKit, we recommend that you check out our ASDKgram example app. We've created a handy guide (coming soon!) with step-by-step directions and a follow along example on how to add AsyncDisplayKit to an app. 
 
 If you run into any problems along the way, reach out to us GitHub or the AsyncDisplayKit <a href = "/docs/resources.html#slack">Slack community</a> for help.
