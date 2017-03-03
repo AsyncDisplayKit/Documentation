@@ -450,10 +450,10 @@ Another use of `ASLayoutSpec` is to be used as a spacer in a `ASStackLayoutSpec`
 {
   ...
   // ASLayoutSpec as spacer
-  let spacer = ASLayoutSpec()
-  spacer.flexGrow = true
+  ASLayoutSpec *spacer = [[ASLayoutSpec alloc] init];
+  spacer.flexGrow = true;
 
-  stack.children = [imageNode, spacer, textNode]
+  stack.children = @[imageNode, spacer, textNode];
   ...
 }
 </pre>
