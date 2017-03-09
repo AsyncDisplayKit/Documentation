@@ -32,7 +32,7 @@ Consider the following `ASViewController` subclass that would like to use a cust
 </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func initWithModel(models: Array<Model>) {
+func initWithModel(models: Array&lt;Model&gt;) {
 	let tableNode = ASTableNode(style:.Plain)
 
     super.initWithNode(tableNode)
