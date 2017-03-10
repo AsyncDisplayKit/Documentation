@@ -122,9 +122,9 @@ permalink: /showcase.html
 		</td>
 		
 		<td align="center" valign="top">
-		<a href="https://itunes.apple.com/us/app/yep-meet-genius/id983891256"><img class="roundrect" src="http://is2.mzstatic.com/image/thumb/Purple20/v4/58/14/b4/5814b496-e92e-5522-b167-7d6d96118f64/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<a href="https://itunes.apple.com/us/app/classdojo/id552602056"><img class="roundrect" src="http://is4.mzstatic.com/image/thumb/Purple122/v4/83/b1/ef/83b1efa6-bda8-3c80-fd66-4a461f638e07/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
 		<br /> 
-		<b>Yep</b>
+		<b>ClassDojo</b>
 		</td>
     
 		</tr>
@@ -171,6 +171,16 @@ permalink: /showcase.html
 		<b>Kayako</b>
 		</td>
     
+		</tr>
+		
+		<tr>
+				
+		<td align="center" valign="top">
+		<a href="https://itunes.apple.com/us/app/yep-meet-genius/id983891256"><img class="roundrect" src="http://is2.mzstatic.com/image/thumb/Purple20/v4/58/14/b4/5814b496-e92e-5522-b167-7d6d96118f64/source/350x350bb.jpg" style="width:100px;height:100px;"></a>
+		<br /> 
+		<b>Yep</b>
+		</td>
+		
 		</tr>
 		
 		</table>
