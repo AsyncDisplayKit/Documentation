@@ -62,22 +62,22 @@ All of this logic can be removed from where it previously existed in the "view" 
   <pre lang="swift" class = "swiftCode hidden">
 final class PhotoCellNodeController: ASNodeController<PhotoCellNode> {
     
-    override func loadNode() {
-        self.node = PhotoCellNode(photoObject: photoModel)
-    }
+  override func loadNode() {
+    self.node = PhotoCellNode(photoObject: photoModel)
+  }
     
-    override func didEnterPreloadState() {
-        super.didEnterPreloadState()
+  override func didEnterPreloadState() {
+    super.didEnterPreloadState()
         
-        let commentFeedModel = photoModel.commentFeed
-        commentFeedModel.refreshFeedWithCompletionBlock { [weak self] newComments in
-            // load comments for photo
-            if commentFeedModel.numberOfItemsInFeed > 0 {
-                self?.node.photoCommentsNode.updateWithCommentFeedModel(commentFeedModel)
-                self?.node.setNeedsLayout()
-            }
-        }
+    let commentFeedModel = photoModel.commentFeed
+    commentFeedModel.refreshFeedWithCompletionBlock { [weak self] newComments in
+      // load comments for photo
+      if commentFeedModel.numberOfItemsInFeed > 0 {
+        self?.node.photoCommentsNode.updateWithCommentFeedModel(commentFeedModel)
+        self?.node.setNeedsLayout()
+      }
     }
+  }
 }
   </pre>
 </div>
@@ -122,19 +122,19 @@ Next, we add a mutable array to the `PhotoFeedNodeController` to store our node 
   <pre lang="swift" class = "swiftCode hidden">
 final class PhotoFeedNodeController: PhotoFeedBaseController {
     
-    let photoFeed: PhotoFeedModel
-    let tableNode: ASTableNode = ASTableNode()
-    <b>var photoCellNodeControllers: [PhotoCellNodeController] = []</b>
+  let photoFeed: PhotoFeedModel
+  let tableNode: ASTableNode = ASTableNode()
+  <b>var photoCellNodeControllers: [PhotoCellNodeController] = []</b>
     
-    init() {
-        super.init(node: tableNode)
+  init() {
+    super.init(node: tableNode)
         
-        navigationItem.title = "ASDK"
-        navigationController.isNavigationBarHidden = true
+    navigationItem.title = "ASDK"
+    navigationController.isNavigationBarHidden = true
         
-        tableNode.dataSource = self
-        tableNode.delegate = self
-    }
+    tableNode.dataSource = self
+    tableNode.delegate = self
+  }
 }
   </pre>
 </div>
@@ -221,14 +221,14 @@ Don't forget to modify the table data source method to return the node controlle
 
   <pre lang="swift" class = "swiftCode hidden">
 func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
-    <b>let cellController = photoCellNodeControllers[indexPath.row]</b>
-    // this will be executed on a background thread - important to make sure it's thread safe
-    let cellNodeBlock = { () -> ASCellNode in
-        let cellNode = cellController.node
-        return cellNode
-    }
+  <b>let cellController = photoCellNodeControllers[indexPath.row]</b>
+  // this will be executed on a background thread - important to make sure it's thread safe
+  let cellNodeBlock = { () -> ASCellNode in
+    let cellNode = cellController.node
+    return cellNode
+  }
     
-    return cellNodeBlock
+  return cellNodeBlock
 }
   </pre>
 </div>
