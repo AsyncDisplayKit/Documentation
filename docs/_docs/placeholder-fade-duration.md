@@ -17,7 +17,7 @@ The `-placeholderImage` function may be called on a background thread, so it is 
 </div>
 
 
-An ideal resource for creating placeholder images, including rounded rect solid colored ones or simple square corner ones is the `UIImage+ASConvience` category methods in ASDK.
+An ideal resource for creating placeholder images, including rounded rect solid colored ones or simple square corner ones is the `UIImage+ASConvenience` category methods in ASDK.
 
 See our ancient <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples_extra/Placeholders">Placeholders sample app</a> to see this concept, first invented by the Facebook Paper team, in action. 
 
