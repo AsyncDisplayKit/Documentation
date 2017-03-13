@@ -22,7 +22,7 @@ nextPage: containers-ascollectionnode.html
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   </pre>
 </div>
 </div>
@@ -41,7 +41,7 @@ with your choice of **_one_** of the following methods
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func tableNode(tableNode: ASTableNode, nodeForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNode
+func tableNode(_ tableNode: ASTableNode, nodeForRowAt indexPath: IndexPath) -> ASCellNode
   </pre>
 </div>
 </div>
@@ -60,7 +60,7 @@ or
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func tableNode(tableNode: ASTableNode, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock
+func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock
   </pre>
 </div>
 </div>
@@ -101,10 +101,10 @@ An `ASTableNode` is assigned to be managed by an `ASViewController` in its `-ini
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func initWithModel(models: Array&lt;Model&gt;) {
-    let tableNode = ASTableNode(style:.Plain)
+init(models: [Model]) {
+    let tableNode = ASTableNode(style: .plain)
 
-    super.initWithNode(tableNode)
+    super.init(node: tableNode)
 
     self.models = models  
     self.tableNode = tableNode
@@ -144,19 +144,19 @@ In the example below, you can see how the index is used to access the photo mode
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func tableNode(tableNode: UITableNode!, nodeBlockForRowAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock! {
-    guard photoFeed.count > indexPath.row else { return nil }
-
-    let photoModel = photoFeed[indexPath.row]
-
-    // this may be executed on a background thread - it is important to make sure it is thread safe
-    let cellNodeBlock = { () -> ASCellNode in
-        let cellNode = PhotoCellNode(photo: photoModel)
-        cellNode.delegate = self;
-        return ASCellNode()
-    }
-
-    return cellNodeBlock
+func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+  guard photoFeed.count > indexPath.row else { return { ASCellNode() } }
+    
+  let photoModel = photoFeed[indexPath.row]
+    
+  // this may be executed on a background thread - it is important to make sure it is thread safe
+  let cellNodeBlock = { () -> ASCellNode in
+    let cellNode = PhotoCellNode(photo: photoModel)
+    cellNode.delegate = self
+    return cellNode
+  }
+    
+  return cellNodeBlock
 }
 </pre>
 </div>
@@ -194,7 +194,7 @@ override func viewDidLoad() {
   super.viewDidLoad()
 
   tableNode.view.allowsSelection = false
-  tableNode.view.separatorStyle = .None
+  tableNode.view.separatorStyle = .none
   tableNode.view.leadingScreensForBatching = 3.0  // default is 2.0
 }
 </pre>
