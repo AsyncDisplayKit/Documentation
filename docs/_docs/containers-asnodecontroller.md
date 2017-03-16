@@ -60,7 +60,28 @@ All of this logic can be removed from where it previously existed in the "view" 
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-  // Click the "Edit on GitHub" button at the bottom of this page to contribute the swift code for this section. Thanks!
+  class PhotoCellNodeController: ASNodeController<PhotoCellNode> {
+    
+    var node: PhotoCellNode?
+    
+    func loadNode() {
+      node = PhotoCellNode(photoObject: photoModel)
+    }
+    
+    func didEnterPreloadState() {
+      super.didEnterPreloadState()
+      
+      guard let node = node else { return }
+      
+      let commentFeedModel = photoModel.commentFeed
+      commentFeedModel.refresh { newComments in
+        if !commentFeedModel.isEmpty {
+          node.photoCommentsNode.update(with: commentFeedModel)
+          node.setNeedsLayout()
+        }
+      }
+    }
+  }
   </pre>
 </div>
 </div>
@@ -102,7 +123,20 @@ Next, we add a mutable array to the `PhotoFeedNodeController` to store our node 
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-  // Click the "Edit on GitHub" button at the bottom of this page to contribute the swift code for this section. Thanks!
+  class PhotoFeedNodeController: ASViewController<ASTableNode> {
+    let photoFeed: PhotoFeedModel = ...
+    <b>var photoCellNodeControllers: [PhotoCellNodeController] = []</b>
+    
+    init() {
+      super.init(node: ASTableNode())
+      
+      navigationItem.title = "ASDK"
+      navigationController?.isNavigationBarHidden = true
+      
+      node.dataSource = self
+      node.delegate = self
+    }
+  }
   </pre>
 </div>
 </div>
@@ -140,7 +174,27 @@ To use this node controller, we modify our table row insertion logic to create a
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-  // Click the "Edit on GitHub" button at the bottom of this page to contribute the swift code for this section. Thanks!
+  func insertNewRowsInTableNode(newPhotos: [PhotoModel]) {
+    let section = 0
+    var indexPaths: [IndexPath] = []
+    
+    let newTotalNumberOfPhotos = photoFeed.numberOfItemsInFeed
+    let rangeStart = newTotalNumberOfPhotos - newPhotos.count
+
+    for row in (rangeStart..<newTotalNumberOfPhotos) {
+      
+      <b>// create photoCellNodeControllers for the new photos
+      let cellController = PhotoCellNodeController()
+      cellController.photoModel = photoFeed[row]
+      photoCellNodeControllers.append(cellController)</b>
+      
+      // include this index path in the insert rows call for the table
+      let path = IndexPath(row: row, section: section)
+      indexPaths.append(path)
+    }
+    
+    node.insertRows(at: indexPaths, with: .none)
+  }
   </pre>
 </div>
 </div>
@@ -169,7 +223,11 @@ Don't forget to modify the table data source method to return the node controlle
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-  // Click the "Edit on GitHub" button at the bottom of this page to contribute the swift code for this section. Thanks!
+  func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+    <b>let cellController = photoCellNodeControllers[indexPath.row]</b>
+    // this will be executed on a background thread - important to make sure it's thread safe
+    return { cellController.node }
+  }
   </pre>
 </div>
 </div>
