@@ -48,12 +48,12 @@ For example, say you already have a view controller written that manages an `AST
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-func pagerNode(pagerNode: ASPagerNode!, nodeAtIndex index: Int) -> ASCellNode! {
+func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
     let animals = allAnimals[index]
     
     let node = ASCellNode(viewControllerBlock: { () -> UIViewController in
         return AnimalTableNodeController(animals: animals)
-    }, didLoadBlock: nil)
+    }, didLoad: nil)
     
     node.preferredFrameSize = pagerNode.bounds.size
     
@@ -92,7 +92,7 @@ Alternatively, if you already have a `UIView` or `CALayer` subclass that you'd l
 }
 </pre>
 <pre lang="swift" class = "swiftCode hidden">
-func pagerNode(pagerNode: ASPagerNode!, nodeAtIndex index: Int) -> ASCellNode! {
+func pagerNode(_ pagerNode: ASPagerNode, nodeAt index: Int) -> ASCellNode {
     let animal = animals[index]
     
     let node = ASCellNode { () -> UIView in
