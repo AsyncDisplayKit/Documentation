@@ -51,7 +51,7 @@ NSLog(@"Backing layer: %@", node.layer);
 	<pre lang="swift" class = "swiftCode hidden">
 let node = ASDisplayNode()
 node.clipsToBounds = true			     // not .masksToBounds
-node.borderColor = .blue  // layer name when there is no UIView equivalent
+node.borderColor = UIColor.blue.cgColor  // layer name when there is no UIView equivalent
 
 print("Backing layer: \(node.layer)")
 	</pre>
