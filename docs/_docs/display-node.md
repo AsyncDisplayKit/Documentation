@@ -80,7 +80,6 @@ ASDisplayNode *node = [ASDisplayNode alloc] initWithViewBlock:^{
 	<pre lang="swift" class = "swiftCode hidden">
 let node = ASDisplayNode { () -> UIView in
 	let view = SomeView()
-
 	return view
 }
 	</pre>
