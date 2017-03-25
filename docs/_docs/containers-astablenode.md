@@ -67,7 +67,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 
 <br>
 <div class = "note">
-It is recommended that you use the node block version of these methods so that your collection node will be able to prepare and display all of its cells concurrently. This means that all subnode initialization methods can be run in the background.  Make sure to keep 'em thread safe.
+It is recommended that you use the node block version of these methods so that your table node will be able to prepare and display all of its cells concurrently. This means that all subnode initialization methods can be run in the background.  Make sure to keep 'em thread safe.
 </div>
 
 These two methods, need to return either an <a href = "cell-node.html">`ASCellNode`</a> or an `ASCellNodeBlock`. An `ASCellNodeBlock` is a block that creates a `ASCellNode` which can be run on a background thread. Note that `ASCellNodes` are used by `ASTableNode`, `ASCollectionNode` and `ASPagerNode`. 
@@ -122,8 +122,6 @@ It is very important that node blocks be thread-safe. One aspect of that is ensu
 
 Consider the following `-tableNode:nodeBlockForRowAtIndexPath:` method from the `PhotoFeedNodeController.m` file in the <a href="https://github.com/facebook/AsyncDisplayKit/tree/master/examples/ASDKgram">ASDKgram sample app</a>.
 
-In the example below, you can see how the index is used to access the photo model before creating the node block.
-
 <div class = "highlight-group">
 <span class="language-toggle"><a data-lang="swift" class="swiftButton">Swift</a><a data-lang="objective-c" class = "active objcButton">Objective-C</a></span>
 <div class = "code">
@@ -162,6 +160,7 @@ func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath)
 </div>
 </div>
 
+In the example above, you can see how the index is used to access the photo model before creating the node block.
 
 ### Accessing the ASTableView
 
