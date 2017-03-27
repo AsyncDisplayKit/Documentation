@@ -242,7 +242,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
   let backgroundNode = ASDisplayNodeWithBackgroundColor(UIColor.blue)
   let foregroundNode = ASDisplayNodeWithBackgroundColor(UIColor.red)
 
-  return ASBackgroundLayoutSpec(child: backgroundNode, background: backgroundNode)
+  return ASBackgroundLayoutSpec(child: foregroundNode, background: backgroundNode)
 }
 </pre>
 </div>
