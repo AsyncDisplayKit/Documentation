@@ -131,7 +131,7 @@ override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec
 </div>
 </div>
 
-Flexbox works the same way in AsyncDisplayKit as it does in CSS on the web, with a few exceptions. The defaults are different, there is no `flex` parameter and `flexGrow` and `flexShrink` only supports a boolean value.
+Flexbox works the same way in AsyncDisplayKit as it does in CSS on the web, with a few exceptions. For example, the defaults are different and there is no `flex` parameter. See <a href = "layout2-web-flexbox-differences.html">Web Flexbox Differences</a> for more information.
 
 <br>
 
