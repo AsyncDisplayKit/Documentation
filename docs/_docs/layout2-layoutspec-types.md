@@ -85,7 +85,8 @@ they will be resolved again, causing justifyContent and alignItems to be updated
  Thus, it is preferred to those properties.
 - `justifyContent`. The amount of space between each child.
 - `alignItems`. Orientation of children along cross axis.
-- `baselineRelativeArrangement`. If `YES` the vertical spacing between two views is measured from the last baseline of the top view to the top of the bottom view.
+- `flexWrap`. Whether children are stacked into a single or multiple lines. Defaults to single line.
+- `alignContent`. Orientation of lines along cross axis if there are multiple lines.
 
 <div class = "highlight-group">
 <span class="language-toggle">
