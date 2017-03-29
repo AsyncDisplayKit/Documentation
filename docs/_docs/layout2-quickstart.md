@@ -62,7 +62,7 @@ Some elements have an "intrinsic size" based on their immediately available cont
 - `ASTextNode`
 - `ASButtonNode`
 
-All other nodes either do not have an intrinsic size or lack an intrinsic size until their external resource is loaded. For example, an `ASNetworkImageNode` does not know its size until the image has been downloaded from the URL. These sorts of elments inlcude 
+All other nodes either do not have an intrinsic size or lack an intrinsic size until their external resource is loaded. For example, an `ASNetworkImageNode` does not know its size until the image has been downloaded from the URL. These sorts of elments include 
 
 - `ASVideoNode`
 - `ASVideoPlayerNode`
