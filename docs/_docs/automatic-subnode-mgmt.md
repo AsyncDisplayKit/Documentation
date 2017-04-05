@@ -181,8 +181,8 @@ Consider the abreviated `layoutSpecThatFits:` method for the `ASCellNode` subcla
 
 <div class = "highlight-group">
 <span class="language-toggle">
-<a data-lang="swift" class="swiftButton">Swift</a>
 <a data-lang="objective-c" class="active objcButton">Objective-C</a>
+<a data-lang="swift" class="swiftButton">Swift</a>
 </span>
 
 <div class = "code">
