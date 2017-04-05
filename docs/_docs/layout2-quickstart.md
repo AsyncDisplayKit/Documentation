@@ -73,7 +73,7 @@ These nodes that lack an initial intrinsic size must have an initial size set fo
 
 ### Layout Debugging
 
-Calling `-asciiArtString` on any `ASDisplayNode` or `ASLayoutSpec` returns an ascii-art representation of the object and its children. Optionally, if you set the `.debugName` on any node or layout spec, that will also included in the ascii art. An example is seen below.
+Calling `-asciiArtString` on any `ASDisplayNode` or `ASLayoutSpec` returns an ascii-art representation of the object and its children. Optionally, if you set the `.debugName` on any node or layout spec, that will also be included in the ascii art. An example is seen below.
 
 <div class = "highlight-group">
 <div class = "code">
