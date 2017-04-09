@@ -22,7 +22,7 @@ nextPage: containers-aspagernode.html
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
   </pre>
 </div>
 </div>
@@ -37,7 +37,7 @@ with your choice of **_one_** of the following methods
 - (ASCellNode *)collectionNode:(ASCollectionNode *)collectionNode nodeForItemAtIndexPath:(NSIndexPath *)indexPath
 </pre>
   <pre lang="swift" class = "swiftCode hidden">
-override func collectionNode(collectionNode: ASCollectionNode, nodeForItemAtIndexPath indexPath: NSIndexPath) -> ASCellNode
+override func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode
   </pre>
 </div>
 </div>
@@ -54,7 +54,7 @@ or
 - (ASCellNodeBlock)collectionNode:(ASCollectionNode *)collectionNode nodeBlockForItemAtIndexPath:(NSIndexPath *)indexPath
 </pre>
   <pre lang="swift" class = "swiftCode hidden">
-override func collectionNode(collectionNode: ASCollectionNode, nodeBlockForItemAtIndexPath indexPath: NSIndexPath) -> ASCellNodeBlock
+override func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock
   </pre>
 </div>
 </div>
@@ -96,7 +96,7 @@ Consider the following `-collectionNode:nodeBlockForItemAtIndexPath:` method.
   </pre>
 
   <pre lang="swift" class = "swiftCode hidden">
-func tableNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
+func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
   guard photoFeed.count > indexPath.row else { return { ASCellNode() } }
     
   let photoModel = photoFeed[indexPath.row]
@@ -192,7 +192,7 @@ override func viewDidLoad() {
   collectionNode.delegate   = self
   collectionNode.dataSource = self
   collectionNode.view.allowsSelection = false
-  collectionNode.view.backgroundColor = UIColor.whiteColor()
+  collectionNode.view.backgroundColor = .white
 }
 </pre>
 </div>
